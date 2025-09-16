@@ -1,0 +1,59 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Log files
+*.log
+recording_debug.log
+speech_recognition.log
+upload.log
+workflow_status.log
+
+# Audio/media files
+*.wav
+*.mp3
+*.mp4
+*.avi
+
+# Generated content
+transkript.txt
+transkript.json
+BilderVertex/
+*.jpg
+*.png
+*.jpeg
+
+# Temporary files
+workflow_trigger.txt
+workflow_service.lock
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env

@@ -256,7 +256,7 @@ class AsyncWorkflowManager:
             return False
 
     def wait_for_stop_signal(self):
-        """Wait for user input or external signal to stop recording"""
+        """Wait for user input or external signal to stop recording - headless safe"""
         def signal_handler(signum, frame):
             print(f"\nSignal {signum} empfangen, stoppe Aufnahme...")
             self.should_stop = True
@@ -269,6 +269,12 @@ class AsyncWorkflowManager:
         except Exception as e:
             print(f"Warnung: Konnte Signal-Handler nicht setzen: {e}")
         
+        # Detect if running in headless mode (no terminal available)
+        has_terminal = sys.stdin.isatty() if hasattr(sys.stdin, 'isatty') else False
+        if IS_HEADLESS or not has_terminal:
+            print("Headless-Modus erkannt - nur Signal-basierte Steuerung verfügbar")
+            print("Zum Stoppen: SIGTERM oder SIGINT senden")
+        
         try:
             while self.is_recording and not self.should_stop:
                 # Check if recording process is still running
@@ -277,15 +283,27 @@ class AsyncWorkflowManager:
                     self.is_recording = False
                     break
                 
-                # Check for keyboard input (non-blocking)
-                if hasattr(select, 'select') and sys.stdin in select.select([sys.stdin], [], [], 0.1)[0]:
-                    input_line = sys.stdin.readline().strip()
-                    if input_line == "" or input_line.lower() in ['q', 'quit', 'exit', 'stop']:
-                        print("Benutzer-Stop erkannt")
-                        self.should_stop = True
-                        break
-                elif not hasattr(select, 'select'):
-                    # Fallback for systems without select - just wait a bit
+                # Only check for keyboard input if we have a terminal
+                if has_terminal and not IS_HEADLESS:
+                    try:
+                        # Check for keyboard input (non-blocking)
+                        if hasattr(select, 'select'):
+                            ready, _, _ = select.select([sys.stdin], [], [], 0.1)
+                            if ready:
+                                input_line = sys.stdin.readline().strip()
+                                if input_line == "" or input_line.lower() in ['q', 'quit', 'exit', 'stop']:
+                                    print("Benutzer-Stop erkannt")
+                                    self.should_stop = True
+                                    break
+                        else:
+                            # Fallback for systems without select - just wait a bit
+                            time.sleep(0.1)
+                    except (OSError, IOError):
+                        # Handle case where stdin is not available
+                        print("Terminal-Eingabe nicht verfügbar - nur Signal-Steuerung aktiv")
+                        has_terminal = False
+                else:
+                    # In headless mode, just wait for signals or process completion
                     time.sleep(0.1)
                         
                 time.sleep(0.1)
@@ -385,8 +403,7 @@ class WorkflowFileWatcher:
         
         Streamlined Workflow Sequence:
         1. Transcription: voiceToGoogle.py processes aufnahme.wav → creates transkript.json
-        2. File Operations: dateiKopieren.py handles local file management 
-        3. Image Generation: Vertex AI generates images from transcript → saves to BilderVertex/
+        2. Image Generation: Vertex AI generates images from transcript → saves to BilderVertex/
         
         Path Logic:
         - All files located in /home/pi/Desktop/v2_Tripple S/
@@ -946,8 +963,7 @@ def main():
     print("Dieses Programm führt folgende Schritte aus:")
     print("1. Aufnahme (asynchron, manuell stoppbar)")  
     print("2. Spracherkennung")
-    print("3. Datei kopieren")
-    print("4. Bild generieren")
+    print("3. Bild generieren")
     print("=" * 60)
     
     # Initialize workflow manager
@@ -979,13 +995,12 @@ def main():
     if not workflow.run_script_sync(VOICE_SCRIPT, "Spracherkennung"):
         print("Warnung: Spracherkennung fehlgeschlagen, fahre trotzdem fort...")
     
-    # Step 3: Copy files  
-    if not workflow.run_script_sync(COPY_SCRIPT, "Kopiervorgang"):
-        print("Warnung: Kopiervorgang fehlgeschlagen, fahre trotzdem fort...")
+    # Step 3: Copy files (REMOVED - no longer needed in streamlined workflow)
+    # The transcription results are already available in the standardized locations
     
-    print("Inhalt von transkript.txt wurde ins Clipboard kopiert!")
+    print("Transkript verfügbar für weitere Verarbeitung")
     
-    # Step 4: Generate image
+    # Step 3: Generate image
     prompt_text = get_copied_content()
     if not prompt_text.strip():
         print("Kein Text zum Senden gefunden – Bild-Generierung übersprungen.")
@@ -1007,8 +1022,8 @@ def run_original_workflow():
     print("Führe ursprünglichen synchronen Workflow aus...")
     run_script(AUFNAHME_SCRIPT, "Aufnahme")
     run_script(VOICE_SCRIPT, "Spracherkennung")
-    run_script(COPY_SCRIPT, "Kopiervorgang")
-    print("Inhalt von transkript.txt wurde ins Clipboard kopiert!")
+    # COPY_SCRIPT removed - no longer needed in streamlined workflow
+    print("Transkript verfügbar für weitere Verarbeitung")
 
     prompt_text = get_copied_content()
     if not prompt_text.strip():
