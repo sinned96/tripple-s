@@ -1947,3 +1947,7 @@
 [2025-09-15 16:35:25,125] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
 [2025-09-15 16:35:25,125] INFO: ✓ Speech recognition completed successfully
 [2025-09-15 16:35:25,125] INFO: Speech recognition workflow completed successfully
+[2025-09-16 20:15:32,328] WARNING: Google Cloud Speech-to-Text library not available: No module named 'google'
+[2025-09-16 20:15:32,328] INFO: Fallback mode will be used when Google API is not available or fails
+[2025-09-16 20:16:24,650] WARNING: Google Cloud Speech-to-Text library not available: No module named 'google'
+[2025-09-16 20:16:24,650] INFO: Fallback mode will be used when Google API is not available or fails

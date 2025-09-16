@@ -1,0 +1,6 @@
+[2025-09-16 20:18:21] INFO: Workflow-Manager gestartet
+[2025-09-16 20:18:21] INFO: Überwache Verzeichnis: /home/runner/work/tripple-s/tripple-s
+[2025-09-16 20:18:21] INFO: Trigger-Datei: /home/runner/work/tripple-s/tripple-s/workflow_trigger.txt
+[2025-09-16 20:18:23] INFO: Service-Lock freigegeben
+[2025-09-16 20:18:23] INFO: Workflow-Manager gestoppt
+[2025-09-16 20:18:23] INFO: Workflow-Manager gestoppt
