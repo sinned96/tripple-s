@@ -1,0 +1,12 @@
+JSON GOOGLE API DIENST STARTEN:
+- export GOOGLE_APPLICATION_CREDENTIALS="/home/pi/meinprojekt-venv/cloudKey.json"
+- Danach : voiceToGoogle ausführen
+- transkript wurde erstellt.
+
+**********************************
+
+XY
+
+**********************************
+
+ZY

@@ -1,0 +1,98 @@
+{
+  "modes": [
+    {
+      "name": "Alle Bilder",
+      "images": [],
+      "interval": 5,
+      "windows": [],
+      "auto": false,
+      "randomize": false
+    },
+    {
+      "name": "Standard",
+      "images": [],
+      "interval": 5,
+      "windows": [],
+      "auto": false,
+      "randomize": false
+    },
+    {
+      "name": "Nacht",
+      "images": [
+        "/home/pi/Desktop/v2_Tripple S/BilderVertex/bild_12.png",
+        "/home/pi/Desktop/v2_Tripple S/BilderVertex/bild_16.png",
+        "/home/pi/Desktop/v2_Tripple S/BilderVertex/bild_17.png",
+        "/home/pi/Desktop/v2_Tripple S/BilderVertex/bild_18.png"
+      ],
+      "interval": 7,
+      "windows": [
+        {
+          "start": "14:00",
+          "end": "10:00"
+        }
+      ],
+      "auto": true,
+      "randomize": false
+    },
+    {
+      "name": "Blitz",
+      "images": [],
+      "interval": 2,
+      "windows": [],
+      "auto": false,
+      "randomize": true
+    },
+    {
+      "name": "Zufall",
+      "images": [],
+      "interval": 5,
+      "windows": [],
+      "auto": false,
+      "randomize": true
+    },
+    {
+      "name": "Ruhe",
+      "images": [],
+      "interval": 15,
+      "windows": [
+        {
+          "start": "12:30",
+          "end": "13:30"
+        }
+      ],
+      "auto": true,
+      "randomize": false
+    },
+    {
+      "name": "Tag",
+      "images": [
+        "/home/pi/Desktop/v2_Tripple S/BilderVertex/bild_3.png",
+        "/home/pi/Desktop/v2_Tripple S/BilderVertex/bild_2.png",
+        "/home/pi/Desktop/v2_Tripple S/BilderVertex/bild_6.png",
+        "/home/pi/Desktop/v2_Tripple S/BilderVertex/bild_13.png"
+      ],
+      "interval": 5,
+      "windows": [
+        {
+          "start": "10:00",
+          "end": "13:00"
+        }
+      ],
+      "auto": true,
+      "randomize": false
+    },
+    {
+      "name": "Urlaub",
+      "images": [],
+      "interval": 15,
+      "windows": [
+        {
+          "start": "12:30",
+          "end": "13:30"
+        }
+      ],
+      "auto": true,
+      "randomize": false
+    }
+  ]
+}

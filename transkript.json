@@ -1,0 +1,10 @@
+{
+  "transcript": "Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text.",
+  "timestamp": 1757950525.1242013,
+  "iso_timestamp": "2025-09-15 16:35:25",
+  "file_size": 139,
+  "processing_method": "fallback",
+  "audio_source": "/home/pi/Desktop/v2_Tripple S/aufnahme.wav",
+  "workflow_step": "transcription_complete",
+  "real_recognition": false
+}

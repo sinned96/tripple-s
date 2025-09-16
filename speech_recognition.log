@@ -1,0 +1,1949 @@
+[2025-09-11 12:02:01,685] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:02:01,685] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:02:01,685] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:02:01,685] INFO: Starting speech-to-text processing...
+[2025-09-11 12:02:01,685] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:02:01,685] INFO: Starting speech-to-text processing...
+[2025-09-11 12:02:01,685] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:02:01,685] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:02:01,685] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:02:01,685] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:02:01,685] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 12:02:01,686] ERROR: Please set it to point to your service account key file:
+[2025-09-11 12:02:01,686] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:02:01,686] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 12:02:01,686] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:02:01,686] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:02:01,686] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:02:01,686] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 12:02:01,686] INFO: Audio file size: 1,433,164 bytes (1.37 MB)
+[2025-09-11 12:02:01,686] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:02:01,686] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:02:01,686] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:02:01,686] INFO: Audio file size: 1,433,164 bytes (1.37 MB)
+[2025-09-11 12:02:01,686] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:02:01,987] INFO: Reading audio file...
+[2025-09-11 12:02:01,987] INFO: Reading audio file...
+[2025-09-11 12:02:01,989] INFO: Sending audio to Google Speech-to-Text API...
+[2025-09-11 12:02:01,989] INFO: Sending audio to Google Speech-to-Text API...
+[2025-09-11 12:02:08,908] ERROR: Google Speech-to-Text API error: 400 Must use single channel (mono) audio, but WAV header indicates 2 channels.
+[2025-09-11 12:02:08,908] ERROR: Error type: InvalidArgument
+[2025-09-11 12:02:08,909] INFO: Falling back to simulation mode...
+[2025-09-11 12:02:08,909] INFO: Using simulation mode for speech recognition
+[2025-09-11 12:02:08,909] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:02:08,909] INFO: Audio file size: 1,433,164 bytes
+[2025-09-11 12:02:08,909] INFO: Analyzing audio content... (estimated 1.4s)
+[2025-09-11 12:02:08,909] INFO:   Processing... 1/1
+[2025-09-11 12:02:08,979] ERROR: Google Speech-to-Text API error: 400 Must use single channel (mono) audio, but WAV header indicates 2 channels.
+[2025-09-11 12:02:08,979] ERROR: Error type: InvalidArgument
+[2025-09-11 12:02:08,979] INFO: Falling back to simulation mode...
+[2025-09-11 12:02:08,979] INFO: Using simulation mode for speech recognition
+[2025-09-11 12:02:08,979] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:02:08,979] INFO: Audio file size: 1,433,164 bytes
+[2025-09-11 12:02:08,979] INFO: Analyzing audio content... (estimated 1.4s)
+[2025-09-11 12:02:08,979] INFO:   Processing... 1/1
+[2025-09-11 12:02:09,909] INFO: --- Recognition Result ---
+[2025-09-11 12:02:09,909] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-11 12:02:09,909] INFO: --- End Result ---
+[2025-09-11 12:02:09,909] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:02:09,909] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-11 12:02:09,910] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:02:09,910] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:02:09,910] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:02:09,910] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:02:09,910] INFO: Speech recognition workflow completed successfully
+[2025-09-11 12:02:09,981] INFO: --- Recognition Result ---
+[2025-09-11 12:02:09,982] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-11 12:02:09,982] INFO: --- End Result ---
+[2025-09-11 12:02:09,982] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:02:09,983] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-11 12:02:09,983] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:02:09,983] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:02:09,983] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:02:09,984] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:02:09,984] INFO: Speech recognition workflow completed successfully
+[2025-09-11 12:06:13,672] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:06:13,672] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:06:13,672] INFO: Starting speech-to-text processing...
+[2025-09-11 12:06:13,673] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:06:13,673] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:06:13,673] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:06:13,673] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:06:13,673] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:06:13,673] INFO: Audio file size: 881,964 bytes (0.84 MB)
+[2025-09-11 12:06:13,673] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:06:13,916] INFO: Reading audio file...
+[2025-09-11 12:06:13,917] INFO: Sending audio to Google Speech-to-Text API...
+[2025-09-11 12:06:14,440] ERROR: Google Speech-to-Text API error: 400 Must use single channel (mono) audio, but WAV header indicates 2 channels.
+[2025-09-11 12:06:14,440] ERROR: Error type: InvalidArgument
+[2025-09-11 12:06:14,440] INFO: Falling back to simulation mode...
+[2025-09-11 12:06:14,440] INFO: Using simulation mode for speech recognition
+[2025-09-11 12:06:14,440] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:06:14,440] INFO: Audio file size: 881,964 bytes
+[2025-09-11 12:06:14,440] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-11 12:06:14,440] INFO:   Processing... 1/1
+[2025-09-11 12:06:15,440] INFO: --- Recognition Result ---
+[2025-09-11 12:06:15,441] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-11 12:06:15,441] INFO: --- End Result ---
+[2025-09-11 12:06:15,441] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:06:15,441] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-11 12:06:15,441] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:06:15,442] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:06:15,442] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:06:15,442] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:06:15,442] INFO: Speech recognition workflow completed successfully
+[2025-09-11 12:06:39,762] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:06:39,762] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:06:39,762] INFO: Starting speech-to-text processing...
+[2025-09-11 12:06:39,762] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:06:39,762] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:06:39,762] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 12:06:39,763] ERROR: Please set it to point to your service account key file:
+[2025-09-11 12:06:39,763] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 12:06:39,763] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:06:39,763] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 12:06:39,763] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:06:39,763] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:06:39,763] INFO: Audio file size: 881,964 bytes (0.84 MB)
+[2025-09-11 12:06:39,763] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:06:40,008] INFO: Reading audio file...
+[2025-09-11 12:06:40,014] INFO: Sending audio to Google Speech-to-Text API...
+[2025-09-11 12:06:40,519] ERROR: Google Speech-to-Text API error: 400 Must use single channel (mono) audio, but WAV header indicates 2 channels.
+[2025-09-11 12:06:40,519] ERROR: Error type: InvalidArgument
+[2025-09-11 12:06:40,519] INFO: Falling back to simulation mode...
+[2025-09-11 12:06:40,519] INFO: Using simulation mode for speech recognition
+[2025-09-11 12:06:40,519] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:06:40,519] INFO: Audio file size: 881,964 bytes
+[2025-09-11 12:06:40,519] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-11 12:06:40,519] INFO:   Processing... 1/1
+[2025-09-11 12:06:41,519] INFO: --- Recognition Result ---
+[2025-09-11 12:06:41,519] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-11 12:06:41,519] INFO: --- End Result ---
+[2025-09-11 12:06:41,520] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:06:41,520] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-11 12:06:41,520] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:06:41,520] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:06:41,520] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:06:41,520] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:06:41,520] INFO: Speech recognition workflow completed successfully
+[2025-09-11 12:07:45,238] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:07:45,238] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:07:45,238] INFO: Starting speech-to-text processing...
+[2025-09-11 12:07:45,238] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:07:45,238] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:07:45,238] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:07:45,238] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:07:45,238] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:07:45,238] INFO: Audio file size: 1,212,684 bytes (1.16 MB)
+[2025-09-11 12:07:45,238] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:07:45,477] INFO: Reading audio file...
+[2025-09-11 12:07:45,478] INFO: Sending audio to Google Speech-to-Text API...
+[2025-09-11 12:07:46,056] ERROR: Google Speech-to-Text API error: 400 Must use single channel (mono) audio, but WAV header indicates 2 channels.
+[2025-09-11 12:07:46,056] ERROR: Error type: InvalidArgument
+[2025-09-11 12:07:46,056] INFO: Falling back to simulation mode...
+[2025-09-11 12:07:46,056] INFO: Using simulation mode for speech recognition
+[2025-09-11 12:07:46,056] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:07:46,056] INFO: Audio file size: 1,212,684 bytes
+[2025-09-11 12:07:46,056] INFO: Analyzing audio content... (estimated 1.2s)
+[2025-09-11 12:07:46,056] INFO:   Processing... 1/1
+[2025-09-11 12:07:46,057] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:07:46,057] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:07:46,057] INFO: Starting speech-to-text processing...
+[2025-09-11 12:07:46,057] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:07:46,057] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:07:46,058] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 12:07:46,058] ERROR: Please set it to point to your service account key file:
+[2025-09-11 12:07:46,058] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 12:07:46,058] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:07:46,058] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 12:07:46,058] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:07:46,058] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:07:46,058] INFO: Audio file size: 1,212,684 bytes (1.16 MB)
+[2025-09-11 12:07:46,058] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:07:46,296] INFO: Reading audio file...
+[2025-09-11 12:07:46,297] INFO: Sending audio to Google Speech-to-Text API...
+[2025-09-11 12:07:46,876] ERROR: Google Speech-to-Text API error: 400 Must use single channel (mono) audio, but WAV header indicates 2 channels.
+[2025-09-11 12:07:46,876] ERROR: Error type: InvalidArgument
+[2025-09-11 12:07:46,876] INFO: Falling back to simulation mode...
+[2025-09-11 12:07:46,876] INFO: Using simulation mode for speech recognition
+[2025-09-11 12:07:46,876] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:07:46,876] INFO: Audio file size: 1,212,684 bytes
+[2025-09-11 12:07:46,877] INFO: Analyzing audio content... (estimated 1.2s)
+[2025-09-11 12:07:46,877] INFO:   Processing... 1/1
+[2025-09-11 12:07:47,056] INFO: --- Recognition Result ---
+[2025-09-11 12:07:47,057] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-11 12:07:47,057] INFO: --- End Result ---
+[2025-09-11 12:07:47,057] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:07:47,057] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-11 12:07:47,057] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:07:47,058] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:07:47,058] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:07:47,058] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:07:47,058] INFO: Speech recognition workflow completed successfully
+[2025-09-11 12:07:47,877] INFO: --- Recognition Result ---
+[2025-09-11 12:07:47,877] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-11 12:07:47,877] INFO: --- End Result ---
+[2025-09-11 12:07:47,877] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:07:47,877] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-11 12:07:47,877] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:07:47,878] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:07:47,878] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:07:47,878] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:07:47,878] INFO: Speech recognition workflow completed successfully
+[2025-09-11 12:11:37,314] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:11:37,315] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:11:37,315] INFO: Starting speech-to-text processing...
+[2025-09-11 12:11:37,315] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:11:37,315] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:11:37,315] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 12:11:37,315] ERROR: Please set it to point to your service account key file:
+[2025-09-11 12:11:37,315] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 12:11:37,315] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:11:37,315] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 12:11:37,315] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:11:37,315] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:11:37,315] INFO: Audio file size: 1,212,684 bytes (1.16 MB)
+[2025-09-11 12:11:37,315] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:11:37,555] INFO: Reading audio file...
+[2025-09-11 12:11:37,556] INFO: Sending audio to Google Speech-to-Text API...
+[2025-09-11 12:11:38,194] ERROR: Google Speech-to-Text API error: 400 Must use single channel (mono) audio, but WAV header indicates 2 channels.
+[2025-09-11 12:11:38,194] ERROR: Error type: InvalidArgument
+[2025-09-11 12:11:38,194] INFO: Falling back to simulation mode...
+[2025-09-11 12:11:38,195] INFO: Using simulation mode for speech recognition
+[2025-09-11 12:11:38,195] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:11:38,195] INFO: Audio file size: 1,212,684 bytes
+[2025-09-11 12:11:38,195] INFO: Analyzing audio content... (estimated 1.2s)
+[2025-09-11 12:11:38,195] INFO:   Processing... 1/1
+[2025-09-11 12:11:39,195] INFO: --- Recognition Result ---
+[2025-09-11 12:11:39,195] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-11 12:11:39,195] INFO: --- End Result ---
+[2025-09-11 12:11:39,195] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:11:39,195] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-11 12:11:39,196] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:11:39,196] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:11:39,196] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:11:39,196] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:11:39,196] INFO: Speech recognition workflow completed successfully
+[2025-09-11 12:43:15,549] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:43:15,549] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:43:15,550] INFO: Starting speech-to-text processing...
+[2025-09-11 12:43:15,550] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:43:15,550] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:43:15,550] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:43:15,550] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 12:43:15,550] ERROR: Please set it to point to your service account key file:
+[2025-09-11 12:43:15,550] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 12:43:15,550] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:43:15,550] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 12:43:15,550] INFO: === Audio Format Validation ===
+[2025-09-11 12:43:15,550] INFO: Audio format analysis:
+[2025-09-11 12:43:15,550] INFO:   Channels: 2 (stereo)
+[2025-09-11 12:43:15,550] INFO:   Sample rate: 44100 Hz
+[2025-09-11 12:43:15,550] INFO:   Sample width: 16 bits
+[2025-09-11 12:43:15,550] WARNING: ⚠ Audio is in stereo format - Google Speech-to-Text requires mono
+[2025-09-11 12:43:15,550] INFO: Converting to mono format automatically...
+[2025-09-11 12:43:15,550] INFO: Converting stereo audio to mono...
+[2025-09-11 12:43:15,550] INFO:   Input: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:43:15,550] INFO:   Output: /home/pi/Desktop/v2_Tripple S/aufnahme_mono.wav
+[2025-09-11 12:43:16,210] WARNING: Speech recognition interrupted by user
+[2025-09-11 12:43:54,488] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:43:54,490] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:43:54,490] INFO: Starting speech-to-text processing...
+[2025-09-11 12:43:54,491] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:43:54,491] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:43:54,491] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:43:54,491] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:43:54,491] INFO: === Audio Format Validation ===
+[2025-09-11 12:43:54,491] INFO: Audio format analysis:
+[2025-09-11 12:43:54,491] INFO:   Channels: 1 (mono)
+[2025-09-11 12:43:54,491] INFO:   Sample rate: 44100 Hz
+[2025-09-11 12:43:54,492] INFO:   Sample width: 16 bits
+[2025-09-11 12:43:54,492] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 12:43:54,492] INFO: Audio file size: 628,412 bytes (0.60 MB)
+[2025-09-11 12:43:54,493] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:43:55,634] INFO: Reading mono audio file...
+[2025-09-11 12:43:55,636] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 12:43:55,636] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 12:43:55,770] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 12:43:55,771] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 12:43:55,771] INFO: Starting speech-to-text processing...
+[2025-09-11 12:43:55,771] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:43:55,771] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 12:43:55,771] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 12:43:55,772] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 12:43:55,772] ERROR: Please set it to point to your service account key file:
+[2025-09-11 12:43:55,772] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 12:43:55,772] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 12:43:55,772] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 12:43:55,772] INFO: === Audio Format Validation ===
+[2025-09-11 12:43:55,772] INFO: Audio format analysis:
+[2025-09-11 12:43:55,772] INFO:   Channels: 1 (mono)
+[2025-09-11 12:43:55,772] INFO:   Sample rate: 44100 Hz
+[2025-09-11 12:43:55,772] INFO:   Sample width: 16 bits
+[2025-09-11 12:43:55,772] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 12:43:55,772] INFO: Audio file size: 628,412 bytes (0.60 MB)
+[2025-09-11 12:43:55,772] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 12:43:56,011] INFO: Reading mono audio file...
+[2025-09-11 12:43:56,011] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 12:43:56,012] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 12:43:57,885] INFO: Transcript segment: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.' (confidence: 0.91)
+[2025-09-11 12:43:57,885] INFO: Speech recognition completed successfully
+[2025-09-11 12:43:57,885] INFO: Average confidence: 0.91
+[2025-09-11 12:43:57,885] INFO: Full transcript: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.'
+[2025-09-11 12:43:57,885] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 12:43:57,885] INFO: --- Recognition Result ---
+[2025-09-11 12:43:57,885] INFO: "Ein Nilpferd was lila ist und ein Text heute sind wir schwul."
+[2025-09-11 12:43:57,885] INFO: --- End Result ---
+[2025-09-11 12:43:57,886] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:43:57,886] INFO: Transcript content: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.'
+[2025-09-11 12:43:57,886] INFO: Processing method: google_speech_api
+[2025-09-11 12:43:57,886] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:43:57,887] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:43:57,887] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 12:43:57,887] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:43:57,887] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:43:57,887] INFO: Speech recognition workflow completed successfully
+[2025-09-11 12:43:58,260] INFO: Transcript segment: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.' (confidence: 0.91)
+[2025-09-11 12:43:58,261] INFO: Speech recognition completed successfully
+[2025-09-11 12:43:58,261] INFO: Average confidence: 0.91
+[2025-09-11 12:43:58,261] INFO: Full transcript: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.'
+[2025-09-11 12:43:58,261] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 12:43:58,261] INFO: --- Recognition Result ---
+[2025-09-11 12:43:58,261] INFO: "Ein Nilpferd was lila ist und ein Text heute sind wir schwul."
+[2025-09-11 12:43:58,261] INFO: --- End Result ---
+[2025-09-11 12:43:58,262] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 12:43:58,262] INFO: Transcript content: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.'
+[2025-09-11 12:43:58,262] INFO: Processing method: google_speech_api
+[2025-09-11 12:43:58,262] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 12:43:58,265] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 12:43:58,265] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 12:43:58,265] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 12:43:58,265] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 12:43:58,265] INFO: Speech recognition workflow completed successfully
+[2025-09-11 13:14:47,289] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 13:14:47,290] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 13:14:47,290] INFO: Starting speech-to-text processing...
+[2025-09-11 13:14:47,290] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:14:47,290] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 13:14:47,290] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 13:14:47,290] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 13:14:47,290] ERROR: Please set it to point to your service account key file:
+[2025-09-11 13:14:47,290] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 13:14:47,290] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 13:14:47,290] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 13:14:47,290] INFO: === Audio Format Validation ===
+[2025-09-11 13:14:47,291] INFO: Audio format analysis:
+[2025-09-11 13:14:47,291] INFO:   Channels: 1 (mono)
+[2025-09-11 13:14:47,291] INFO:   Sample rate: 44100 Hz
+[2025-09-11 13:14:47,291] INFO:   Sample width: 16 bits
+[2025-09-11 13:14:47,291] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 13:14:47,291] INFO: Audio file size: 628,412 bytes (0.60 MB)
+[2025-09-11 13:14:47,291] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 13:14:47,554] INFO: Reading mono audio file...
+[2025-09-11 13:14:47,559] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 13:14:47,559] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 13:14:49,867] INFO: Transcript segment: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.' (confidence: 0.91)
+[2025-09-11 13:14:49,867] INFO: Speech recognition completed successfully
+[2025-09-11 13:14:49,867] INFO: Average confidence: 0.91
+[2025-09-11 13:14:49,867] INFO: Full transcript: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.'
+[2025-09-11 13:14:49,867] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 13:14:49,867] INFO: --- Recognition Result ---
+[2025-09-11 13:14:49,868] INFO: "Ein Nilpferd was lila ist und ein Text heute sind wir schwul."
+[2025-09-11 13:14:49,868] INFO: --- End Result ---
+[2025-09-11 13:14:49,868] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 13:14:49,868] INFO: Transcript content: 'Ein Nilpferd was lila ist und ein Text heute sind wir schwul.'
+[2025-09-11 13:14:49,868] INFO: Processing method: google_speech_api
+[2025-09-11 13:14:49,868] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:14:49,868] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 13:14:49,868] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 13:14:49,868] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 13:14:49,868] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 13:14:49,868] INFO: Speech recognition workflow completed successfully
+[2025-09-11 13:15:32,443] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 13:15:32,444] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 13:15:32,444] INFO: Starting speech-to-text processing...
+[2025-09-11 13:15:32,444] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:15:32,444] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 13:15:32,444] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 13:15:32,444] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 13:15:32,444] ERROR: Please set it to point to your service account key file:
+[2025-09-11 13:15:32,444] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 13:15:32,444] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 13:15:32,444] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 13:15:32,444] INFO: === Audio Format Validation ===
+[2025-09-11 13:15:32,445] INFO: Audio format analysis:
+[2025-09-11 13:15:32,445] INFO:   Channels: 1 (mono)
+[2025-09-11 13:15:32,445] INFO:   Sample rate: 44100 Hz
+[2025-09-11 13:15:32,445] INFO:   Sample width: 16 bits
+[2025-09-11 13:15:32,445] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 13:15:32,445] INFO: Audio file size: 463,052 bytes (0.44 MB)
+[2025-09-11 13:15:32,445] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 13:15:32,684] INFO: Reading mono audio file...
+[2025-09-11 13:15:32,685] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 13:15:32,685] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 13:15:34,339] INFO: Transcript segment: 'ein Bild von einer Kuh die Superkräfte hat' (confidence: 0.85)
+[2025-09-11 13:15:34,339] INFO: Speech recognition completed successfully
+[2025-09-11 13:15:34,339] INFO: Average confidence: 0.85
+[2025-09-11 13:15:34,339] INFO: Full transcript: 'ein Bild von einer Kuh die Superkräfte hat'
+[2025-09-11 13:15:34,339] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 13:15:34,339] INFO: --- Recognition Result ---
+[2025-09-11 13:15:34,340] INFO: "ein Bild von einer Kuh die Superkräfte hat"
+[2025-09-11 13:15:34,340] INFO: --- End Result ---
+[2025-09-11 13:15:34,340] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 13:15:34,340] INFO: Transcript content: 'ein Bild von einer Kuh die Superkräfte hat'
+[2025-09-11 13:15:34,340] INFO: Processing method: google_speech_api
+[2025-09-11 13:15:34,340] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:15:34,341] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 13:15:34,341] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 13:15:34,341] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 13:15:34,341] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 13:15:34,341] INFO: Speech recognition workflow completed successfully
+[2025-09-11 13:37:20,643] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 13:37:20,643] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 13:37:20,643] INFO: Starting speech-to-text processing...
+[2025-09-11 13:37:20,644] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:37:20,644] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 13:37:20,644] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 13:37:20,644] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 13:37:20,644] INFO: === Audio Format Validation ===
+[2025-09-11 13:37:20,644] INFO: Audio format analysis:
+[2025-09-11 13:37:20,644] INFO:   Channels: 1 (mono)
+[2025-09-11 13:37:20,644] INFO:   Sample rate: 44100 Hz
+[2025-09-11 13:37:20,644] INFO:   Sample width: 16 bits
+[2025-09-11 13:37:20,644] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 13:37:20,644] INFO: Audio file size: 1,135,516 bytes (1.08 MB)
+[2025-09-11 13:37:20,644] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 13:37:20,952] INFO: Reading mono audio file...
+[2025-09-11 13:37:20,958] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 13:37:20,958] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 13:37:21,147] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 13:37:21,147] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 13:37:21,147] INFO: Starting speech-to-text processing...
+[2025-09-11 13:37:21,147] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:37:21,147] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 13:37:21,147] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 13:37:21,147] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 13:37:21,147] ERROR: Please set it to point to your service account key file:
+[2025-09-11 13:37:21,147] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 13:37:21,148] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 13:37:21,148] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 13:37:21,148] INFO: === Audio Format Validation ===
+[2025-09-11 13:37:21,148] INFO: Audio format analysis:
+[2025-09-11 13:37:21,148] INFO:   Channels: 1 (mono)
+[2025-09-11 13:37:21,148] INFO:   Sample rate: 44100 Hz
+[2025-09-11 13:37:21,148] INFO:   Sample width: 16 bits
+[2025-09-11 13:37:21,148] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 13:37:21,148] INFO: Audio file size: 1,135,516 bytes (1.08 MB)
+[2025-09-11 13:37:21,148] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 13:37:21,387] INFO: Reading mono audio file...
+[2025-09-11 13:37:21,388] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 13:37:21,388] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 13:37:25,165] INFO: Transcript segment: 'Ein Bild von einer Kuh die Milch gerade ab. Bekommt und ein Text frische Milch des Liter 2 €.' (confidence: 0.81)
+[2025-09-11 13:37:25,166] INFO: Speech recognition completed successfully
+[2025-09-11 13:37:25,166] INFO: Average confidence: 0.81
+[2025-09-11 13:37:25,166] INFO: Full transcript: 'Ein Bild von einer Kuh die Milch gerade ab. Bekommt und ein Text frische Milch des Liter 2 €.'
+[2025-09-11 13:37:25,166] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 13:37:25,167] INFO: --- Recognition Result ---
+[2025-09-11 13:37:25,167] INFO: "Ein Bild von einer Kuh die Milch gerade ab. Bekommt und ein Text frische Milch des Liter 2 €."
+[2025-09-11 13:37:25,167] INFO: --- End Result ---
+[2025-09-11 13:37:25,167] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 13:37:25,168] INFO: Transcript content: 'Ein Bild von einer Kuh die Milch gerade ab. Bekommt und ein Text frische Milch des Liter 2 €.'
+[2025-09-11 13:37:25,168] INFO: Processing method: google_speech_api
+[2025-09-11 13:37:25,168] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:37:25,168] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 13:37:25,168] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 13:37:25,168] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 13:37:25,168] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 13:37:25,168] INFO: Speech recognition workflow completed successfully
+[2025-09-11 13:37:25,664] INFO: Transcript segment: 'Ein Bild von einer Kuh die Milch gerade ab. Bekommt und ein Text frische Milch des Liter 2 €.' (confidence: 0.81)
+[2025-09-11 13:37:25,665] INFO: Speech recognition completed successfully
+[2025-09-11 13:37:25,665] INFO: Average confidence: 0.81
+[2025-09-11 13:37:25,665] INFO: Full transcript: 'Ein Bild von einer Kuh die Milch gerade ab. Bekommt und ein Text frische Milch des Liter 2 €.'
+[2025-09-11 13:37:25,666] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 13:37:25,667] INFO: --- Recognition Result ---
+[2025-09-11 13:37:25,667] INFO: "Ein Bild von einer Kuh die Milch gerade ab. Bekommt und ein Text frische Milch des Liter 2 €."
+[2025-09-11 13:37:25,667] INFO: --- End Result ---
+[2025-09-11 13:37:25,667] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 13:37:25,667] INFO: Transcript content: 'Ein Bild von einer Kuh die Milch gerade ab. Bekommt und ein Text frische Milch des Liter 2 €.'
+[2025-09-11 13:37:25,667] INFO: Processing method: google_speech_api
+[2025-09-11 13:37:25,668] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:37:25,668] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 13:37:25,668] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 13:37:25,668] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 13:37:25,668] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 13:37:25,668] INFO: Speech recognition workflow completed successfully
+[2025-09-11 13:43:45,549] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 13:43:45,550] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 13:43:45,550] INFO: Starting speech-to-text processing...
+[2025-09-11 13:43:45,550] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:43:45,550] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 13:43:45,550] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 13:43:45,550] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 13:43:45,550] INFO: === Audio Format Validation ===
+[2025-09-11 13:43:45,550] INFO: Audio format analysis:
+[2025-09-11 13:43:45,550] INFO:   Channels: 1 (mono)
+[2025-09-11 13:43:45,550] INFO:   Sample rate: 44100 Hz
+[2025-09-11 13:43:45,550] INFO:   Sample width: 16 bits
+[2025-09-11 13:43:45,550] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 13:43:45,550] INFO: Audio file size: 1,135,516 bytes (1.08 MB)
+[2025-09-11 13:43:45,550] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 13:43:45,789] INFO: Reading mono audio file...
+[2025-09-11 13:43:45,791] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 13:43:45,791] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 13:43:46,435] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 13:43:46,435] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 13:43:46,435] INFO: Starting speech-to-text processing...
+[2025-09-11 13:43:46,435] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:43:46,435] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 13:43:46,435] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 13:43:46,435] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 13:43:46,435] ERROR: Please set it to point to your service account key file:
+[2025-09-11 13:43:46,435] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 13:43:46,435] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 13:43:46,436] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 13:43:46,436] INFO: === Audio Format Validation ===
+[2025-09-11 13:43:46,436] INFO: Audio format analysis:
+[2025-09-11 13:43:46,436] INFO:   Channels: 1 (mono)
+[2025-09-11 13:43:46,436] INFO:   Sample rate: 44100 Hz
+[2025-09-11 13:43:46,436] INFO:   Sample width: 16 bits
+[2025-09-11 13:43:46,436] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 13:43:46,436] INFO: Audio file size: 1,135,516 bytes (1.08 MB)
+[2025-09-11 13:43:46,436] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 13:43:46,677] INFO: Reading mono audio file...
+[2025-09-11 13:43:46,679] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 13:43:46,679] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 13:43:50,318] INFO: Transcript segment: 'Ein Bild von einem Schwein das über Holzkohle gegrillt wird im Hintergrund Menschen die Wein trinken und da sollen Text stehen Schweinshaxe heute für 5 € kommt alle vorbei.' (confidence: 0.89)
+[2025-09-11 13:43:50,318] INFO: Speech recognition completed successfully
+[2025-09-11 13:43:50,318] INFO: Average confidence: 0.89
+[2025-09-11 13:43:50,318] INFO: Full transcript: 'Ein Bild von einem Schwein das über Holzkohle gegrillt wird im Hintergrund Menschen die Wein trinken und da sollen Text stehen Schweinshaxe heute für 5 € kommt alle vorbei.'
+[2025-09-11 13:43:50,318] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 13:43:50,318] INFO: --- Recognition Result ---
+[2025-09-11 13:43:50,318] INFO: "Ein Bild von einem Schwein das über Holzkohle gegrillt wird im Hintergrund Menschen die Wein trinken und da sollen Text stehen Schweinshaxe heute für 5 € kommt alle vorbei."
+[2025-09-11 13:43:50,318] INFO: --- End Result ---
+[2025-09-11 13:43:50,319] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 13:43:50,319] INFO: Transcript content: 'Ein Bild von einem Schwein das über Holzkohle gegrillt wird im Hintergrund Menschen die Wein trinken und da sollen Text stehen Schweinshaxe heute für 5 € kommt alle vorbei.'
+[2025-09-11 13:43:50,319] INFO: Processing method: google_speech_api
+[2025-09-11 13:43:50,319] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:43:50,794] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 13:43:50,794] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 13:43:50,794] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 13:43:50,794] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 13:43:50,794] INFO: Speech recognition workflow completed successfully
+[2025-09-11 13:43:51,829] INFO: Transcript segment: 'Ein Bild von einem Schwein das über Holzkohle gegrillt wird im Hintergrund Menschen die Wein trinken und da sollen Text stehen Schweinshaxe heute für 5 € kommt alle vorbei.' (confidence: 0.89)
+[2025-09-11 13:43:53,850] INFO: Speech recognition completed successfully
+[2025-09-11 13:43:53,850] INFO: Average confidence: 0.89
+[2025-09-11 13:43:53,850] INFO: Full transcript: 'Ein Bild von einem Schwein das über Holzkohle gegrillt wird im Hintergrund Menschen die Wein trinken und da sollen Text stehen Schweinshaxe heute für 5 € kommt alle vorbei.'
+[2025-09-11 13:43:53,851] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 13:43:53,851] INFO: --- Recognition Result ---
+[2025-09-11 13:43:53,851] INFO: "Ein Bild von einem Schwein das über Holzkohle gegrillt wird im Hintergrund Menschen die Wein trinken und da sollen Text stehen Schweinshaxe heute für 5 € kommt alle vorbei."
+[2025-09-11 13:43:53,851] INFO: --- End Result ---
+[2025-09-11 13:43:53,851] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 13:43:53,852] INFO: Transcript content: 'Ein Bild von einem Schwein das über Holzkohle gegrillt wird im Hintergrund Menschen die Wein trinken und da sollen Text stehen Schweinshaxe heute für 5 € kommt alle vorbei.'
+[2025-09-11 13:43:53,852] INFO: Processing method: google_speech_api
+[2025-09-11 13:43:53,852] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:43:53,852] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 13:43:53,853] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 13:43:53,853] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 13:43:53,853] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 13:43:53,853] INFO: Speech recognition workflow completed successfully
+[2025-09-11 13:47:13,941] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 13:47:13,942] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 13:47:13,942] INFO: Starting speech-to-text processing...
+[2025-09-11 13:47:13,942] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:47:13,942] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 13:47:13,942] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 13:47:13,942] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 13:47:13,942] INFO: === Audio Format Validation ===
+[2025-09-11 13:47:13,942] INFO: Audio format analysis:
+[2025-09-11 13:47:13,942] INFO:   Channels: 1 (mono)
+[2025-09-11 13:47:13,942] INFO:   Sample rate: 44100 Hz
+[2025-09-11 13:47:13,942] INFO:   Sample width: 16 bits
+[2025-09-11 13:47:13,942] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 13:47:13,942] INFO: Audio file size: 1,697,740 bytes (1.62 MB)
+[2025-09-11 13:47:13,942] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 13:47:14,189] INFO: Reading mono audio file...
+[2025-09-11 13:47:14,193] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 13:47:14,194] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 13:47:14,547] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 13:47:14,547] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 13:47:14,547] INFO: Starting speech-to-text processing...
+[2025-09-11 13:47:14,547] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:47:14,547] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 13:47:14,547] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 13:47:14,547] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 13:47:14,547] ERROR: Please set it to point to your service account key file:
+[2025-09-11 13:47:14,548] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 13:47:14,548] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 13:47:14,548] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 13:47:14,548] INFO: === Audio Format Validation ===
+[2025-09-11 13:47:14,548] INFO: Audio format analysis:
+[2025-09-11 13:47:14,548] INFO:   Channels: 1 (mono)
+[2025-09-11 13:47:14,548] INFO:   Sample rate: 44100 Hz
+[2025-09-11 13:47:14,548] INFO:   Sample width: 16 bits
+[2025-09-11 13:47:14,548] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 13:47:14,548] INFO: Audio file size: 1,697,740 bytes (1.62 MB)
+[2025-09-11 13:47:14,548] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 13:47:14,788] INFO: Reading mono audio file...
+[2025-09-11 13:47:14,790] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 13:47:14,790] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 13:47:20,484] INFO: Transcript segment: 'Ein Bild von einem Schwein das über einem Feuer gegrillt wird im Hintergrund Menschen die Wein trinken und ein Text am 30.12. Riesen Party bei uns im Hause kommen Sie vorbei Eintritt 30 € Verpflegung gratis.' (confidence: 0.88)
+[2025-09-11 13:47:20,484] INFO: Speech recognition completed successfully
+[2025-09-11 13:47:20,484] INFO: Average confidence: 0.88
+[2025-09-11 13:47:20,484] INFO: Full transcript: 'Ein Bild von einem Schwein das über einem Feuer gegrillt wird im Hintergrund Menschen die Wein trinken und ein Text am 30.12. Riesen Party bei uns im Hause kommen Sie vorbei Eintritt 30 € Verpflegung gratis.'
+[2025-09-11 13:47:20,485] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 13:47:20,485] INFO: --- Recognition Result ---
+[2025-09-11 13:47:20,485] INFO: "Ein Bild von einem Schwein das über einem Feuer gegrillt wird im Hintergrund Menschen die Wein trinken und ein Text am 30.12. Riesen Party bei uns im Hause kommen Sie vorbei Eintritt 30 € Verpflegung gratis."
+[2025-09-11 13:47:20,485] INFO: --- End Result ---
+[2025-09-11 13:47:20,486] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 13:47:20,486] INFO: Transcript content: 'Ein Bild von einem Schwein das über einem Feuer gegrillt wird im Hintergrund Menschen die Wein trinken und ein Text am 30.12. Riesen Party bei uns im Hause kommen Sie vorbei Eintritt 30 € Verpflegung gratis.'
+[2025-09-11 13:47:20,486] INFO: Processing method: google_speech_api
+[2025-09-11 13:47:20,486] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:47:20,486] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 13:47:20,486] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 13:47:20,487] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 13:47:20,487] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 13:47:20,487] INFO: Speech recognition workflow completed successfully
+[2025-09-11 13:47:21,409] INFO: Transcript segment: 'Ein Bild von einem Schwein das über einem Feuer gegrillt wird im Hintergrund Menschen die Wein trinken und ein Text am 30.12. Riesen Party bei uns im Hause kommen Sie vorbei Eintritt 30 € Verpflegung gratis.' (confidence: 0.88)
+[2025-09-11 13:47:21,409] INFO: Speech recognition completed successfully
+[2025-09-11 13:47:21,409] INFO: Average confidence: 0.88
+[2025-09-11 13:47:21,409] INFO: Full transcript: 'Ein Bild von einem Schwein das über einem Feuer gegrillt wird im Hintergrund Menschen die Wein trinken und ein Text am 30.12. Riesen Party bei uns im Hause kommen Sie vorbei Eintritt 30 € Verpflegung gratis.'
+[2025-09-11 13:47:21,409] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 13:47:21,410] INFO: --- Recognition Result ---
+[2025-09-11 13:47:21,410] INFO: "Ein Bild von einem Schwein das über einem Feuer gegrillt wird im Hintergrund Menschen die Wein trinken und ein Text am 30.12. Riesen Party bei uns im Hause kommen Sie vorbei Eintritt 30 € Verpflegung gratis."
+[2025-09-11 13:47:21,410] INFO: --- End Result ---
+[2025-09-11 13:47:21,410] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 13:47:21,410] INFO: Transcript content: 'Ein Bild von einem Schwein das über einem Feuer gegrillt wird im Hintergrund Menschen die Wein trinken und ein Text am 30.12. Riesen Party bei uns im Hause kommen Sie vorbei Eintritt 30 € Verpflegung gratis.'
+[2025-09-11 13:47:21,410] INFO: Processing method: google_speech_api
+[2025-09-11 13:47:21,410] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 13:47:21,411] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 13:47:21,411] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 13:47:21,411] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 13:47:21,411] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 13:47:21,411] INFO: Speech recognition workflow completed successfully
+[2025-09-11 14:10:12,433] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 14:10:12,433] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 14:10:12,433] INFO: Starting speech-to-text processing...
+[2025-09-11 14:10:12,433] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 14:10:12,434] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 14:10:12,434] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 14:10:12,434] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 14:10:12,434] INFO: === Audio Format Validation ===
+[2025-09-11 14:10:12,434] INFO: Audio format analysis:
+[2025-09-11 14:10:12,434] INFO:   Channels: 1 (mono)
+[2025-09-11 14:10:12,434] INFO:   Sample rate: 44100 Hz
+[2025-09-11 14:10:12,434] INFO:   Sample width: 16 bits
+[2025-09-11 14:10:12,434] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 14:10:12,434] INFO: Audio file size: 672,508 bytes (0.64 MB)
+[2025-09-11 14:10:12,434] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 14:10:12,679] INFO: Reading mono audio file...
+[2025-09-11 14:10:12,680] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 14:10:12,680] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 14:10:13,226] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 14:10:13,227] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 14:10:13,227] INFO: Starting speech-to-text processing...
+[2025-09-11 14:10:13,227] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 14:10:13,227] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 14:10:13,227] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 14:10:13,227] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 14:10:13,227] ERROR: Please set it to point to your service account key file:
+[2025-09-11 14:10:13,227] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 14:10:13,227] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 14:10:13,227] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 14:10:13,227] INFO: === Audio Format Validation ===
+[2025-09-11 14:10:13,227] INFO: Audio format analysis:
+[2025-09-11 14:10:13,227] INFO:   Channels: 1 (mono)
+[2025-09-11 14:10:13,227] INFO:   Sample rate: 44100 Hz
+[2025-09-11 14:10:13,227] INFO:   Sample width: 16 bits
+[2025-09-11 14:10:13,227] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 14:10:13,228] INFO: Audio file size: 672,508 bytes (0.64 MB)
+[2025-09-11 14:10:13,228] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 14:10:13,471] INFO: Reading mono audio file...
+[2025-09-11 14:10:14,408] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 14:10:14,408] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 14:10:16,940] INFO: Transcript segment: 'Eine Kuh, die fliegt mit der Aufschrift Werbung denkt ihr was aus?' (confidence: 0.87)
+[2025-09-11 14:10:16,940] INFO: Speech recognition completed successfully
+[2025-09-11 14:10:16,941] INFO: Average confidence: 0.87
+[2025-09-11 14:10:16,941] INFO: Full transcript: 'Eine Kuh, die fliegt mit der Aufschrift Werbung denkt ihr was aus?'
+[2025-09-11 14:10:16,941] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 14:10:16,941] INFO: --- Recognition Result ---
+[2025-09-11 14:10:16,941] INFO: "Eine Kuh, die fliegt mit der Aufschrift Werbung denkt ihr was aus?"
+[2025-09-11 14:10:16,941] INFO: --- End Result ---
+[2025-09-11 14:10:16,942] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 14:10:16,942] INFO: Transcript content: 'Eine Kuh, die fliegt mit der Aufschrift Werbung denkt ihr was aus?'
+[2025-09-11 14:10:16,942] INFO: Processing method: google_speech_api
+[2025-09-11 14:10:16,942] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 14:10:16,943] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 14:10:16,943] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 14:10:16,943] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 14:10:16,943] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 14:10:16,943] INFO: Speech recognition workflow completed successfully
+[2025-09-11 14:10:17,858] INFO: Transcript segment: 'Eine Kuh, die fliegt mit der Aufschrift Werbung denkt ihr was aus?' (confidence: 0.87)
+[2025-09-11 14:10:17,858] INFO: Speech recognition completed successfully
+[2025-09-11 14:10:17,861] INFO: Average confidence: 0.87
+[2025-09-11 14:10:17,861] INFO: Full transcript: 'Eine Kuh, die fliegt mit der Aufschrift Werbung denkt ihr was aus?'
+[2025-09-11 14:10:17,861] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 14:10:17,861] INFO: --- Recognition Result ---
+[2025-09-11 14:10:17,862] INFO: "Eine Kuh, die fliegt mit der Aufschrift Werbung denkt ihr was aus?"
+[2025-09-11 14:10:17,862] INFO: --- End Result ---
+[2025-09-11 14:10:17,862] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 14:10:17,862] INFO: Transcript content: 'Eine Kuh, die fliegt mit der Aufschrift Werbung denkt ihr was aus?'
+[2025-09-11 14:10:17,862] INFO: Processing method: google_speech_api
+[2025-09-11 14:10:17,862] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 14:10:17,863] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 14:10:17,863] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 14:10:17,863] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 14:10:17,863] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 14:10:17,863] INFO: Speech recognition workflow completed successfully
+[2025-09-11 14:14:38,496] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 14:14:38,497] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 14:14:38,497] INFO: Starting speech-to-text processing...
+[2025-09-11 14:14:38,497] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 14:14:38,498] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 14:14:38,498] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 14:14:38,498] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 14:14:38,498] INFO: === Audio Format Validation ===
+[2025-09-11 14:14:38,498] INFO: Audio format analysis:
+[2025-09-11 14:14:38,498] INFO:   Channels: 1 (mono)
+[2025-09-11 14:14:38,498] INFO:   Sample rate: 44100 Hz
+[2025-09-11 14:14:38,498] INFO:   Sample width: 16 bits
+[2025-09-11 14:14:38,498] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 14:14:38,498] INFO: Audio file size: 1,631,596 bytes (1.56 MB)
+[2025-09-11 14:14:38,498] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 14:14:38,736] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 14:14:38,737] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 14:14:38,737] INFO: Starting speech-to-text processing...
+[2025-09-11 14:14:38,737] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 14:14:38,737] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 14:14:38,737] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 14:14:38,737] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 14:14:38,737] ERROR: Please set it to point to your service account key file:
+[2025-09-11 14:14:38,737] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 14:14:38,737] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 14:14:38,737] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 14:14:38,737] INFO: === Audio Format Validation ===
+[2025-09-11 14:14:38,737] INFO: Audio format analysis:
+[2025-09-11 14:14:38,737] INFO:   Channels: 1 (mono)
+[2025-09-11 14:14:38,737] INFO:   Sample rate: 44100 Hz
+[2025-09-11 14:14:38,737] INFO:   Sample width: 16 bits
+[2025-09-11 14:14:38,737] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 14:14:38,737] INFO: Audio file size: 1,631,596 bytes (1.56 MB)
+[2025-09-11 14:14:38,738] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 14:14:38,741] INFO: Reading mono audio file...
+[2025-09-11 14:14:38,743] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 14:14:38,743] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 14:14:38,977] INFO: Reading mono audio file...
+[2025-09-11 14:14:38,979] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 14:14:38,979] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 14:14:43,400] INFO: Transcript segment: 'Ich will Werbung haben über eine Eisdiele da Eisdiele wird gerade geworben, dass Eis Erdbeere 5 € kostet.' (confidence: 0.91)
+[2025-09-11 14:14:43,401] INFO: Speech recognition completed successfully
+[2025-09-11 14:14:43,401] INFO: Average confidence: 0.91
+[2025-09-11 14:14:43,401] INFO: Full transcript: 'Ich will Werbung haben über eine Eisdiele da Eisdiele wird gerade geworben, dass Eis Erdbeere 5 € kostet.'
+[2025-09-11 14:14:43,401] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 14:14:43,402] INFO: --- Recognition Result ---
+[2025-09-11 14:14:43,402] INFO: "Ich will Werbung haben über eine Eisdiele da Eisdiele wird gerade geworben, dass Eis Erdbeere 5 € kostet."
+[2025-09-11 14:14:43,402] INFO: --- End Result ---
+[2025-09-11 14:14:43,402] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 14:14:43,402] INFO: Transcript content: 'Ich will Werbung haben über eine Eisdiele da Eisdiele wird gerade geworben, dass Eis Erdbeere 5 € kostet.'
+[2025-09-11 14:14:43,403] INFO: Processing method: google_speech_api
+[2025-09-11 14:14:43,403] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 14:14:43,404] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 14:14:43,404] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 14:14:43,404] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 14:14:43,404] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 14:14:43,404] INFO: Speech recognition workflow completed successfully
+[2025-09-11 14:14:43,749] INFO: Transcript segment: 'Ich will Werbung haben über eine Eisdiele da Eisdiele wird gerade geworben, dass Eis Erdbeere 5 € kostet.' (confidence: 0.91)
+[2025-09-11 14:14:43,749] INFO: Speech recognition completed successfully
+[2025-09-11 14:14:43,749] INFO: Average confidence: 0.91
+[2025-09-11 14:14:43,749] INFO: Full transcript: 'Ich will Werbung haben über eine Eisdiele da Eisdiele wird gerade geworben, dass Eis Erdbeere 5 € kostet.'
+[2025-09-11 14:14:43,749] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 14:14:43,749] INFO: --- Recognition Result ---
+[2025-09-11 14:14:43,749] INFO: "Ich will Werbung haben über eine Eisdiele da Eisdiele wird gerade geworben, dass Eis Erdbeere 5 € kostet."
+[2025-09-11 14:14:43,750] INFO: --- End Result ---
+[2025-09-11 14:14:43,750] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 14:14:43,750] INFO: Transcript content: 'Ich will Werbung haben über eine Eisdiele da Eisdiele wird gerade geworben, dass Eis Erdbeere 5 € kostet.'
+[2025-09-11 14:14:43,752] INFO: Processing method: google_speech_api
+[2025-09-11 14:14:43,753] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 14:14:43,753] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 14:14:43,753] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 14:14:43,753] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 14:14:43,753] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 14:14:43,753] INFO: Speech recognition workflow completed successfully
+[2025-09-11 18:14:27,375] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 18:14:27,375] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 18:14:27,375] INFO: Starting speech-to-text processing...
+[2025-09-11 18:14:27,375] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 18:14:27,375] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 18:14:27,375] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 18:14:27,375] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 18:14:27,375] ERROR: Please set it to point to your service account key file:
+[2025-09-11 18:14:27,376] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 18:14:27,376] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 18:14:27,376] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 18:14:27,376] INFO: === Audio Format Validation ===
+[2025-09-11 18:14:27,376] INFO: Audio format analysis:
+[2025-09-11 18:14:27,376] INFO:   Channels: 1 (mono)
+[2025-09-11 18:14:27,376] INFO:   Sample rate: 44100 Hz
+[2025-09-11 18:14:27,376] INFO:   Sample width: 16 bits
+[2025-09-11 18:14:27,376] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 18:14:27,376] INFO: Audio file size: 1,455,212 bytes (1.39 MB)
+[2025-09-11 18:14:27,376] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 18:14:27,615] INFO: Reading mono audio file...
+[2025-09-11 18:14:31,580] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 18:14:31,580] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 18:14:36,415] INFO: Transcript segment: 'Bild von einem Döner mit außergewöhnlicher Werbung für ihn, lass dir was einfallen.' (confidence: 0.91)
+[2025-09-11 18:14:36,416] INFO: Transcript segment: ' Text Döner heute 4 €' (confidence: 0.88)
+[2025-09-11 18:14:36,416] INFO: Speech recognition completed successfully
+[2025-09-11 18:14:36,416] INFO: Average confidence: 0.90
+[2025-09-11 18:14:36,416] INFO: Full transcript: 'Bild von einem Döner mit außergewöhnlicher Werbung für ihn, lass dir was einfallen.  Text Döner heute 4 €'
+[2025-09-11 18:14:36,416] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 18:14:36,416] INFO: --- Recognition Result ---
+[2025-09-11 18:14:36,416] INFO: "Bild von einem Döner mit außergewöhnlicher Werbung für ihn, lass dir was einfallen.  Text Döner heute 4 €"
+[2025-09-11 18:14:36,416] INFO: --- End Result ---
+[2025-09-11 18:14:36,417] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 18:14:36,417] INFO: Transcript content: 'Bild von einem Döner mit außergewöhnlicher Werbung für ihn, lass dir was einfallen.  Text Döner heute 4 €'
+[2025-09-11 18:14:36,417] INFO: Processing method: google_speech_api
+[2025-09-11 18:14:36,417] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 18:14:36,417] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 18:14:36,418] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 18:14:36,418] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 18:14:36,418] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 18:14:36,418] INFO: Speech recognition workflow completed successfully
+[2025-09-11 18:35:19,897] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 18:35:19,897] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 18:35:19,897] INFO: Starting speech-to-text processing...
+[2025-09-11 18:35:19,897] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 18:35:19,897] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 18:35:19,897] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 18:35:19,897] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 18:35:19,897] INFO: === Audio Format Validation ===
+[2025-09-11 18:35:19,898] INFO: Audio format analysis:
+[2025-09-11 18:35:19,898] INFO:   Channels: 1 (mono)
+[2025-09-11 18:35:19,898] INFO:   Sample rate: 44100 Hz
+[2025-09-11 18:35:19,898] INFO:   Sample width: 16 bits
+[2025-09-11 18:35:19,898] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 18:35:19,898] INFO: Audio file size: 749,676 bytes (0.71 MB)
+[2025-09-11 18:35:19,898] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 18:35:20,171] INFO: Reading mono audio file...
+[2025-09-11 18:35:20,172] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 18:35:20,172] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 18:35:20,388] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 18:35:20,388] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 18:35:20,388] INFO: Starting speech-to-text processing...
+[2025-09-11 18:35:20,388] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 18:35:20,389] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 18:35:20,389] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 18:35:20,389] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 18:35:20,389] ERROR: Please set it to point to your service account key file:
+[2025-09-11 18:35:20,389] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 18:35:20,389] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 18:35:20,389] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 18:35:20,389] INFO: === Audio Format Validation ===
+[2025-09-11 18:35:20,389] INFO: Audio format analysis:
+[2025-09-11 18:35:20,389] INFO:   Channels: 1 (mono)
+[2025-09-11 18:35:20,389] INFO:   Sample rate: 44100 Hz
+[2025-09-11 18:35:20,389] INFO:   Sample width: 16 bits
+[2025-09-11 18:35:20,389] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 18:35:20,389] INFO: Audio file size: 749,676 bytes (0.71 MB)
+[2025-09-11 18:35:20,389] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 18:35:20,631] INFO: Reading mono audio file...
+[2025-09-11 18:35:20,632] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 18:35:20,632] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 18:35:22,788] INFO: Transcript segment: 'Bild von einem Affen der einen Döner ist Werbung heute 5 €, aber nur für Affen' (confidence: 0.89)
+[2025-09-11 18:35:22,789] INFO: Speech recognition completed successfully
+[2025-09-11 18:35:22,789] INFO: Average confidence: 0.89
+[2025-09-11 18:35:22,789] INFO: Full transcript: 'Bild von einem Affen der einen Döner ist Werbung heute 5 €, aber nur für Affen'
+[2025-09-11 18:35:22,789] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 18:35:22,789] INFO: --- Recognition Result ---
+[2025-09-11 18:35:22,789] INFO: "Bild von einem Affen der einen Döner ist Werbung heute 5 €, aber nur für Affen"
+[2025-09-11 18:35:22,789] INFO: --- End Result ---
+[2025-09-11 18:35:22,790] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 18:35:22,790] INFO: Transcript content: 'Bild von einem Affen der einen Döner ist Werbung heute 5 €, aber nur für Affen'
+[2025-09-11 18:35:22,790] INFO: Processing method: google_speech_api
+[2025-09-11 18:35:22,790] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 18:35:22,790] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 18:35:22,790] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 18:35:22,790] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 18:35:22,790] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 18:35:22,790] INFO: Speech recognition workflow completed successfully
+[2025-09-11 18:35:23,087] INFO: Transcript segment: 'Bild von einem Affen der einen Döner ist Werbung heute 5 €, aber nur für Affen' (confidence: 0.89)
+[2025-09-11 18:35:23,087] INFO: Speech recognition completed successfully
+[2025-09-11 18:35:23,088] INFO: Average confidence: 0.89
+[2025-09-11 18:35:23,088] INFO: Full transcript: 'Bild von einem Affen der einen Döner ist Werbung heute 5 €, aber nur für Affen'
+[2025-09-11 18:35:23,088] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 18:35:23,088] INFO: --- Recognition Result ---
+[2025-09-11 18:35:23,088] INFO: "Bild von einem Affen der einen Döner ist Werbung heute 5 €, aber nur für Affen"
+[2025-09-11 18:35:23,089] INFO: --- End Result ---
+[2025-09-11 18:35:23,089] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 18:35:23,089] INFO: Transcript content: 'Bild von einem Affen der einen Döner ist Werbung heute 5 €, aber nur für Affen'
+[2025-09-11 18:35:23,089] INFO: Processing method: google_speech_api
+[2025-09-11 18:35:23,089] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 18:35:23,090] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 18:35:23,090] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 18:35:23,090] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 18:35:23,090] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 18:35:23,090] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:31:44,354] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:31:44,355] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:31:44,355] INFO: Starting speech-to-text processing...
+[2025-09-11 19:31:44,355] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:31:44,355] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:31:44,355] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:31:44,355] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:31:44,355] INFO: === Audio Format Validation ===
+[2025-09-11 19:31:44,355] INFO: Audio format analysis:
+[2025-09-11 19:31:44,355] INFO:   Channels: 1 (mono)
+[2025-09-11 19:31:44,355] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:31:44,355] INFO:   Sample width: 16 bits
+[2025-09-11 19:31:44,355] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:31:44,355] INFO: Audio file size: 1,796,956 bytes (1.71 MB)
+[2025-09-11 19:31:44,355] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:31:44,603] INFO: Reading mono audio file...
+[2025-09-11 19:31:44,605] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:31:44,605] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:31:45,501] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:31:45,501] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:31:45,501] INFO: Starting speech-to-text processing...
+[2025-09-11 19:31:45,501] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:31:45,501] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:31:45,501] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:31:45,501] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 19:31:45,501] ERROR: Please set it to point to your service account key file:
+[2025-09-11 19:31:45,501] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 19:31:45,501] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:31:45,501] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 19:31:45,501] INFO: === Audio Format Validation ===
+[2025-09-11 19:31:45,502] INFO: Audio format analysis:
+[2025-09-11 19:31:45,502] INFO:   Channels: 1 (mono)
+[2025-09-11 19:31:45,502] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:31:45,502] INFO:   Sample width: 16 bits
+[2025-09-11 19:31:45,502] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:31:45,502] INFO: Audio file size: 1,796,956 bytes (1.71 MB)
+[2025-09-11 19:31:45,502] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:31:45,748] INFO: Reading mono audio file...
+[2025-09-11 19:31:45,749] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:31:45,749] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:31:50,097] INFO: Transcript segment: 'It must join.' (confidence: 0.14)
+[2025-09-11 19:31:50,098] INFO: Transcript segment: ' To.' (confidence: 0.30)
+[2025-09-11 19:31:50,098] INFO: Transcript segment: ' Oba cup of rice.' (confidence: 0.35)
+[2025-09-11 19:31:50,098] INFO: Transcript segment: ' Shines. The industry, does he all of his momentum?' (confidence: 0.69)
+[2025-09-11 19:31:50,098] INFO: Speech recognition completed successfully
+[2025-09-11 19:31:50,098] INFO: Average confidence: 0.37
+[2025-09-11 19:31:50,098] INFO: Full transcript: 'It must join.  To.  Oba cup of rice.  Shines. The industry, does he all of his momentum?'
+[2025-09-11 19:31:50,099] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:31:50,099] INFO: --- Recognition Result ---
+[2025-09-11 19:31:50,099] INFO: "It must join.  To.  Oba cup of rice.  Shines. The industry, does he all of his momentum?"
+[2025-09-11 19:31:50,099] INFO: --- End Result ---
+[2025-09-11 19:31:50,099] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:31:50,100] INFO: Transcript content: 'It must join.  To.  Oba cup of rice.  Shines. The industry, does he all of his momentum?'
+[2025-09-11 19:31:50,100] INFO: Processing method: google_speech_api
+[2025-09-11 19:31:50,100] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:31:50,100] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:31:50,100] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:31:50,100] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:31:50,100] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:31:50,100] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:31:52,043] INFO: Transcript segment: 'It must join.' (confidence: 0.14)
+[2025-09-11 19:31:52,043] INFO: Transcript segment: ' To.' (confidence: 0.30)
+[2025-09-11 19:31:52,043] INFO: Transcript segment: ' Oba cup of rice.' (confidence: 0.35)
+[2025-09-11 19:31:52,043] INFO: Transcript segment: ' Shines. The industry, does he all of his momentum?' (confidence: 0.69)
+[2025-09-11 19:31:52,044] INFO: Speech recognition completed successfully
+[2025-09-11 19:31:52,044] INFO: Average confidence: 0.37
+[2025-09-11 19:31:52,044] INFO: Full transcript: 'It must join.  To.  Oba cup of rice.  Shines. The industry, does he all of his momentum?'
+[2025-09-11 19:31:52,044] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:31:52,044] INFO: --- Recognition Result ---
+[2025-09-11 19:31:52,044] INFO: "It must join.  To.  Oba cup of rice.  Shines. The industry, does he all of his momentum?"
+[2025-09-11 19:31:52,044] INFO: --- End Result ---
+[2025-09-11 19:31:52,044] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:31:52,044] INFO: Transcript content: 'It must join.  To.  Oba cup of rice.  Shines. The industry, does he all of his momentum?'
+[2025-09-11 19:31:52,044] INFO: Processing method: google_speech_api
+[2025-09-11 19:31:52,045] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:31:52,045] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:31:52,045] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:31:52,045] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:31:52,045] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:31:52,046] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:32:49,600] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:32:49,600] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:32:49,600] INFO: Starting speech-to-text processing...
+[2025-09-11 19:32:49,600] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:32:49,600] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:32:49,600] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:32:49,600] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:32:49,601] INFO: === Audio Format Validation ===
+[2025-09-11 19:32:49,601] INFO: Audio format analysis:
+[2025-09-11 19:32:49,601] INFO:   Channels: 1 (mono)
+[2025-09-11 19:32:49,601] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:32:49,601] INFO:   Sample width: 16 bits
+[2025-09-11 19:32:49,601] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:32:49,601] INFO: Audio file size: 904,012 bytes (0.86 MB)
+[2025-09-11 19:32:49,601] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:32:49,638] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:32:49,638] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:32:49,638] INFO: Starting speech-to-text processing...
+[2025-09-11 19:32:49,639] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:32:49,639] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:32:49,639] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:32:49,639] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 19:32:49,639] ERROR: Please set it to point to your service account key file:
+[2025-09-11 19:32:49,639] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 19:32:49,639] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:32:49,639] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 19:32:49,639] INFO: === Audio Format Validation ===
+[2025-09-11 19:32:49,639] INFO: Audio format analysis:
+[2025-09-11 19:32:49,639] INFO:   Channels: 1 (mono)
+[2025-09-11 19:32:49,639] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:32:49,639] INFO:   Sample width: 16 bits
+[2025-09-11 19:32:49,639] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:32:49,639] INFO: Audio file size: 904,012 bytes (0.86 MB)
+[2025-09-11 19:32:49,639] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:32:49,841] INFO: Reading mono audio file...
+[2025-09-11 19:32:49,842] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:32:49,842] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:32:49,877] INFO: Reading mono audio file...
+[2025-09-11 19:32:49,878] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:32:49,878] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:32:55,179] INFO: Transcript segment: 'Sonst irgendwas, ich will ein Foto von einer Gästeliste haben auf der erste Stelle soll Pierre stehen auf der zweiten Matthäus auf dem dritten Dennis und auf dem vierten Maß.' (confidence: 0.82)
+[2025-09-11 19:32:55,179] INFO: Speech recognition completed successfully
+[2025-09-11 19:32:55,179] INFO: Average confidence: 0.82
+[2025-09-11 19:32:55,179] INFO: Full transcript: 'Sonst irgendwas, ich will ein Foto von einer Gästeliste haben auf der erste Stelle soll Pierre stehen auf der zweiten Matthäus auf dem dritten Dennis und auf dem vierten Maß.'
+[2025-09-11 19:32:55,179] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:32:55,180] INFO: --- Recognition Result ---
+[2025-09-11 19:32:55,180] INFO: "Sonst irgendwas, ich will ein Foto von einer Gästeliste haben auf der erste Stelle soll Pierre stehen auf der zweiten Matthäus auf dem dritten Dennis und auf dem vierten Maß."
+[2025-09-11 19:32:55,180] INFO: --- End Result ---
+[2025-09-11 19:32:55,180] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:32:55,180] INFO: Transcript content: 'Sonst irgendwas, ich will ein Foto von einer Gästeliste haben auf der erste Stelle soll Pierre stehen auf der zweiten Matthäus auf dem dritten Dennis und auf dem vierten Maß.'
+[2025-09-11 19:32:55,180] INFO: Processing method: google_speech_api
+[2025-09-11 19:32:55,181] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:32:55,181] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:32:55,181] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:32:55,181] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:32:55,181] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:32:55,181] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:32:55,550] INFO: Transcript segment: 'Sonst irgendwas, ich will ein Foto von einer Gästeliste haben auf der erste Stelle soll Pierre stehen auf der zweiten Matthäus auf dem dritten Dennis und auf dem vierten Maß.' (confidence: 0.82)
+[2025-09-11 19:32:55,550] INFO: Speech recognition completed successfully
+[2025-09-11 19:32:55,550] INFO: Average confidence: 0.82
+[2025-09-11 19:32:55,550] INFO: Full transcript: 'Sonst irgendwas, ich will ein Foto von einer Gästeliste haben auf der erste Stelle soll Pierre stehen auf der zweiten Matthäus auf dem dritten Dennis und auf dem vierten Maß.'
+[2025-09-11 19:32:55,551] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:32:55,553] INFO: --- Recognition Result ---
+[2025-09-11 19:32:55,554] INFO: "Sonst irgendwas, ich will ein Foto von einer Gästeliste haben auf der erste Stelle soll Pierre stehen auf der zweiten Matthäus auf dem dritten Dennis und auf dem vierten Maß."
+[2025-09-11 19:32:55,554] INFO: --- End Result ---
+[2025-09-11 19:32:55,554] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:32:55,554] INFO: Transcript content: 'Sonst irgendwas, ich will ein Foto von einer Gästeliste haben auf der erste Stelle soll Pierre stehen auf der zweiten Matthäus auf dem dritten Dennis und auf dem vierten Maß.'
+[2025-09-11 19:32:55,554] INFO: Processing method: google_speech_api
+[2025-09-11 19:32:55,554] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:32:55,555] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:32:55,555] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:32:55,555] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:32:55,555] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:32:55,555] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:42:31,254] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:42:31,255] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:42:31,255] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:42:31,255] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:42:31,255] INFO: Starting speech-to-text processing...
+[2025-09-11 19:42:31,255] INFO: Starting speech-to-text processing...
+[2025-09-11 19:42:31,255] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:42:31,255] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:42:31,255] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:42:31,255] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:42:31,255] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:42:31,255] INFO: === Audio Format Validation ===
+[2025-09-11 19:42:31,255] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:42:31,255] INFO: Audio format analysis:
+[2025-09-11 19:42:31,255] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:42:31,255] INFO:   Channels: 1 (mono)
+[2025-09-11 19:42:31,255] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:42:31,255] INFO:   Sample width: 16 bits
+[2025-09-11 19:42:31,255] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:42:31,255] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 19:42:31,256] INFO: Audio file size: 904,012 bytes (0.86 MB)
+[2025-09-11 19:42:31,256] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:42:31,256] ERROR: Please set it to point to your service account key file:
+[2025-09-11 19:42:31,256] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 19:42:31,256] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:42:31,256] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 19:42:31,256] INFO: === Audio Format Validation ===
+[2025-09-11 19:42:31,256] INFO: Audio format analysis:
+[2025-09-11 19:42:31,256] INFO:   Channels: 1 (mono)
+[2025-09-11 19:42:31,256] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:42:31,256] INFO:   Sample width: 16 bits
+[2025-09-11 19:42:31,256] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:42:31,256] INFO: Audio file size: 904,012 bytes (0.86 MB)
+[2025-09-11 19:42:31,256] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:42:31,508] INFO: Reading mono audio file...
+[2025-09-11 19:42:31,508] INFO: Reading mono audio file...
+[2025-09-11 19:42:31,509] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:42:31,509] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:42:31,510] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:42:31,510] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:42:34,884] INFO: Transcript segment: 'Erstelle mir ein Bild, indem man sie ein seven eleven sieht in Tokyo und davor steht Cristiano Ronaldo.' (confidence: 0.92)
+[2025-09-11 19:42:34,884] INFO: Speech recognition completed successfully
+[2025-09-11 19:42:34,884] INFO: Average confidence: 0.92
+[2025-09-11 19:42:34,884] INFO: Full transcript: 'Erstelle mir ein Bild, indem man sie ein seven eleven sieht in Tokyo und davor steht Cristiano Ronaldo.'
+[2025-09-11 19:42:34,886] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:42:34,886] INFO: --- Recognition Result ---
+[2025-09-11 19:42:34,886] INFO: "Erstelle mir ein Bild, indem man sie ein seven eleven sieht in Tokyo und davor steht Cristiano Ronaldo."
+[2025-09-11 19:42:34,886] INFO: --- End Result ---
+[2025-09-11 19:42:34,886] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:42:34,887] INFO: Transcript content: 'Erstelle mir ein Bild, indem man sie ein seven eleven sieht in Tokyo und davor steht Cristiano Ronaldo.'
+[2025-09-11 19:42:34,887] INFO: Processing method: google_speech_api
+[2025-09-11 19:42:34,887] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:42:34,887] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:42:34,887] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:42:34,887] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:42:34,887] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:42:34,888] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:42:35,019] INFO: Transcript segment: 'Erstelle mir ein Bild, indem man sie ein seven eleven sieht in Tokyo und davor steht Cristiano Ronaldo.' (confidence: 0.92)
+[2025-09-11 19:42:35,020] INFO: Speech recognition completed successfully
+[2025-09-11 19:42:35,020] INFO: Average confidence: 0.92
+[2025-09-11 19:42:35,020] INFO: Full transcript: 'Erstelle mir ein Bild, indem man sie ein seven eleven sieht in Tokyo und davor steht Cristiano Ronaldo.'
+[2025-09-11 19:42:35,020] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:42:35,020] INFO: --- Recognition Result ---
+[2025-09-11 19:42:35,020] INFO: "Erstelle mir ein Bild, indem man sie ein seven eleven sieht in Tokyo und davor steht Cristiano Ronaldo."
+[2025-09-11 19:42:35,020] INFO: --- End Result ---
+[2025-09-11 19:42:35,021] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:42:35,021] INFO: Transcript content: 'Erstelle mir ein Bild, indem man sie ein seven eleven sieht in Tokyo und davor steht Cristiano Ronaldo.'
+[2025-09-11 19:42:35,021] INFO: Processing method: google_speech_api
+[2025-09-11 19:42:35,021] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:42:35,022] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:42:35,022] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:42:35,022] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:42:35,022] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:42:35,022] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:45:28,385] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:45:28,386] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:45:28,386] INFO: Starting speech-to-text processing...
+[2025-09-11 19:45:28,386] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:45:28,386] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:45:28,386] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:45:28,386] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:45:28,386] INFO: === Audio Format Validation ===
+[2025-09-11 19:45:28,386] INFO: Audio format analysis:
+[2025-09-11 19:45:28,386] INFO:   Channels: 1 (mono)
+[2025-09-11 19:45:28,387] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:45:28,387] INFO:   Sample width: 16 bits
+[2025-09-11 19:45:28,387] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:45:28,387] INFO: Audio file size: 1,510,332 bytes (1.44 MB)
+[2025-09-11 19:45:28,387] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:45:28,598] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:45:28,598] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:45:28,598] INFO: Starting speech-to-text processing...
+[2025-09-11 19:45:28,599] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:45:28,599] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:45:28,599] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:45:28,599] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 19:45:28,599] ERROR: Please set it to point to your service account key file:
+[2025-09-11 19:45:28,599] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 19:45:28,599] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:45:28,599] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 19:45:28,599] INFO: === Audio Format Validation ===
+[2025-09-11 19:45:28,599] INFO: Audio format analysis:
+[2025-09-11 19:45:28,599] INFO:   Channels: 1 (mono)
+[2025-09-11 19:45:28,599] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:45:28,599] INFO:   Sample width: 16 bits
+[2025-09-11 19:45:28,599] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:45:28,599] INFO: Audio file size: 1,510,332 bytes (1.44 MB)
+[2025-09-11 19:45:28,599] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:45:28,633] INFO: Reading mono audio file...
+[2025-09-11 19:45:28,634] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:45:28,634] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:45:28,838] INFO: Reading mono audio file...
+[2025-09-11 19:45:28,839] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:45:28,840] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:45:34,682] INFO: Transcript segment: 'Erstell mir ein Bild in Tokyo in dem Eric Cartman vor einem seven eleven steht aber nur Eric Cartman soll gezeichnet sein, die Umgebung bei ihm soll die echte sein.' (confidence: 0.88)
+[2025-09-11 19:45:34,682] INFO: Speech recognition completed successfully
+[2025-09-11 19:45:34,682] INFO: Average confidence: 0.88
+[2025-09-11 19:45:34,682] INFO: Full transcript: 'Erstell mir ein Bild in Tokyo in dem Eric Cartman vor einem seven eleven steht aber nur Eric Cartman soll gezeichnet sein, die Umgebung bei ihm soll die echte sein.'
+[2025-09-11 19:45:34,682] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:45:34,682] INFO: --- Recognition Result ---
+[2025-09-11 19:45:34,683] INFO: "Erstell mir ein Bild in Tokyo in dem Eric Cartman vor einem seven eleven steht aber nur Eric Cartman soll gezeichnet sein, die Umgebung bei ihm soll die echte sein."
+[2025-09-11 19:45:34,683] INFO: --- End Result ---
+[2025-09-11 19:45:34,683] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:45:34,683] INFO: Transcript content: 'Erstell mir ein Bild in Tokyo in dem Eric Cartman vor einem seven eleven steht aber nur Eric Cartman soll gezeichnet sein, die Umgebung bei ihm soll die echte sein.'
+[2025-09-11 19:45:34,683] INFO: Processing method: google_speech_api
+[2025-09-11 19:45:34,683] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:45:34,684] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:45:34,684] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:45:34,684] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:45:34,684] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:45:34,684] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:45:41,272] INFO: Transcript segment: 'Externally, I'm built in Tokyo in them, Eric Cartman, for I am 7-Eleven State. Abba know, Eric Cartman's orchids, and Neil Gabon by him. So, the ash design' (confidence: 0.57)
+[2025-09-11 19:45:41,273] INFO: Speech recognition completed successfully
+[2025-09-11 19:45:41,273] INFO: Average confidence: 0.57
+[2025-09-11 19:45:41,273] INFO: Full transcript: 'Externally, I'm built in Tokyo in them, Eric Cartman, for I am 7-Eleven State. Abba know, Eric Cartman's orchids, and Neil Gabon by him. So, the ash design'
+[2025-09-11 19:45:41,273] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:45:41,273] INFO: --- Recognition Result ---
+[2025-09-11 19:45:41,274] INFO: "Externally, I'm built in Tokyo in them, Eric Cartman, for I am 7-Eleven State. Abba know, Eric Cartman's orchids, and Neil Gabon by him. So, the ash design"
+[2025-09-11 19:45:41,274] INFO: --- End Result ---
+[2025-09-11 19:45:41,274] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:45:41,274] INFO: Transcript content: 'Externally, I'm built in Tokyo in them, Eric Cartman, for I am 7-Eleven State. Abba know, Eric Cartman's orchids, and Neil Gabon by him. So, the ash design'
+[2025-09-11 19:45:41,274] INFO: Processing method: google_speech_api
+[2025-09-11 19:45:41,274] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:45:41,275] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:45:41,275] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:45:41,275] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:45:41,275] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:45:41,275] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:46:42,872] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:46:42,873] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:46:42,873] INFO: Starting speech-to-text processing...
+[2025-09-11 19:46:42,873] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:46:42,873] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:46:42,873] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:46:42,873] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-11 19:46:42,873] ERROR: Please set it to point to your service account key file:
+[2025-09-11 19:46:42,873] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-11 19:46:42,873] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:46:42,873] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-11 19:46:42,873] INFO: === Audio Format Validation ===
+[2025-09-11 19:46:42,873] INFO: Audio format analysis:
+[2025-09-11 19:46:42,874] INFO:   Channels: 1 (mono)
+[2025-09-11 19:46:42,874] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:46:42,874] INFO:   Sample width: 16 bits
+[2025-09-11 19:46:42,874] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:46:42,874] INFO: Audio file size: 1,168,588 bytes (1.11 MB)
+[2025-09-11 19:46:42,874] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:46:43,117] INFO: Reading mono audio file...
+[2025-09-11 19:46:43,122] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:46:43,123] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:46:49,135] INFO: Transcript segment: 'Nimm das gleiche Bild, was du gerade eben kreiert hast und verbessere Eric Cartman, du hast die falsche Kopfform und die falschen Farben gewählt.' (confidence: 0.93)
+[2025-09-11 19:46:49,135] INFO: Speech recognition completed successfully
+[2025-09-11 19:46:49,135] INFO: Average confidence: 0.93
+[2025-09-11 19:46:49,135] INFO: Full transcript: 'Nimm das gleiche Bild, was du gerade eben kreiert hast und verbessere Eric Cartman, du hast die falsche Kopfform und die falschen Farben gewählt.'
+[2025-09-11 19:46:49,136] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:46:49,136] INFO: --- Recognition Result ---
+[2025-09-11 19:46:49,136] INFO: "Nimm das gleiche Bild, was du gerade eben kreiert hast und verbessere Eric Cartman, du hast die falsche Kopfform und die falschen Farben gewählt."
+[2025-09-11 19:46:49,137] INFO: --- End Result ---
+[2025-09-11 19:46:49,137] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:46:49,137] INFO: Transcript content: 'Nimm das gleiche Bild, was du gerade eben kreiert hast und verbessere Eric Cartman, du hast die falsche Kopfform und die falschen Farben gewählt.'
+[2025-09-11 19:46:49,137] INFO: Processing method: google_speech_api
+[2025-09-11 19:46:49,137] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:46:49,137] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:46:49,137] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:46:49,138] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:46:49,138] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:46:49,138] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:54:08,574] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:54:08,575] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:54:08,576] INFO: Starting speech-to-text processing...
+[2025-09-11 19:54:08,576] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:54:08,576] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:54:08,576] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:54:08,576] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:54:08,576] INFO: === Audio Format Validation ===
+[2025-09-11 19:54:08,576] INFO: Audio format analysis:
+[2025-09-11 19:54:08,576] INFO:   Channels: 1 (mono)
+[2025-09-11 19:54:08,576] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:54:08,576] INFO:   Sample width: 16 bits
+[2025-09-11 19:54:08,576] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:54:08,576] INFO: Audio file size: 1,422,140 bytes (1.36 MB)
+[2025-09-11 19:54:08,576] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:54:08,878] INFO: Reading mono audio file...
+[2025-09-11 19:54:08,880] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:54:08,880] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:54:13,405] INFO: Transcript segment: 'Erstelle mir ein Bild von Adolf Hitler mit Son Goku in dem die arm wrestling machen und das ganze soll passieren vor Ikea.' (confidence: 0.91)
+[2025-09-11 19:54:13,406] INFO: Speech recognition completed successfully
+[2025-09-11 19:54:13,406] INFO: Average confidence: 0.91
+[2025-09-11 19:54:13,406] INFO: Full transcript: 'Erstelle mir ein Bild von Adolf Hitler mit Son Goku in dem die arm wrestling machen und das ganze soll passieren vor Ikea.'
+[2025-09-11 19:54:13,406] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:54:13,406] INFO: --- Recognition Result ---
+[2025-09-11 19:54:13,406] INFO: "Erstelle mir ein Bild von Adolf Hitler mit Son Goku in dem die arm wrestling machen und das ganze soll passieren vor Ikea."
+[2025-09-11 19:54:13,406] INFO: --- End Result ---
+[2025-09-11 19:54:13,407] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:54:13,407] INFO: Transcript content: 'Erstelle mir ein Bild von Adolf Hitler mit Son Goku in dem die arm wrestling machen und das ganze soll passieren vor Ikea.'
+[2025-09-11 19:54:13,407] INFO: Processing method: google_speech_api
+[2025-09-11 19:54:13,407] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:54:13,408] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:54:13,408] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:54:13,408] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:54:13,408] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:54:13,408] INFO: Speech recognition workflow completed successfully
+[2025-09-11 19:55:52,696] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 19:55:52,696] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 19:55:52,696] INFO: Starting speech-to-text processing...
+[2025-09-11 19:55:52,696] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:55:52,697] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 19:55:52,697] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 19:55:52,697] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 19:55:52,697] INFO: === Audio Format Validation ===
+[2025-09-11 19:55:52,697] INFO: Audio format analysis:
+[2025-09-11 19:55:52,697] INFO:   Channels: 1 (mono)
+[2025-09-11 19:55:52,697] INFO:   Sample rate: 44100 Hz
+[2025-09-11 19:55:52,697] INFO:   Sample width: 16 bits
+[2025-09-11 19:55:52,697] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 19:55:52,697] INFO: Audio file size: 496,124 bytes (0.47 MB)
+[2025-09-11 19:55:52,697] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 19:55:52,939] INFO: Reading mono audio file...
+[2025-09-11 19:55:52,940] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 19:55:52,940] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 19:55:55,126] INFO: Transcript segment: 'Bratwurst sind mit Herzform im Hintergrund Pommes' (confidence: 0.74)
+[2025-09-11 19:55:55,126] INFO: Speech recognition completed successfully
+[2025-09-11 19:55:55,126] INFO: Average confidence: 0.74
+[2025-09-11 19:55:55,126] INFO: Full transcript: 'Bratwurst sind mit Herzform im Hintergrund Pommes'
+[2025-09-11 19:55:55,126] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 19:55:55,126] INFO: --- Recognition Result ---
+[2025-09-11 19:55:55,126] INFO: "Bratwurst sind mit Herzform im Hintergrund Pommes"
+[2025-09-11 19:55:55,127] INFO: --- End Result ---
+[2025-09-11 19:55:55,127] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 19:55:55,127] INFO: Transcript content: 'Bratwurst sind mit Herzform im Hintergrund Pommes'
+[2025-09-11 19:55:55,127] INFO: Processing method: google_speech_api
+[2025-09-11 19:55:55,127] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 19:55:55,128] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 19:55:55,128] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 19:55:55,128] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 19:55:55,128] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 19:55:55,128] INFO: Speech recognition workflow completed successfully
+[2025-09-11 20:01:42,983] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-11 20:01:42,983] INFO: === Voice to Google Speech Recognition ===
+[2025-09-11 20:01:42,984] INFO: Starting speech-to-text processing...
+[2025-09-11 20:01:42,984] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 20:01:42,984] INFO: Processing audio file: aufnahme.wav
+[2025-09-11 20:01:42,984] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-11 20:01:42,984] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-11 20:01:42,984] INFO: === Audio Format Validation ===
+[2025-09-11 20:01:42,984] INFO: Audio format analysis:
+[2025-09-11 20:01:42,984] INFO:   Channels: 1 (mono)
+[2025-09-11 20:01:42,984] INFO:   Sample rate: 44100 Hz
+[2025-09-11 20:01:42,984] INFO:   Sample width: 16 bits
+[2025-09-11 20:01:42,984] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-11 20:01:42,984] INFO: Audio file size: 992,204 bytes (0.95 MB)
+[2025-09-11 20:01:42,984] INFO: Initializing Google Speech-to-Text client...
+[2025-09-11 20:01:43,222] INFO: Reading mono audio file...
+[2025-09-11 20:01:43,223] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-11 20:01:43,223] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-11 20:01:46,942] INFO: Transcript segment: 'Mach mir ein Bild in dem Song Goku und Donald Trump Armdrücken machen vor einem Kiosk.' (confidence: 0.87)
+[2025-09-11 20:01:46,942] INFO: Speech recognition completed successfully
+[2025-09-11 20:01:46,942] INFO: Average confidence: 0.87
+[2025-09-11 20:01:46,942] INFO: Full transcript: 'Mach mir ein Bild in dem Song Goku und Donald Trump Armdrücken machen vor einem Kiosk.'
+[2025-09-11 20:01:46,942] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-11 20:01:46,942] INFO: --- Recognition Result ---
+[2025-09-11 20:01:46,942] INFO: "Mach mir ein Bild in dem Song Goku und Donald Trump Armdrücken machen vor einem Kiosk."
+[2025-09-11 20:01:46,942] INFO: --- End Result ---
+[2025-09-11 20:01:46,943] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-11 20:01:46,943] INFO: Transcript content: 'Mach mir ein Bild in dem Song Goku und Donald Trump Armdrücken machen vor einem Kiosk.'
+[2025-09-11 20:01:46,943] INFO: Processing method: google_speech_api
+[2025-09-11 20:01:46,943] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-11 20:01:46,943] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-11 20:01:46,944] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-11 20:01:46,944] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-11 20:01:46,944] INFO: ✓ Speech recognition completed successfully
+[2025-09-11 20:01:46,944] INFO: Speech recognition workflow completed successfully
+[2025-09-15 14:49:33,364] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 14:49:33,365] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 14:49:33,366] INFO: Starting speech-to-text processing...
+[2025-09-15 14:49:33,366] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 14:49:33,366] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 14:49:33,366] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 14:49:33,366] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 14:49:33,366] INFO: === Audio Format Validation ===
+[2025-09-15 14:49:33,366] INFO: Audio format analysis:
+[2025-09-15 14:49:33,366] INFO:   Channels: 1 (mono)
+[2025-09-15 14:49:33,366] INFO:   Sample rate: 44100 Hz
+[2025-09-15 14:49:33,366] INFO:   Sample width: 16 bits
+[2025-09-15 14:49:33,366] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 14:49:33,366] INFO: Audio file size: 242,572 bytes (0.23 MB)
+[2025-09-15 14:49:33,366] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 14:49:33,671] INFO: Reading mono audio file...
+[2025-09-15 14:49:33,671] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 14:49:33,672] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 14:49:34,282] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 14:49:34,282] ERROR: Error type: Unauthenticated
+[2025-09-15 14:49:34,282] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 14:49:34,282] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 14:49:34,283] INFO: For real speech recognition, ensure:
+[2025-09-15 14:49:34,283] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 14:49:34,283] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 14:49:34,283] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 14:49:34,283] INFO: Using fallback mode for speech recognition
+[2025-09-15 14:49:34,283] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 14:49:34,283] INFO: Audio file size: 242,572 bytes
+[2025-09-15 14:49:34,283] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 14:49:34,283] INFO:   Processing... 1/1
+[2025-09-15 14:49:35,283] INFO: --- Recognition Result ---
+[2025-09-15 14:49:35,283] INFO: "Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text."
+[2025-09-15 14:49:35,283] INFO: --- End Result ---
+[2025-09-15 14:49:35,284] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 14:49:35,284] INFO: Transcript content: 'Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text.'
+[2025-09-15 14:49:35,284] INFO: Processing method: fallback
+[2025-09-15 14:49:35,284] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 14:49:35,285] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 14:49:35,285] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 14:49:35,285] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 14:49:35,285] INFO: Speech recognition workflow completed successfully
+[2025-09-15 15:10:19,583] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 15:10:19,583] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 15:10:19,583] INFO: Starting speech-to-text processing...
+[2025-09-15 15:10:19,584] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:10:19,584] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 15:10:19,584] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 15:10:19,584] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 15:10:19,584] INFO: === Audio Format Validation ===
+[2025-09-15 15:10:19,584] INFO: Audio format analysis:
+[2025-09-15 15:10:19,584] INFO:   Channels: 1 (mono)
+[2025-09-15 15:10:19,584] INFO:   Sample rate: 44100 Hz
+[2025-09-15 15:10:19,584] INFO:   Sample width: 16 bits
+[2025-09-15 15:10:19,584] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 15:10:19,584] INFO: Audio file size: 705,580 bytes (0.67 MB)
+[2025-09-15 15:10:19,584] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 15:10:19,828] INFO: Reading mono audio file...
+[2025-09-15 15:10:19,829] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 15:10:19,829] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 15:10:20,240] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 15:10:20,240] ERROR: Error type: Unauthenticated
+[2025-09-15 15:10:20,240] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 15:10:20,240] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 15:10:20,240] INFO: For real speech recognition, ensure:
+[2025-09-15 15:10:20,240] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 15:10:20,240] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:10:20,240] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 15:10:20,240] INFO: Using fallback mode for speech recognition
+[2025-09-15 15:10:20,240] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:10:20,240] INFO: Audio file size: 705,580 bytes
+[2025-09-15 15:10:20,240] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 15:10:20,240] INFO:   Processing... 1/1
+[2025-09-15 15:10:21,240] INFO: --- Recognition Result ---
+[2025-09-15 15:10:21,241] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 15:10:21,241] INFO: --- End Result ---
+[2025-09-15 15:10:21,241] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 15:10:21,242] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 15:10:21,242] INFO: Processing method: fallback
+[2025-09-15 15:10:21,242] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:10:21,242] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 15:10:21,242] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 15:10:21,242] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 15:10:21,243] INFO: Speech recognition workflow completed successfully
+[2025-09-15 15:34:45,371] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 15:34:45,372] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 15:34:45,372] INFO: Starting speech-to-text processing...
+[2025-09-15 15:34:45,373] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:34:45,373] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 15:34:45,373] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 15:34:45,373] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 15:34:45,373] INFO: === Audio Format Validation ===
+[2025-09-15 15:34:45,373] INFO: Audio format analysis:
+[2025-09-15 15:34:45,373] INFO:   Channels: 1 (mono)
+[2025-09-15 15:34:45,373] INFO:   Sample rate: 44100 Hz
+[2025-09-15 15:34:45,373] INFO:   Sample width: 16 bits
+[2025-09-15 15:34:45,373] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 15:34:45,373] INFO: Audio file size: 452,028 bytes (0.43 MB)
+[2025-09-15 15:34:45,373] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 15:34:45,649] INFO: Reading mono audio file...
+[2025-09-15 15:34:45,649] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 15:34:45,649] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 15:34:45,941] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 15:34:45,942] ERROR: Error type: Unauthenticated
+[2025-09-15 15:34:45,942] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 15:34:45,942] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 15:34:45,942] INFO: For real speech recognition, ensure:
+[2025-09-15 15:34:45,942] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 15:34:45,942] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:34:45,942] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 15:34:45,942] INFO: Using fallback mode for speech recognition
+[2025-09-15 15:34:45,942] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:34:45,942] INFO: Audio file size: 452,028 bytes
+[2025-09-15 15:34:45,942] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 15:34:45,942] INFO:   Processing... 1/1
+[2025-09-15 15:34:46,942] INFO: --- Recognition Result ---
+[2025-09-15 15:34:46,942] INFO: "Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text."
+[2025-09-15 15:34:46,942] INFO: --- End Result ---
+[2025-09-15 15:34:46,943] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 15:34:46,943] INFO: Transcript content: 'Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text.'
+[2025-09-15 15:34:46,943] INFO: Processing method: fallback
+[2025-09-15 15:34:46,943] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:34:46,944] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 15:34:46,944] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 15:34:46,944] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 15:34:46,944] INFO: Speech recognition workflow completed successfully
+[2025-09-15 15:35:29,388] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 15:35:29,388] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 15:35:29,388] INFO: Starting speech-to-text processing...
+[2025-09-15 15:35:29,388] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:35:29,388] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 15:35:29,388] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 15:35:29,388] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 15:35:29,388] INFO: === Audio Format Validation ===
+[2025-09-15 15:35:29,388] INFO: Audio format analysis:
+[2025-09-15 15:35:29,389] INFO:   Channels: 1 (mono)
+[2025-09-15 15:35:29,389] INFO:   Sample rate: 44100 Hz
+[2025-09-15 15:35:29,389] INFO:   Sample width: 16 bits
+[2025-09-15 15:35:29,389] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 15:35:29,389] INFO: Audio file size: 760,700 bytes (0.73 MB)
+[2025-09-15 15:35:29,389] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 15:35:29,627] INFO: Reading mono audio file...
+[2025-09-15 15:35:29,627] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 15:35:29,627] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 15:35:29,968] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 15:35:29,968] ERROR: Error type: Unauthenticated
+[2025-09-15 15:35:29,968] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 15:35:29,968] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 15:35:29,968] INFO: For real speech recognition, ensure:
+[2025-09-15 15:35:29,968] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 15:35:29,968] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:35:29,968] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 15:35:29,968] INFO: Using fallback mode for speech recognition
+[2025-09-15 15:35:29,968] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:35:29,968] INFO: Audio file size: 760,700 bytes
+[2025-09-15 15:35:29,968] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 15:35:29,968] INFO:   Processing... 1/1
+[2025-09-15 15:35:30,968] INFO: --- Recognition Result ---
+[2025-09-15 15:35:30,969] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 15:35:30,969] INFO: --- End Result ---
+[2025-09-15 15:35:30,969] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 15:35:30,969] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 15:35:30,969] INFO: Processing method: fallback
+[2025-09-15 15:35:30,969] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:35:30,970] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 15:35:30,970] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 15:35:30,970] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 15:35:30,970] INFO: Speech recognition workflow completed successfully
+[2025-09-15 15:42:35,177] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 15:42:35,178] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 15:42:35,178] INFO: Starting speech-to-text processing...
+[2025-09-15 15:42:35,178] INFO: Using audio file from command line: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:42:35,179] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 15:42:35,179] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 15:42:35,179] ERROR: GOOGLE_APPLICATION_CREDENTIALS environment variable not set
+[2025-09-15 15:42:35,179] ERROR: Please set it to point to your service account key file:
+[2025-09-15 15:42:35,179] ERROR: export GOOGLE_APPLICATION_CREDENTIALS='/home/pi/Desktop/v2_Tripple S/cloudKey.json'
+[2025-09-15 15:42:35,179] INFO: Found credentials at standard location: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 15:42:35,179] INFO: Consider setting GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:42:35,179] INFO: === Audio Format Validation ===
+[2025-09-15 15:42:35,179] INFO: Audio format analysis:
+[2025-09-15 15:42:35,179] INFO:   Channels: 1 (mono)
+[2025-09-15 15:42:35,179] INFO:   Sample rate: 44100 Hz
+[2025-09-15 15:42:35,179] INFO:   Sample width: 16 bits
+[2025-09-15 15:42:35,179] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 15:42:35,179] INFO: Audio file size: 760,700 bytes (0.73 MB)
+[2025-09-15 15:42:35,179] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 15:42:35,425] INFO: Reading mono audio file...
+[2025-09-15 15:42:35,427] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 15:42:35,427] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 15:42:37,434] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 15:42:37,435] ERROR: Error type: Unauthenticated
+[2025-09-15 15:42:37,435] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 15:42:37,435] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 15:42:37,435] INFO: For real speech recognition, ensure:
+[2025-09-15 15:42:37,435] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 15:42:37,435] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:42:37,435] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 15:42:37,435] INFO: Using fallback mode for speech recognition
+[2025-09-15 15:42:37,435] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:42:37,435] INFO: Audio file size: 760,700 bytes
+[2025-09-15 15:42:37,435] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 15:42:37,435] INFO:   Processing... 1/1
+[2025-09-15 15:42:38,435] INFO: --- Recognition Result ---
+[2025-09-15 15:42:38,435] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 15:42:38,435] INFO: --- End Result ---
+[2025-09-15 15:42:38,436] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 15:42:38,436] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 15:42:38,436] INFO: Processing method: fallback
+[2025-09-15 15:42:38,436] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:42:38,437] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 15:42:38,437] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 15:42:38,437] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 15:42:38,437] INFO: Speech recognition workflow completed successfully
+[2025-09-15 15:44:06,142] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 15:44:06,142] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 15:44:06,143] INFO: Starting speech-to-text processing...
+[2025-09-15 15:44:06,143] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:44:06,143] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 15:44:06,143] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 15:44:06,143] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 15:44:06,143] INFO: === Audio Format Validation ===
+[2025-09-15 15:44:06,143] INFO: Audio format analysis:
+[2025-09-15 15:44:06,143] INFO:   Channels: 1 (mono)
+[2025-09-15 15:44:06,143] INFO:   Sample rate: 44100 Hz
+[2025-09-15 15:44:06,143] INFO:   Sample width: 16 bits
+[2025-09-15 15:44:06,143] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 15:44:06,143] INFO: Audio file size: 793,772 bytes (0.76 MB)
+[2025-09-15 15:44:06,143] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 15:44:06,382] INFO: Reading mono audio file...
+[2025-09-15 15:44:06,383] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 15:44:06,383] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 15:44:06,739] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 15:44:06,739] ERROR: Error type: Unauthenticated
+[2025-09-15 15:44:06,739] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 15:44:06,739] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 15:44:06,739] INFO: For real speech recognition, ensure:
+[2025-09-15 15:44:06,739] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 15:44:06,739] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:44:06,739] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 15:44:06,739] INFO: Using fallback mode for speech recognition
+[2025-09-15 15:44:06,739] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:44:06,739] INFO: Audio file size: 793,772 bytes
+[2025-09-15 15:44:06,739] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 15:44:06,739] INFO:   Processing... 1/1
+[2025-09-15 15:44:07,739] INFO: --- Recognition Result ---
+[2025-09-15 15:44:07,739] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 15:44:07,739] INFO: --- End Result ---
+[2025-09-15 15:44:07,740] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 15:44:07,740] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 15:44:07,740] INFO: Processing method: fallback
+[2025-09-15 15:44:07,740] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:44:07,741] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 15:44:07,741] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 15:44:07,741] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 15:44:07,741] INFO: Speech recognition workflow completed successfully
+[2025-09-15 15:46:49,711] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 15:46:49,711] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 15:46:49,711] INFO: Starting speech-to-text processing...
+[2025-09-15 15:46:49,711] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:46:49,711] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 15:46:49,712] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 15:46:49,712] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 15:46:49,712] INFO: === Audio Format Validation ===
+[2025-09-15 15:46:49,712] INFO: Audio format analysis:
+[2025-09-15 15:46:49,712] INFO:   Channels: 1 (mono)
+[2025-09-15 15:46:49,712] INFO:   Sample rate: 44100 Hz
+[2025-09-15 15:46:49,712] INFO:   Sample width: 16 bits
+[2025-09-15 15:46:49,712] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 15:46:49,712] INFO: Audio file size: 881,964 bytes (0.84 MB)
+[2025-09-15 15:46:49,712] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 15:46:49,962] INFO: Reading mono audio file...
+[2025-09-15 15:46:49,963] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 15:46:49,963] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 15:46:50,736] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 15:46:50,736] ERROR: Error type: Unauthenticated
+[2025-09-15 15:46:50,736] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 15:46:50,737] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 15:46:50,737] INFO: For real speech recognition, ensure:
+[2025-09-15 15:46:50,737] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 15:46:50,737] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:46:50,737] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 15:46:50,737] INFO: Using fallback mode for speech recognition
+[2025-09-15 15:46:50,737] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:46:50,737] INFO: Audio file size: 881,964 bytes
+[2025-09-15 15:46:50,737] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 15:46:50,737] INFO:   Processing... 1/1
+[2025-09-15 15:46:51,737] INFO: --- Recognition Result ---
+[2025-09-15 15:46:51,737] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 15:46:51,737] INFO: --- End Result ---
+[2025-09-15 15:46:51,737] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 15:46:51,737] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 15:46:51,737] INFO: Processing method: fallback
+[2025-09-15 15:46:51,738] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:46:51,738] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 15:46:51,738] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 15:46:51,738] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 15:46:51,738] INFO: Speech recognition workflow completed successfully
+[2025-09-15 15:48:00,156] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 15:48:00,156] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 15:48:00,156] INFO: Starting speech-to-text processing...
+[2025-09-15 15:48:00,157] INFO: Using audio file from command line: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:48:00,157] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 15:48:00,157] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 15:48:00,157] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 15:48:00,157] INFO: === Audio Format Validation ===
+[2025-09-15 15:48:00,157] INFO: Audio format analysis:
+[2025-09-15 15:48:00,157] INFO:   Channels: 1 (mono)
+[2025-09-15 15:48:00,157] INFO:   Sample rate: 44100 Hz
+[2025-09-15 15:48:00,157] INFO:   Sample width: 16 bits
+[2025-09-15 15:48:00,157] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 15:48:00,157] INFO: Audio file size: 881,964 bytes (0.84 MB)
+[2025-09-15 15:48:00,157] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 15:48:00,395] INFO: Reading mono audio file...
+[2025-09-15 15:48:00,396] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 15:48:00,396] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 15:48:00,770] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 15:48:00,771] ERROR: Error type: Unauthenticated
+[2025-09-15 15:48:00,771] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 15:48:00,771] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 15:48:00,771] INFO: For real speech recognition, ensure:
+[2025-09-15 15:48:00,771] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 15:48:00,771] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:48:00,771] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 15:48:00,771] INFO: Using fallback mode for speech recognition
+[2025-09-15 15:48:00,771] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:48:00,771] INFO: Audio file size: 881,964 bytes
+[2025-09-15 15:48:00,771] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 15:48:00,771] INFO:   Processing... 1/1
+[2025-09-15 15:48:01,771] INFO: --- Recognition Result ---
+[2025-09-15 15:48:01,771] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 15:48:01,771] INFO: --- End Result ---
+[2025-09-15 15:48:01,772] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 15:48:01,772] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 15:48:01,772] INFO: Processing method: fallback
+[2025-09-15 15:48:01,772] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:48:01,773] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 15:48:01,773] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 15:48:01,773] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 15:48:01,773] INFO: Speech recognition workflow completed successfully
+[2025-09-15 15:56:35,549] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 15:56:35,550] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 15:56:35,550] INFO: Starting speech-to-text processing...
+[2025-09-15 15:56:35,550] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:56:35,550] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 15:56:35,550] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 15:56:35,550] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 15:56:35,550] INFO: === Audio Format Validation ===
+[2025-09-15 15:56:35,550] INFO: Audio format analysis:
+[2025-09-15 15:56:35,550] INFO:   Channels: 1 (mono)
+[2025-09-15 15:56:35,550] INFO:   Sample rate: 44100 Hz
+[2025-09-15 15:56:35,551] INFO:   Sample width: 16 bits
+[2025-09-15 15:56:35,551] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 15:56:35,551] INFO: Audio file size: 628,412 bytes (0.60 MB)
+[2025-09-15 15:56:35,551] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 15:56:35,801] INFO: Reading mono audio file...
+[2025-09-15 15:56:35,802] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 15:56:35,802] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 15:56:36,106] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 15:56:36,106] ERROR: Error type: Unauthenticated
+[2025-09-15 15:56:36,106] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 15:56:36,106] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 15:56:36,106] INFO: For real speech recognition, ensure:
+[2025-09-15 15:56:36,106] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 15:56:36,106] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 15:56:36,106] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 15:56:36,106] INFO: Using fallback mode for speech recognition
+[2025-09-15 15:56:36,106] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:56:36,106] INFO: Audio file size: 628,412 bytes
+[2025-09-15 15:56:36,106] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 15:56:36,106] INFO:   Processing... 1/1
+[2025-09-15 15:56:37,106] INFO: --- Recognition Result ---
+[2025-09-15 15:56:37,107] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 15:56:37,107] INFO: --- End Result ---
+[2025-09-15 15:56:37,107] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 15:56:37,107] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 15:56:37,107] INFO: Processing method: fallback
+[2025-09-15 15:56:37,107] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 15:56:37,108] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 15:56:37,108] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 15:56:37,108] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 15:56:37,108] INFO: Speech recognition workflow completed successfully
+[2025-09-15 16:09:52,987] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 16:09:52,988] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 16:09:52,989] INFO: Starting speech-to-text processing...
+[2025-09-15 16:09:52,989] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:09:52,989] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 16:09:52,989] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 16:09:52,989] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 16:09:52,989] INFO: === Audio Format Validation ===
+[2025-09-15 16:09:52,989] INFO: Audio format analysis:
+[2025-09-15 16:09:52,989] INFO:   Channels: 1 (mono)
+[2025-09-15 16:09:52,990] INFO:   Sample rate: 44100 Hz
+[2025-09-15 16:09:52,990] INFO:   Sample width: 16 bits
+[2025-09-15 16:09:52,990] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 16:09:52,990] INFO: Audio file size: 881,964 bytes (0.84 MB)
+[2025-09-15 16:09:52,990] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 16:09:53,249] INFO: Reading mono audio file...
+[2025-09-15 16:09:53,250] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 16:09:53,250] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 16:09:55,220] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 16:09:55,220] ERROR: Error type: Unauthenticated
+[2025-09-15 16:09:55,220] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 16:09:55,220] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 16:09:55,220] INFO: For real speech recognition, ensure:
+[2025-09-15 16:09:55,220] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 16:09:55,220] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 16:09:55,220] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 16:09:55,220] INFO: Using fallback mode for speech recognition
+[2025-09-15 16:09:55,220] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:09:55,221] INFO: Audio file size: 881,964 bytes
+[2025-09-15 16:09:55,221] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 16:09:55,221] INFO:   Processing... 1/1
+[2025-09-15 16:09:56,221] INFO: --- Recognition Result ---
+[2025-09-15 16:09:56,221] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 16:09:56,221] INFO: --- End Result ---
+[2025-09-15 16:09:56,221] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 16:09:56,221] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 16:09:56,221] INFO: Processing method: fallback
+[2025-09-15 16:09:56,221] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:09:56,222] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 16:09:56,222] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 16:09:56,222] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 16:09:56,222] INFO: Speech recognition workflow completed successfully
+[2025-09-15 16:11:08,434] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 16:11:08,434] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 16:11:08,434] INFO: Starting speech-to-text processing...
+[2025-09-15 16:11:08,435] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:11:08,435] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 16:11:08,435] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 16:11:08,435] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 16:11:08,435] INFO: === Audio Format Validation ===
+[2025-09-15 16:11:08,435] INFO: Audio format analysis:
+[2025-09-15 16:11:08,435] INFO:   Channels: 1 (mono)
+[2025-09-15 16:11:08,435] INFO:   Sample rate: 44100 Hz
+[2025-09-15 16:11:08,435] INFO:   Sample width: 16 bits
+[2025-09-15 16:11:08,435] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 16:11:08,435] INFO: Audio file size: 496,124 bytes (0.47 MB)
+[2025-09-15 16:11:08,435] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 16:11:08,675] INFO: Reading mono audio file...
+[2025-09-15 16:11:08,676] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 16:11:08,676] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 16:11:08,943] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 16:11:08,943] ERROR: Error type: Unauthenticated
+[2025-09-15 16:11:08,943] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 16:11:08,943] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 16:11:08,943] INFO: For real speech recognition, ensure:
+[2025-09-15 16:11:08,943] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 16:11:08,943] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 16:11:08,943] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 16:11:08,943] INFO: Using fallback mode for speech recognition
+[2025-09-15 16:11:08,943] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:11:08,943] INFO: Audio file size: 496,124 bytes
+[2025-09-15 16:11:08,943] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 16:11:08,943] INFO:   Processing... 1/1
+[2025-09-15 16:11:09,943] INFO: --- Recognition Result ---
+[2025-09-15 16:11:09,943] INFO: "Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text."
+[2025-09-15 16:11:09,943] INFO: --- End Result ---
+[2025-09-15 16:11:09,944] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 16:11:09,944] INFO: Transcript content: 'Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text.'
+[2025-09-15 16:11:09,944] INFO: Processing method: fallback
+[2025-09-15 16:11:09,944] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:11:09,944] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 16:11:09,945] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 16:11:09,945] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 16:11:09,945] INFO: Speech recognition workflow completed successfully
+[2025-09-15 16:15:07,357] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 16:15:07,358] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 16:15:07,358] INFO: Starting speech-to-text processing...
+[2025-09-15 16:15:07,359] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:15:07,359] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 16:15:07,359] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 16:15:07,359] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 16:15:07,359] INFO: === Audio Format Validation ===
+[2025-09-15 16:15:07,359] INFO: Audio format analysis:
+[2025-09-15 16:15:07,359] INFO:   Channels: 1 (mono)
+[2025-09-15 16:15:07,359] INFO:   Sample rate: 44100 Hz
+[2025-09-15 16:15:07,359] INFO:   Sample width: 16 bits
+[2025-09-15 16:15:07,359] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 16:15:07,359] INFO: Audio file size: 771,724 bytes (0.74 MB)
+[2025-09-15 16:15:07,359] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 16:15:07,673] INFO: Reading mono audio file...
+[2025-09-15 16:15:07,674] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 16:15:07,674] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 16:15:08,320] ERROR: Google Speech-to-Text API error: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[2025-09-15 16:15:08,320] ERROR: Error type: Unauthenticated
+[2025-09-15 16:15:08,321] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 16:15:08,321] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 16:15:08,321] INFO: For real speech recognition, ensure:
+[2025-09-15 16:15:08,321] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 16:15:08,321] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 16:15:08,321] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 16:15:08,321] INFO: Using fallback mode for speech recognition
+[2025-09-15 16:15:08,321] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:15:08,321] INFO: Audio file size: 771,724 bytes
+[2025-09-15 16:15:08,321] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 16:15:08,321] INFO:   Processing... 1/1
+[2025-09-15 16:15:09,321] INFO: --- Recognition Result ---
+[2025-09-15 16:15:09,321] INFO: "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden."
+[2025-09-15 16:15:09,321] INFO: --- End Result ---
+[2025-09-15 16:15:09,322] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 16:15:09,322] INFO: Transcript content: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.'
+[2025-09-15 16:15:09,322] INFO: Processing method: fallback
+[2025-09-15 16:15:09,322] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:15:09,322] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 16:15:09,322] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 16:15:09,322] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 16:15:09,322] INFO: Speech recognition workflow completed successfully
+[2025-09-15 16:25:44,577] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 16:25:44,577] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 16:25:44,577] INFO: Starting speech-to-text processing...
+[2025-09-15 16:25:44,577] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:25:44,577] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 16:25:44,577] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 16:25:44,577] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 16:25:44,578] INFO: === Audio Format Validation ===
+[2025-09-15 16:25:44,578] INFO: Audio format analysis:
+[2025-09-15 16:25:44,578] INFO:   Channels: 1 (mono)
+[2025-09-15 16:25:44,578] INFO:   Sample rate: 44100 Hz
+[2025-09-15 16:25:44,578] INFO:   Sample width: 16 bits
+[2025-09-15 16:25:44,578] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 16:25:44,578] INFO: Audio file size: 562,268 bytes (0.54 MB)
+[2025-09-15 16:25:44,578] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 16:25:44,835] INFO: Reading mono audio file...
+[2025-09-15 16:25:44,835] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 16:25:44,836] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 16:25:47,085] INFO: Transcript segment: 'Lionel Messi, der einen Burger ist in der Stadt Krefeld' (confidence: 0.92)
+[2025-09-15 16:25:47,085] INFO: Speech recognition completed successfully
+[2025-09-15 16:25:47,085] INFO: Average confidence: 0.92
+[2025-09-15 16:25:47,085] INFO: Full transcript: 'Lionel Messi, der einen Burger ist in der Stadt Krefeld'
+[2025-09-15 16:25:47,085] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-15 16:25:47,085] INFO: --- Recognition Result ---
+[2025-09-15 16:25:47,085] INFO: "Lionel Messi, der einen Burger ist in der Stadt Krefeld"
+[2025-09-15 16:25:47,085] INFO: --- End Result ---
+[2025-09-15 16:25:47,086] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 16:25:47,086] INFO: Transcript content: 'Lionel Messi, der einen Burger ist in der Stadt Krefeld'
+[2025-09-15 16:25:47,086] INFO: Processing method: google_speech_api
+[2025-09-15 16:25:47,086] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:25:47,086] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 16:25:47,086] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-15 16:25:47,086] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-15 16:25:47,086] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 16:25:47,086] INFO: Speech recognition workflow completed successfully
+[2025-09-15 16:32:45,855] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 16:32:45,860] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 16:32:45,860] INFO: Starting speech-to-text processing...
+[2025-09-15 16:32:45,860] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:32:45,860] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 16:32:45,860] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 16:32:45,860] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 16:32:45,860] INFO: === Audio Format Validation ===
+[2025-09-15 16:32:45,860] INFO: Audio format analysis:
+[2025-09-15 16:32:45,860] INFO:   Channels: 1 (mono)
+[2025-09-15 16:32:45,860] INFO:   Sample rate: 44100 Hz
+[2025-09-15 16:32:45,860] INFO:   Sample width: 16 bits
+[2025-09-15 16:32:45,860] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 16:32:45,860] INFO: Audio file size: 804,796 bytes (0.77 MB)
+[2025-09-15 16:32:45,860] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 16:32:46,121] INFO: Reading mono audio file...
+[2025-09-15 16:32:46,121] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 16:32:46,122] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 16:32:48,260] INFO: Transcript segment: 'ein Bild von einem Autofahrer der glücklich fährt' (confidence: 0.92)
+[2025-09-15 16:32:48,260] INFO: Speech recognition completed successfully
+[2025-09-15 16:32:48,260] INFO: Average confidence: 0.92
+[2025-09-15 16:32:48,260] INFO: Full transcript: 'ein Bild von einem Autofahrer der glücklich fährt'
+[2025-09-15 16:32:48,261] INFO: ✓ Real Google Speech-to-Text succeeded!
+[2025-09-15 16:32:48,261] INFO: --- Recognition Result ---
+[2025-09-15 16:32:48,261] INFO: "ein Bild von einem Autofahrer der glücklich fährt"
+[2025-09-15 16:32:48,261] INFO: --- End Result ---
+[2025-09-15 16:32:48,265] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 16:32:48,265] INFO: Transcript content: 'ein Bild von einem Autofahrer der glücklich fährt'
+[2025-09-15 16:32:48,265] INFO: Processing method: google_speech_api
+[2025-09-15 16:32:48,265] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:32:48,265] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 16:32:48,265] INFO: ✓ Real Google Speech Recognition - transcript contains actual speech content
+[2025-09-15 16:32:48,265] INFO: --- Transcript ready for AI integration (Vertex AI compatible) ---
+[2025-09-15 16:32:48,265] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 16:32:48,265] INFO: Speech recognition workflow completed successfully
+[2025-09-15 16:35:22,960] INFO: Google Cloud Speech-to-Text library loaded successfully
+[2025-09-15 16:35:22,960] INFO: === Voice to Google Speech Recognition ===
+[2025-09-15 16:35:22,960] INFO: Starting speech-to-text processing...
+[2025-09-15 16:35:22,960] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:35:22,960] INFO: Processing audio file: aufnahme.wav
+[2025-09-15 16:35:22,960] INFO: Attempting real Google Speech-to-Text recognition...
+[2025-09-15 16:35:22,960] INFO: Found Google credentials at: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-15 16:35:22,960] INFO: === Audio Format Validation ===
+[2025-09-15 16:35:22,960] INFO: Audio format analysis:
+[2025-09-15 16:35:22,961] INFO:   Channels: 1 (mono)
+[2025-09-15 16:35:22,961] INFO:   Sample rate: 44100 Hz
+[2025-09-15 16:35:22,961] INFO:   Sample width: 16 bits
+[2025-09-15 16:35:22,961] INFO: ✓ Audio is already in mono format - no conversion needed
+[2025-09-15 16:35:22,961] INFO: Audio file size: 286,668 bytes (0.27 MB)
+[2025-09-15 16:35:22,961] INFO: Initializing Google Speech-to-Text client...
+[2025-09-15 16:35:23,199] INFO: Reading mono audio file...
+[2025-09-15 16:35:23,200] INFO: Sending mono audio to Google Speech-to-Text API...
+[2025-09-15 16:35:23,200] INFO: Using configuration: MONO (1 channel), 44.1kHz, 16-bit PCM, German language
+[2025-09-15 16:35:24,122] WARNING: No speech detected in audio file
+[2025-09-15 16:35:24,122] WARNING: Real Google Speech-to-Text failed - check credentials and audio format
+[2025-09-15 16:35:24,122] WARNING: Falling back to local processing (fallback mode active)
+[2025-09-15 16:35:24,123] INFO: For real speech recognition, ensure:
+[2025-09-15 16:35:24,123] INFO: 1. Google Cloud Speech library is installed: pip install google-cloud-speech
+[2025-09-15 16:35:24,123] INFO: 2. Credentials are configured: GOOGLE_APPLICATION_CREDENTIALS environment variable
+[2025-09-15 16:35:24,123] INFO: 3. Audio is in mono format (automatic conversion attempted)
+[2025-09-15 16:35:24,123] INFO: Using fallback mode for speech recognition
+[2025-09-15 16:35:24,123] INFO: Processing audio file: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:35:24,123] INFO: Audio file size: 286,668 bytes
+[2025-09-15 16:35:24,123] INFO: Analyzing audio content... (estimated 1.0s)
+[2025-09-15 16:35:24,123] INFO:   Processing... 1/1
+[2025-09-15 16:35:25,123] INFO: --- Recognition Result ---
+[2025-09-15 16:35:25,123] INFO: "Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text."
+[2025-09-15 16:35:25,123] INFO: --- End Result ---
+[2025-09-15 16:35:25,124] INFO: Transcript saved to: /home/pi/Desktop/v2_Tripple S/transkript.txt
+[2025-09-15 16:35:25,124] INFO: Transcript content: 'Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text.'
+[2025-09-15 16:35:25,124] INFO: Processing method: fallback
+[2025-09-15 16:35:25,124] INFO: Found audio file at: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-15 16:35:25,124] INFO: Transcript metadata saved to: /home/pi/Desktop/v2_Tripple S/transkript.json
+[2025-09-15 16:35:25,125] WARNING: ⚠ Simulation mode - transcript contains placeholder text, not real speech
+[2025-09-15 16:35:25,125] INFO: ✓ Speech recognition completed successfully
+[2025-09-15 16:35:25,125] INFO: Speech recognition workflow completed successfully
