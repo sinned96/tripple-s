@@ -495,11 +495,15 @@ class WorkflowFileWatcher:
             self.log_status("Schritt 2/2: Bildgenerierung mit Vertex AI...")
             self.log_status("Sending transcript to Vertex AI for image generation")
             
-            # Get transcript text - prioritize JSON format for better metadata
-            prompt_text = self._get_transcript_for_ai()
+            # Get transcript text and optional image data - prioritize JSON format for better metadata
+            prompt_text, image_base64 = self._get_transcript_for_ai()
             
             if prompt_text and prompt_text.strip():
                 self.log_status(f"Transcript found for AI processing: '{prompt_text[:100]}{'...' if len(prompt_text) > 100 else ''}'")
+                
+                # Log multimodal status
+                workflow_type = "multimodal (Text + Image)" if image_base64 else "text-only"
+                self.log_status(f"Workflow type: {workflow_type}")
                 
                 try:
                     # Ensure BilderVertex directory exists in standardized location
@@ -507,14 +511,15 @@ class WorkflowFileWatcher:
                     bilder_dir_path.mkdir(parents=True, exist_ok=True)
                     self.log_status(f"Target directory ensured: {bilder_dir_path}")
                     
-                    # Generate image using Vertex AI
+                    # Generate image using Vertex AI (with optional image input for multimodal)
                     self.log_status("Sending prompt to Vertex AI Imagen API...")
                     image_paths = generate_image_imagen4(
                         prompt_text, 
                         image_count=1, 
                         bilder_dir=str(bilder_dir_path), 
                         output_prefix="bild",
-                        logger=self.log_status
+                        logger=self.log_status,
+                        image_base64=image_base64  # Pass image data for multimodal requests
                     )
                     
                     if image_paths:
@@ -634,15 +639,15 @@ class WorkflowFileWatcher:
     
     def _get_transcript_for_ai(self):
         """
-        Get transcript text for AI processing, prioritizing JSON format with fallbacks
+        Get transcript text and optional image data for AI processing, prioritizing JSON format with fallbacks
         
         Priority order:
-        1. JSON transcript (transkript.json) - contains metadata and flags
+        1. JSON transcript (transkript.json) - contains metadata, flags, and optional image_base64
         2. Text transcript (transkript.txt) - plain text fallback
         3. Clipboard content - legacy fallback
         
         Returns:
-            str: The transcript text to send to Vertex AI, or empty string if not found
+            tuple: (transcript_text, image_base64) where image_base64 is None if no image is available
         """
         # Priority 1: Try JSON transcript first (preferred for AI integration)
         if os.path.exists(TRANSKRIPT_JSON_PATH):
@@ -652,49 +657,57 @@ class WorkflowFileWatcher:
                     transcript_data = json.load(f)
                 
                 transcript_text = transcript_data.get('transcript', '').strip()
+                image_base64 = transcript_data.get('image_base64')  # Get image data if available
+                
                 if transcript_text:
                     processing_method = transcript_data.get('processing_method', 'unknown')
                     is_real = transcript_data.get('real_recognition', False)
                     
                     self.log_status(f"Using JSON transcript (method: {processing_method}, real: {is_real})")
                     
+                    # Log multimodal status
+                    if image_base64:
+                        self.log_status("✓ Multimodal data detected: Text + Image for AI processing")
+                    else:
+                        self.log_status("Text-only data for AI processing")
+                    
                     # Warn if this is simulation data
                     if not is_real:
                         self.log_status("⚠ Warning: Using simulated transcript data (not real speech)", "WARNING")
                         self.log_status("For real AI image generation, ensure Google Speech-to-Text is working", "WARNING")
                     
-                    return transcript_text
+                    return transcript_text, image_base64
                 else:
                     self.log_status("JSON transcript file exists but contains no text", "WARNING")
                     
             except Exception as e:
                 self.log_status(f"Error reading JSON transcript: {e}", "WARNING")
         
-        # Priority 2: Try text transcript file
+        # Priority 2: Try text transcript file (no image data available)
         if os.path.exists(TRANSKRIPT_PATH):
             try:
                 with open(TRANSKRIPT_PATH, 'r', encoding='utf-8') as f:
                     transcript_text = f.read().strip()
                 if transcript_text:
-                    self.log_status("Using text transcript file")
-                    return transcript_text
+                    self.log_status("Using text transcript file (no image data)")
+                    return transcript_text, None
                 else:
                     self.log_status("Text transcript file exists but is empty", "WARNING")
             except Exception as e:
                 self.log_status(f"Error reading text transcript: {e}", "WARNING")
         
-        # Priority 3: Legacy fallback to clipboard (for backwards compatibility)
+        # Priority 3: Legacy fallback to clipboard (for backwards compatibility - no image data)
         try:
             prompt_text = get_copied_content()
             if prompt_text and prompt_text.strip():
-                self.log_status("Using clipboard content as fallback")
-                return prompt_text.strip()
+                self.log_status("Using clipboard content as fallback (no image data)")
+                return prompt_text.strip(), None
         except Exception as e:
             self.log_status(f"Error reading clipboard: {e}", "WARNING")
         
         # No transcript found
         self.log_status("No transcript found in any location", "ERROR")
-        return ""
+        return "", None
 
 def get_copied_content():
     """Get transcript content from clipboard - legacy function for backwards compatibility"""
@@ -728,12 +741,13 @@ def get_next_index(directory, prefix):
             continue
     return max(nums) + 1 if nums else 1
 
-def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_prefix="bild", logger=None):
+def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_prefix="bild", logger=None, image_base64=None):
     """
-    Generate images using Google's Vertex AI Imagen 4.0 API
+    Generate images using Google's Vertex AI Imagen 4.0 API with optional multimodal support
     
     This function provides a clean, robust integration with Vertex AI for image generation.
     It automatically falls back to demo mode when Google Cloud is not available.
+    Supports both text-only and multimodal (text + image) requests.
     
     Configuration (transparent setup):
     - Google Cloud Project ID: Set via PROJECT_ID environment variable (default: "trippe-s")
@@ -748,6 +762,7 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
         bilder_dir (str): Target directory for generated images (default: {BILDER_DIR})
         output_prefix (str): Filename prefix for generated images (default: "bild")
         logger (callable): Optional logging function for status updates
+        image_base64 (str): Optional base64-encoded image for multimodal requests
     
     Returns:
         list: List of generated image file paths, empty list if failed
@@ -772,6 +787,10 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
     
     log(f"=== Vertex AI Image Generation ===")
     log(f"Prompt: '{prompt[:100]}{'...' if len(prompt) > 100 else ''}'")
+    if image_base64:
+        log("Multimodal request: Text + Image input")
+    else:
+        log("Text-only request")
     log(f"Target directory: {bilder_dir}")
     
     # Ensure directory exists
@@ -783,22 +802,22 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
         log(f"Failed to create directory {bilder_dir}: {e}", "ERROR")
         return []
     
-        # Check for Google Cloud libraries and credentials
-        if not GOOGLE_CLOUD_AVAILABLE:
-            log("Google Cloud libraries not available", "WARNING")
-            log("Required: pip install google-cloud-aiplatform google-auth", "INFO")
-            return _create_demo_images(bilder_dir, output_prefix, image_count, logger)
-        
-        if not REQUESTS_AVAILABLE:
-            log("Requests library not available", "WARNING")
-            log("Required: pip install requests", "INFO")
-            return _create_demo_images(bilder_dir, output_prefix, image_count, logger)
+    # Check for Google Cloud libraries and credentials
+    if not GOOGLE_CLOUD_AVAILABLE:
+        log("Google Cloud libraries not available", "WARNING")
+        log("Required: pip install google-cloud-aiplatform google-auth", "INFO")
+        return _create_demo_images(bilder_dir, output_prefix, image_count, logger)
     
-        if not os.path.exists(GOOGLE_CREDENTIALS):
-            log(f"Google Cloud credentials not found: {GOOGLE_CREDENTIALS}", "WARNING")
-            log("Required: Set up service account and download JSON key file", "INFO")
-            log("See: https://cloud.google.com/docs/authentication/getting-started", "INFO")
-            return _create_demo_images(bilder_dir, output_prefix, image_count, logger)
+    if not REQUESTS_AVAILABLE:
+        log("Requests library not available", "WARNING")
+        log("Required: pip install requests", "INFO")
+        return _create_demo_images(bilder_dir, output_prefix, image_count, logger)
+
+    if not os.path.exists(GOOGLE_CREDENTIALS):
+        log(f"Google Cloud credentials not found: {GOOGLE_CREDENTIALS}", "WARNING")
+        log("Required: Set up service account and download JSON key file", "INFO")
+        log("See: https://cloud.google.com/docs/authentication/getting-started", "INFO")
+        return _create_demo_images(bilder_dir, output_prefix, image_count, logger)
     
     log(f"Using Google Cloud credentials: {GOOGLE_CREDENTIALS}")
     
@@ -819,16 +838,29 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
         token = credentials.token
         log("✓ Authentication successful")
 
-        # Prepare API request
+        # Prepare API request (support both text-only and multimodal)
         headers = {
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/json"
         }
         
+        # Build instance data based on whether image is provided
+        if image_base64:
+            # Multimodal request: text + image
+            instance_data = {
+                "prompt": prompt,
+                "image": {
+                    "bytesBase64Encoded": image_base64
+                }
+            }
+            log("Building multimodal API request (text + image)")
+        else:
+            # Text-only request
+            instance_data = {"prompt": prompt}
+            log("Building text-only API request")
+        
         payload = {
-            "instances": [
-                {"prompt": prompt}
-            ],
+            "instances": [instance_data],
             "parameters": {
                 "sampleCount": image_count,
                 "aspectRatio": "16:9",

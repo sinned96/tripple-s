@@ -1102,6 +1102,7 @@ class AufnahmePopup(FloatLayout):
         self.workflow_status_checker = None  # Track status checker
         self.workflow_lock_file = None  # NEW: Track workflow lockfile
         self.trigger_creation_lock = threading.Lock()  # NEW: Thread-safe trigger creation
+        self.selected_image_path = None  # NEW: Track selected image for multimodal AI
         
         # Audio file path for validation (standardized location)
         self.audio_file_path = Path("/home/pi/Desktop/v2_Tripple S/aufnahme.wav")
@@ -1735,6 +1736,24 @@ class AufnahmePopup(FloatLayout):
                     self.add_output_text(f"[color=ffaa44]{warning_msg}[/color]")
                     return
                 
+                # Save selected image information for multimodal workflow
+                if self.selected_image_path and trigger_created:
+                    try:
+                        import json
+                        image_info_file = APP_DIR / "selected_image.json"
+                        image_info = {
+                            "image_path": str(self.selected_image_path),
+                            "timestamp": time.time(),
+                            "iso_timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
+                        }
+                        with open(image_info_file, 'w', encoding='utf-8') as f:
+                            json.dump(image_info, f, ensure_ascii=False, indent=2)
+                        debug_logger.info(f"✓ Selected image info saved for multimodal workflow: {Path(self.selected_image_path).name}")
+                        self.add_output_text(f"[color=cccccc]✓ Multimodal-Workflow: Bild {Path(self.selected_image_path).name} bereit[/color]")
+                    except Exception as e:
+                        debug_logger.error(f"Failed to save selected image info: {e}")
+                        self.add_output_text("[color=ffaa44]⚠ Warnung: Bild-Info konnte nicht gespeichert werden[/color]")
+                
                 if not trigger_created:
                     raise Exception("Failed to create trigger file atomically")
                 
@@ -1919,10 +1938,11 @@ class AufnahmePopup(FloatLayout):
     def on_import_selected(self, selected_image_path):
         """Called when an import image is selected"""
         if selected_image_path:
+            self.selected_image_path = selected_image_path
             self.add_output_text(f"[color=44ff44]✓ Import-Bild ausgewählt: {Path(selected_image_path).name}[/color]")
-            # Here we could save the selected path for later use or immediately process it
-            # For now, we just show feedback
+            self.add_output_text("[color=cccccc]Bild wird bei der nächsten KI-Anfrage verwendet (multimodal)[/color]")
         else:
+            self.selected_image_path = None
             self.add_output_text("[color=ffaa44]Keine Auswahl getroffen[/color]")
 
 class QRCodePopup(FloatLayout):
