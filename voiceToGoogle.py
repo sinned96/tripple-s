@@ -31,6 +31,7 @@ import time
 import logging
 import wave
 import subprocess
+import base64
 from pathlib import Path
 
 # Setup logging for speech-to-text processing
@@ -381,7 +382,68 @@ def real_google_speech_recognition(audio_file_path):
         
         return None
 
-def save_transcript(text, output_file=None, processing_method=None):
+def get_selected_image_base64():
+    """
+    Check for selected image info and encode it to base64 for multimodal AI workflow
+    
+    Returns:
+        str: Base64 encoded image data, or None if no image is selected
+    """
+    try:
+        # Check for selected image info file in the application directory
+        script_dir = Path(__file__).parent
+        image_info_file = script_dir / "selected_image.json"
+        
+        if not image_info_file.exists():
+            return None
+            
+        # Load selected image information
+        with open(image_info_file, 'r', encoding='utf-8') as f:
+            image_info = json.load(f)
+            
+        image_path = image_info.get('image_path')
+        if not image_path or not Path(image_path).exists():
+            speech_logger.warning(f"Selected image file not found: {image_path}")
+            return None
+            
+        # Encode image to base64
+        image_base64 = encode_image_to_base64(image_path)
+        if image_base64:
+            speech_logger.info(f"✓ Selected image loaded for multimodal workflow: {Path(image_path).name}")
+            # Clean up the image info file after successful processing
+            try:
+                image_info_file.unlink()
+                speech_logger.info("✓ Image info file cleaned up")
+            except Exception as e:
+                speech_logger.warning(f"Could not clean up image info file: {e}")
+        
+        return image_base64
+        
+    except Exception as e:
+        speech_logger.error(f"Error processing selected image: {e}")
+        return None
+
+def encode_image_to_base64(image_path):
+    """
+    Encode an image file to base64 string for multimodal AI workflow
+    
+    Args:
+        image_path (str): Path to the image file
+        
+    Returns:
+        str: Base64 encoded image data, or None if encoding fails
+    """
+    try:
+        with open(image_path, 'rb') as image_file:
+            image_data = image_file.read()
+            base64_string = base64.b64encode(image_data).decode('utf-8')
+            speech_logger.info(f"✓ Image encoded to base64: {image_path} ({len(image_data):,} bytes)")
+            return base64_string
+    except Exception as e:
+        speech_logger.error(f"✗ Failed to encode image to base64: {e}")
+        return None
+
+def save_transcript(text, output_file=None, processing_method=None, image_base64=None):
     """Save the recognized text to files in the standardized directory with proper logging"""
     if output_file is None:
         # Use standardized base directory, but fall back to current directory if not accessible
@@ -419,6 +481,11 @@ def save_transcript(text, output_file=None, processing_method=None):
             "workflow_step": "transcription_complete",  # Mark workflow step for integration
             "real_recognition": processing_method == "google_speech_api"  # Flag for real vs simulation
         }
+        
+        # Add image_base64 field if provided (for multimodal AI workflow)
+        if image_base64:
+            transcript_data["image_base64"] = image_base64
+            speech_logger.info("✓ Image base64 data included for multimodal AI workflow")
         
         with open(json_file, 'w', encoding='utf-8') as f:
             json.dump(transcript_data, f, ensure_ascii=False, indent=2)
@@ -467,7 +534,11 @@ def main():
         # Create a dummy transcript for testing purposes
         speech_logger.info("Creating dummy transcript for workflow testing...")
         dummy_text = "Test Audio Aufnahme - Bitte erstelle ein schönes Bild von einer Landschaft mit Bergen und einem See"
-        if save_transcript(dummy_text):
+        
+        # Check for selected image for multimodal workflow
+        image_base64 = get_selected_image_base64()
+        
+        if save_transcript(dummy_text, image_base64=image_base64):
             speech_logger.info("✓ Dummy transcript created successfully")
             return True
         else:
@@ -509,8 +580,11 @@ def main():
             speech_logger.info(f'"{recognized_text}"')
             speech_logger.info("--- End Result ---")
             
-            # Save transcript with processing method info
-            if save_transcript(recognized_text, processing_method=processing_method):
+            # Check for selected image for multimodal workflow
+            image_base64 = get_selected_image_base64()
+            
+            # Save transcript with processing method info and optional image data
+            if save_transcript(recognized_text, processing_method=processing_method, image_base64=image_base64):
                 speech_logger.info("✓ Speech recognition completed successfully")
                 return True
             else:
