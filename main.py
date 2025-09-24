@@ -74,6 +74,7 @@ from kivy.core.window import Window
 # ------------------ KONFIG ------------------
 APP_DIR = Path(__file__).parent
 IMAGE_DIR = Path("/home/pi/Desktop/v2_Tripple S/BilderVertex")
+UPLOAD_DIR = APP_DIR / "uploads"  # Directory for imported images
 IMAGE_EXTENSIONS = ('.jpg', '.jpeg', '.png')
 ACCOUNTS_PATH = Path("/home/pi/Desktop/v2_Tripple S/Accounts.txt")
 MODES_PATH = APP_DIR / "modes.json"
@@ -2160,6 +2161,7 @@ class GalleryEditor(FloatLayout):
         self.target_mode=None
         self.filter_selected_only=False
         self.has_changes=False
+        self.current_tab="generated"  # "generated" or "imported"
         with self.canvas.before:
             Color(0,0,0,0.7)
             self.bg=Rectangle(pos=self.pos,size=self.size)
@@ -2200,8 +2202,25 @@ class GalleryEditor(FloatLayout):
         close_btn.bind(on_release=lambda *_: self.close())
         left.add_widget(close_btn)
         right=BoxLayout(orientation="vertical",size_hint=(0.78,1),spacing=dp(10),padding=[0,6,6,6])
+        
+        # Tab header
+        tab_header=BoxLayout(size_hint_y=None,height=dp(50),spacing=dp(4))
+        self.tab_generated=Button(text="KI-Bilder",size_hint=(0.5,1),
+                                 background_normal='',background_color=(0.25,0.45,0.25,1),
+                                 color=(1,1,1,1),font_size=dp(18))
+        self.tab_imported=Button(text="Importiert",size_hint=(0.5,1),
+                               background_normal='',background_color=(0.35,0.35,0.4,1),
+                               color=(1,1,1,0.7),font_size=dp(18))
+        self.tab_generated.bind(on_release=lambda *_: self.switch_tab("generated"))
+        self.tab_imported.bind(on_release=lambda *_: self.switch_tab("imported"))
+        tab_header.add_widget(self.tab_generated)
+        tab_header.add_widget(self.tab_imported)
+        right.add_widget(tab_header)
+        
+        # Filter header
         header=BoxLayout(size_hint_y=None,height=dp(46),spacing=dp(12))
-        header.add_widget(Label(text="Alle Bilder im Ordner",font_size=dp(24),color=(1,1,1,1)))
+        self.header_label=Label(text="Alle KI-Bilder im Ordner",font_size=dp(24),color=(1,1,1,1))
+        header.add_widget(self.header_label)
         self.filter_btn=Button(text="Nur Modus-Bilder: AUS",size_hint=(None,1),width=dp(260),
                                background_normal='',background_color=(0.25,0.35,0.55,1),
                                color=(1,1,1,1),font_size=dp(16))
@@ -2215,8 +2234,10 @@ class GalleryEditor(FloatLayout):
         root.add_widget(left); root.add_widget(right)
         self.add_widget(root)
         self.all_images_cache=[]
+        self.imported_images_cache=[]
         self._build_modes()
         self._reload_all_images()
+        self._reload_imported_images()
         self._populate()
     def _build_modes(self):
         self.mode_box.clear_widgets(); h=0
@@ -2248,13 +2269,55 @@ class GalleryEditor(FloatLayout):
         else: files=[]
         if len(files)>MAX_IMAGES_DISPLAY: files=files[:MAX_IMAGES_DISPLAY]
         self.all_images_cache=files
+    
+    def _reload_imported_images(self):
+        if UPLOAD_DIR.exists():
+            files=[str(p) for p in UPLOAD_DIR.iterdir()
+                   if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS]
+            files.sort()
+        else: 
+            files=[]
+        if len(files)>MAX_IMAGES_DISPLAY: files=files[:MAX_IMAGES_DISPLAY]
+        self.imported_images_cache=files
+    
+    def switch_tab(self, tab):
+        """Switch between generated and imported images tabs"""
+        if self.current_tab == tab:
+            return
+            
+        self.current_tab = tab
+        
+        # Update tab button appearance
+        if tab == "generated":
+            self.tab_generated.background_color = (0.25,0.45,0.25,1)
+            self.tab_generated.color = (1,1,1,1)
+            self.tab_imported.background_color = (0.35,0.35,0.4,1)
+            self.tab_imported.color = (1,1,1,0.7)
+            self.header_label.text = "Alle KI-Bilder im Ordner"
+            self.filter_btn.opacity = 1
+            self.filter_btn.disabled = False
+        else:  # imported
+            self.tab_imported.background_color = (0.25,0.45,0.25,1)
+            self.tab_imported.color = (1,1,1,1)
+            self.tab_generated.background_color = (0.35,0.35,0.4,1)
+            self.tab_generated.color = (1,1,1,0.7)
+            self.header_label.text = "Alle importierten Bilder"
+            self.filter_btn.opacity = 0.3
+            self.filter_btn.disabled = True
+        
+        # Reset changes when switching tabs
+        self.has_changes=False
+        self._hide_save_button()
+        
+        self._populate()
         
     def _sync_image_lists_with_folder(self):
         """Remove non-existing images from all modes and provide feedback"""
-        if not IMAGE_DIR.exists():
+        if not IMAGE_DIR.exists() and not UPLOAD_DIR.exists():
             return
         
-        existing_files = set(self.all_images_cache)
+        # Combine existing files from both directories
+        existing_files = set(self.all_images_cache + self.imported_images_cache)
         total_removed = 0
         
         # Check and clean all modes
@@ -2280,6 +2343,27 @@ class GalleryEditor(FloatLayout):
         return total_removed
     def _is_selected(self,path):
         return self.target_mode and path in self.target_mode.images
+    
+    def _is_selected_imported(self,path):
+        """Check if imported image is selected in current mode"""
+        return self.target_mode and path in self.target_mode.images
+    
+    def _toggle_imported(self,path):
+        """Toggle selection of imported image - works same as generated images"""
+        if not self.target_mode:
+            self.status_lbl.text="Bitte Modus links wählen."; return
+        if path in self.target_mode.images:
+            self.target_mode.images.remove(path)
+        else:
+            self.target_mode.images.append(path)
+        
+        # Track changes and show save button
+        self.has_changes=True
+        self._show_save_button()
+        
+        for tile in self.gallery_grid.children:
+            if isinstance(tile,ImageTile) and tile.path==path: tile.refresh_state()
+        self._update_count()
     def _toggle(self,path):
         if not self.target_mode:
             self.status_lbl.text="Bitte Modus links wählen."; return
@@ -2302,6 +2386,7 @@ class GalleryEditor(FloatLayout):
         self.add_widget(popup)
     def _after_delete_refresh(self):
         self._reload_all_images()
+        self._reload_imported_images()
         self._populate()
         if self.slideshow.current_mode:
             self.slideshow.set_mode(self.slideshow.current_mode.name, manual=True)
@@ -2362,12 +2447,40 @@ class GalleryEditor(FloatLayout):
         Clock.schedule_once(hide_feedback, 2.0)
     def _populate(self):
         self.gallery_grid.clear_widgets()
-        if not self.all_images_cache: self._reload_all_images()
-        imgs=self.all_images_cache
-        if self.filter_selected_only and self.target_mode:
-            imgs=[p for p in imgs if p in self.target_mode.images]
-        for p in imgs:
-            self.gallery_grid.add_widget(ImageTile(p,self._toggle,self._is_selected,self._open_settings))
+        
+        if self.current_tab == "generated":
+            if not self.all_images_cache: 
+                self._reload_all_images()
+            imgs=self.all_images_cache
+            if self.filter_selected_only and self.target_mode:
+                imgs=[p for p in imgs if p in self.target_mode.images]
+            
+            if not imgs:
+                # Show message when no generated images available
+                msg_label = Label(text="Keine KI-Bilder verfügbar",
+                                font_size=dp(20), color=(0.7,0.7,0.7,1),
+                                size_hint_y=None, height=dp(60))
+                self.gallery_grid.add_widget(msg_label)
+            else:
+                for p in imgs:
+                    self.gallery_grid.add_widget(ImageTile(p,self._toggle,self._is_selected,self._open_settings))
+        
+        else:  # imported tab
+            if not self.imported_images_cache:
+                self._reload_imported_images()
+            imgs=self.imported_images_cache
+            
+            if not imgs:
+                # Show message when no imported images available
+                msg_label = Label(text="Keine importierten Bilder verfügbar\n\nVerwenden Sie den QR-Code-Upload\num Bilder zu importieren",
+                                font_size=dp(18), color=(0.7,0.7,0.7,1),
+                                size_hint_y=None, height=dp(100),
+                                text_size=(dp(300), None), halign="center")
+                self.gallery_grid.add_widget(msg_label)
+            else:
+                for p in imgs:
+                    self.gallery_grid.add_widget(ImageTile(p,self._toggle_imported,self._is_selected_imported,self._open_settings))
+        
         self._update_count()
     
     
