@@ -74,6 +74,7 @@ from kivy.core.window import Window
 # ------------------ KONFIG ------------------
 APP_DIR = Path(__file__).parent
 IMAGE_DIR = Path("/home/pi/Desktop/v2_Tripple S/BilderVertex")
+UPLOAD_DIR = APP_DIR / "uploads"  # Directory for imported images
 IMAGE_EXTENSIONS = ('.jpg', '.jpeg', '.png')
 ACCOUNTS_PATH = Path("/home/pi/Desktop/v2_Tripple S/Accounts.txt")
 MODES_PATH = APP_DIR / "modes.json"
@@ -1195,6 +1196,17 @@ class AufnahmePopup(FloatLayout):
             spacing=dp(10)
         )
         
+        # Import Image Selection button
+        import_button = Button(
+            text="🖼️ Import-Bild wählen",
+            background_normal='',
+            background_color=(0.5, 0.3, 0.7, 1),
+            color=(1, 1, 1, 1),
+            font_size=dp(18)
+        )
+        import_button.bind(on_press=self.show_import_selection)
+        button_row.add_widget(import_button)
+        
         # QR Code button
         qr_button = Button(
             text=f"📱 QR-Code (Port {UPLOAD_PORT})",
@@ -1882,6 +1894,36 @@ class AufnahmePopup(FloatLayout):
         qr_popup = QRCodePopup(upload_server)
         if self.parent:
             self.parent.add_widget(qr_popup)
+    
+    def show_import_selection(self, instance):
+        """Show import image selection popup"""
+        debug_logger.info("show_import_selection called")
+        
+        # Check if there are any imported images
+        if UPLOAD_DIR.exists():
+            import_files = [str(p) for p in UPLOAD_DIR.iterdir() 
+                           if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS]
+        else:
+            import_files = []
+        
+        if not import_files:
+            self.add_output_text("[color=ffaa44]⚠ Keine importierten Bilder verfügbar[/color]")
+            self.add_output_text("[color=cccccc]Verwenden Sie den QR-Code-Upload um Bilder zu importieren[/color]")
+            return
+        
+        # Create import selection popup
+        import_popup = ImportSelectionPopup(import_files, self.on_import_selected)
+        if self.parent:
+            self.parent.add_widget(import_popup)
+    
+    def on_import_selected(self, selected_image_path):
+        """Called when an import image is selected"""
+        if selected_image_path:
+            self.add_output_text(f"[color=44ff44]✓ Import-Bild ausgewählt: {Path(selected_image_path).name}[/color]")
+            # Here we could save the selected path for later use or immediately process it
+            # For now, we just show feedback
+        else:
+            self.add_output_text("[color=ffaa44]Keine Auswahl getroffen[/color]")
 
 class QRCodePopup(FloatLayout):
     """Popup window to display QR code for upload server"""
@@ -2002,6 +2044,159 @@ class QRCodePopup(FloatLayout):
         """Close the QR code popup"""
         if self.parent:
             self.parent.remove_widget(self)
+
+class ImportSelectionPopup(FloatLayout):
+    """Popup window to select imported images"""
+    
+    def __init__(self, image_files, on_selection_callback, **kwargs):
+        super().__init__(**kwargs)
+        self.image_files = image_files
+        self.on_selection_callback = on_selection_callback
+        self.selected_image = None
+        
+        # Background
+        with self.canvas.before:
+            Color(0, 0, 0, 0.8)
+            self.bg = Rectangle(pos=self.pos, size=self.size)
+        self.bind(pos=self._update_bg, size=self._update_bg)
+        
+        # Main panel
+        panel = BoxLayout(
+            orientation='vertical',
+            size_hint=(None, None),
+            size=(dp(500), dp(400)),
+            pos_hint={'center_x': 0.5, 'center_y': 0.5},
+            padding=dp(20),
+            spacing=dp(15)
+        )
+        
+        with panel.canvas.before:
+            Color(0.16, 0.16, 0.20, 0.95)
+            panel._bg = Rectangle(pos=panel.pos, size=panel.size)
+        panel.bind(pos=lambda *a: setattr(panel._bg, 'pos', panel.pos),
+                  size=lambda *a: setattr(panel._bg, 'size', panel.size))
+        
+        # Title
+        title = Label(
+            text="🖼️ Import-Bild auswählen",
+            size_hint_y=None,
+            height=dp(40),
+            font_size=dp(24),
+            color=(1, 1, 1, 1)
+        )
+        panel.add_widget(title)
+        
+        # Image selection grid
+        from kivy.uix.gridlayout import GridLayout
+        from kivy.uix.scrollview import ScrollView
+        
+        scroll = ScrollView()
+        self.image_grid = GridLayout(cols=3, spacing=dp(10), size_hint_y=None, padding=dp(10))
+        self.image_grid.bind(minimum_height=lambda inst, val: setattr(inst, 'height', val))
+        
+        # Add image tiles
+        for img_path in image_files:
+            tile = self._create_image_tile(img_path)
+            self.image_grid.add_widget(tile)
+        
+        scroll.add_widget(self.image_grid)
+        panel.add_widget(scroll)
+        
+        # Selected image display
+        self.selection_label = Label(
+            text="Kein Bild ausgewählt",
+            size_hint_y=None,
+            height=dp(30),
+            font_size=dp(16),
+            color=(0.8, 0.8, 0.8, 1)
+        )
+        panel.add_widget(self.selection_label)
+        
+        # Buttons
+        button_row = BoxLayout(
+            orientation='horizontal',
+            size_hint_y=None,
+            height=dp(50),
+            spacing=dp(10)
+        )
+        
+        select_btn = Button(
+            text="Auswählen",
+            background_normal='',
+            background_color=(0.25, 0.55, 0.25, 1),
+            color=(1, 1, 1, 1),
+            font_size=dp(18)
+        )
+        select_btn.bind(on_press=self.confirm_selection)
+        
+        cancel_btn = Button(
+            text="Abbrechen", 
+            background_normal='',
+            background_color=(0.55, 0.25, 0.25, 1),
+            color=(1, 1, 1, 1),
+            font_size=dp(18)
+        )
+        cancel_btn.bind(on_press=self.cancel_selection)
+        
+        button_row.add_widget(select_btn)
+        button_row.add_widget(cancel_btn)
+        panel.add_widget(button_row)
+        
+        self.add_widget(panel)
+    
+    def _create_image_tile(self, img_path):
+        """Create a selectable image tile"""
+        tile = BoxLayout(orientation='vertical', size_hint=(None, None), 
+                        size=(dp(120), dp(140)), spacing=dp(5))
+        
+        # Image display
+        img_widget = Image(source=img_path, size_hint=(1, None), height=dp(100))
+        tile.add_widget(img_widget)
+        
+        # Selection button
+        btn = Button(text=Path(img_path).name[:15] + "..." if len(Path(img_path).name) > 15 else Path(img_path).name,
+                    size_hint=(1, None), height=dp(35), font_size=dp(12),
+                    background_normal='', background_color=(0.3, 0.3, 0.4, 1))
+        btn.bind(on_press=lambda inst, path=img_path: self.select_image(path, btn))
+        tile.add_widget(btn)
+        
+        return tile
+    
+    def select_image(self, img_path, button):
+        """Select an image"""
+        self.selected_image = img_path
+        self.selection_label.text = f"Ausgewählt: {Path(img_path).name}"
+        
+        # Reset all button colors
+        for tile in self.image_grid.children:
+            if hasattr(tile, 'children') and len(tile.children) > 0:
+                btn = tile.children[0]  # Button is the last added child
+                if hasattr(btn, 'background_color'):
+                    btn.background_color = (0.3, 0.3, 0.4, 1)
+        
+        # Highlight selected button
+        button.background_color = (0.25, 0.55, 0.25, 1)
+    
+    def confirm_selection(self, instance):
+        """Confirm the selection and close"""
+        self.on_selection_callback(self.selected_image)
+        self.close_popup(instance)
+    
+    def cancel_selection(self, instance):
+        """Cancel selection and close"""
+        self.on_selection_callback(None)
+        self.close_popup(instance)
+    
+    def close_popup(self, instance):
+        """Close the popup"""
+        if self.parent:
+            self.parent.remove_widget(self)
+    
+    def _update_bg(self, *args):
+        """Update background rectangle"""
+        self.bg.pos = self.pos
+        self.bg.size = self.size
+
 class GeneralSettingsPopup(FloatLayout):
     def __init__(self, slideshow, **kw):
         super().__init__(**kw)
@@ -2160,6 +2355,7 @@ class GalleryEditor(FloatLayout):
         self.target_mode=None
         self.filter_selected_only=False
         self.has_changes=False
+        self.current_tab="generated"  # "generated" or "imported"
         with self.canvas.before:
             Color(0,0,0,0.7)
             self.bg=Rectangle(pos=self.pos,size=self.size)
@@ -2200,8 +2396,25 @@ class GalleryEditor(FloatLayout):
         close_btn.bind(on_release=lambda *_: self.close())
         left.add_widget(close_btn)
         right=BoxLayout(orientation="vertical",size_hint=(0.78,1),spacing=dp(10),padding=[0,6,6,6])
+        
+        # Tab header
+        tab_header=BoxLayout(size_hint_y=None,height=dp(50),spacing=dp(4))
+        self.tab_generated=Button(text="KI-Bilder",size_hint=(0.5,1),
+                                 background_normal='',background_color=(0.25,0.45,0.25,1),
+                                 color=(1,1,1,1),font_size=dp(18))
+        self.tab_imported=Button(text="Importiert",size_hint=(0.5,1),
+                               background_normal='',background_color=(0.35,0.35,0.4,1),
+                               color=(1,1,1,0.7),font_size=dp(18))
+        self.tab_generated.bind(on_release=lambda *_: self.switch_tab("generated"))
+        self.tab_imported.bind(on_release=lambda *_: self.switch_tab("imported"))
+        tab_header.add_widget(self.tab_generated)
+        tab_header.add_widget(self.tab_imported)
+        right.add_widget(tab_header)
+        
+        # Filter header
         header=BoxLayout(size_hint_y=None,height=dp(46),spacing=dp(12))
-        header.add_widget(Label(text="Alle Bilder im Ordner",font_size=dp(24),color=(1,1,1,1)))
+        self.header_label=Label(text="Alle KI-Bilder im Ordner",font_size=dp(24),color=(1,1,1,1))
+        header.add_widget(self.header_label)
         self.filter_btn=Button(text="Nur Modus-Bilder: AUS",size_hint=(None,1),width=dp(260),
                                background_normal='',background_color=(0.25,0.35,0.55,1),
                                color=(1,1,1,1),font_size=dp(16))
@@ -2215,8 +2428,10 @@ class GalleryEditor(FloatLayout):
         root.add_widget(left); root.add_widget(right)
         self.add_widget(root)
         self.all_images_cache=[]
+        self.imported_images_cache=[]
         self._build_modes()
         self._reload_all_images()
+        self._reload_imported_images()
         self._populate()
     def _build_modes(self):
         self.mode_box.clear_widgets(); h=0
@@ -2237,6 +2452,9 @@ class GalleryEditor(FloatLayout):
         self.status_lbl.text=f"Modus: {mode.name}"
         self._populate()
     def toggle_filter(self,*_):
+        # Only allow filter toggle in generated images tab
+        if self.current_tab != "generated":
+            return
         self.filter_selected_only=not self.filter_selected_only
         self.filter_btn.text="Nur Modus-Bilder: AN" if self.filter_selected_only else "Nur Modus-Bilder: AUS"
         self._populate()
@@ -2248,13 +2466,55 @@ class GalleryEditor(FloatLayout):
         else: files=[]
         if len(files)>MAX_IMAGES_DISPLAY: files=files[:MAX_IMAGES_DISPLAY]
         self.all_images_cache=files
+    
+    def _reload_imported_images(self):
+        if UPLOAD_DIR.exists():
+            files=[str(p) for p in UPLOAD_DIR.iterdir()
+                   if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS]
+            files.sort()
+        else: 
+            files=[]
+        if len(files)>MAX_IMAGES_DISPLAY: files=files[:MAX_IMAGES_DISPLAY]
+        self.imported_images_cache=files
+    
+    def switch_tab(self, tab):
+        """Switch between generated and imported images tabs"""
+        if self.current_tab == tab:
+            return
+            
+        self.current_tab = tab
+        
+        # Update tab button appearance
+        if tab == "generated":
+            self.tab_generated.background_color = (0.25,0.45,0.25,1)
+            self.tab_generated.color = (1,1,1,1)
+            self.tab_imported.background_color = (0.35,0.35,0.4,1)
+            self.tab_imported.color = (1,1,1,0.7)
+            self.header_label.text = "Alle KI-Bilder im Ordner"
+            self.filter_btn.opacity = 1
+            self.filter_btn.disabled = False
+        else:  # imported
+            self.tab_imported.background_color = (0.25,0.45,0.25,1)
+            self.tab_imported.color = (1,1,1,1)
+            self.tab_generated.background_color = (0.35,0.35,0.4,1)
+            self.tab_generated.color = (1,1,1,0.7)
+            self.header_label.text = "Alle importierten Bilder"
+            self.filter_btn.opacity = 0.3
+            self.filter_btn.disabled = True
+        
+        # Reset changes when switching tabs
+        self.has_changes=False
+        self._hide_save_button()
+        
+        self._populate()
         
     def _sync_image_lists_with_folder(self):
         """Remove non-existing images from all modes and provide feedback"""
-        if not IMAGE_DIR.exists():
+        if not IMAGE_DIR.exists() and not UPLOAD_DIR.exists():
             return
         
-        existing_files = set(self.all_images_cache)
+        # Combine existing files from both directories
+        existing_files = set(self.all_images_cache + self.imported_images_cache)
         total_removed = 0
         
         # Check and clean all modes
@@ -2280,6 +2540,27 @@ class GalleryEditor(FloatLayout):
         return total_removed
     def _is_selected(self,path):
         return self.target_mode and path in self.target_mode.images
+    
+    def _is_selected_imported(self,path):
+        """Check if imported image is selected in current mode"""
+        return self.target_mode and path in self.target_mode.images
+    
+    def _toggle_imported(self,path):
+        """Toggle selection of imported image - works same as generated images"""
+        if not self.target_mode:
+            self.status_lbl.text="Bitte Modus links wählen."; return
+        if path in self.target_mode.images:
+            self.target_mode.images.remove(path)
+        else:
+            self.target_mode.images.append(path)
+        
+        # Track changes and show save button
+        self.has_changes=True
+        self._show_save_button()
+        
+        for tile in self.gallery_grid.children:
+            if isinstance(tile,ImageTile) and tile.path==path: tile.refresh_state()
+        self._update_count()
     def _toggle(self,path):
         if not self.target_mode:
             self.status_lbl.text="Bitte Modus links wählen."; return
@@ -2302,6 +2583,7 @@ class GalleryEditor(FloatLayout):
         self.add_widget(popup)
     def _after_delete_refresh(self):
         self._reload_all_images()
+        self._reload_imported_images()
         self._populate()
         if self.slideshow.current_mode:
             self.slideshow.set_mode(self.slideshow.current_mode.name, manual=True)
@@ -2362,12 +2644,40 @@ class GalleryEditor(FloatLayout):
         Clock.schedule_once(hide_feedback, 2.0)
     def _populate(self):
         self.gallery_grid.clear_widgets()
-        if not self.all_images_cache: self._reload_all_images()
-        imgs=self.all_images_cache
-        if self.filter_selected_only and self.target_mode:
-            imgs=[p for p in imgs if p in self.target_mode.images]
-        for p in imgs:
-            self.gallery_grid.add_widget(ImageTile(p,self._toggle,self._is_selected,self._open_settings))
+        
+        if self.current_tab == "generated":
+            if not self.all_images_cache: 
+                self._reload_all_images()
+            imgs=self.all_images_cache
+            if self.filter_selected_only and self.target_mode:
+                imgs=[p for p in imgs if p in self.target_mode.images]
+            
+            if not imgs:
+                # Show message when no generated images available
+                msg_label = Label(text="Keine KI-Bilder verfügbar",
+                                font_size=dp(20), color=(0.7,0.7,0.7,1),
+                                size_hint_y=None, height=dp(60))
+                self.gallery_grid.add_widget(msg_label)
+            else:
+                for p in imgs:
+                    self.gallery_grid.add_widget(ImageTile(p,self._toggle,self._is_selected,self._open_settings))
+        
+        else:  # imported tab
+            if not self.imported_images_cache:
+                self._reload_imported_images()
+            imgs=self.imported_images_cache
+            
+            if not imgs:
+                # Show message when no imported images available
+                msg_label = Label(text="Keine importierten Bilder verfügbar\n\nVerwenden Sie den QR-Code-Upload\num Bilder zu importieren",
+                                font_size=dp(18), color=(0.7,0.7,0.7,1),
+                                size_hint_y=None, height=dp(100),
+                                text_size=(dp(300), None), halign="center")
+                self.gallery_grid.add_widget(msg_label)
+            else:
+                for p in imgs:
+                    self.gallery_grid.add_widget(ImageTile(p,self._toggle_imported,self._is_selected_imported,self._open_settings))
+        
         self._update_count()
     
     
