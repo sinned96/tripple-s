@@ -12,11 +12,23 @@ import threading
 import signal
 import logging
 import fcntl
+import socket
+import http.server
+import socketserver
+import urllib.parse
+import base64
 try:
     from tkinter import Tk, Button, Label
     TKINTER_AVAILABLE = True
 except ImportError:
     TKINTER_AVAILABLE = False
+
+try:
+    import qrcode
+    from PIL import Image as PILImage
+    QR_CODE_AVAILABLE = True
+except ImportError:
+    QR_CODE_AVAILABLE = False
 
 # Setup debug logging for recording workflow
 def setup_debug_logging():
@@ -67,6 +79,13 @@ ACCOUNTS_PATH = Path("/home/pi/Desktop/v2_Tripple S/Accounts.txt")
 MODES_PATH = APP_DIR / "modes.json"
 IMAGE_META_PATH = APP_DIR / "image_meta.json"
 
+# Upload Server Configuration
+# The upload server allows file uploads via web interface accessible through QR code
+# Default port is 8080, but can be changed by modifying UPLOAD_PORT variable below
+# Example QR link: http://192.168.1.100:8080/upload (replace IP with your device's IP)
+# If you get "Address already in use" error, change UPLOAD_PORT to another value like 8000, 8001, 9000, etc.
+UPLOAD_PORT = int(os.environ.get('UPLOAD_PORT', 8080))  # Configurable via environment variable or change here
+
 DEFAULT_INTERVAL = 5
 SCHEDULER_INTERVAL_SEC = 60
 FADE_OUT_DUR = 0.35
@@ -97,6 +116,285 @@ EFFECTS_AVAILABLE = [
     ("none", "Keine")
 ]
 DEFAULT_EFFECTS = {"fade"}
+
+# ------------------ Upload Server Implementation ------------------
+class UploadHandler(http.server.SimpleHTTPRequestHandler):
+    """HTTP request handler for file uploads"""
+    
+    def do_GET(self):
+        """Handle GET requests - serve upload form"""
+        if self.path == '/upload' or self.path == '/':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html; charset=utf-8')
+            self.end_headers()
+            
+            html_content = f"""
+            <!DOCTYPE html>
+            <html lang="de">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Tripple-S Upload</title>
+                <style>
+                    body {{ font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }}
+                    .container {{ max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
+                    h1 {{ color: #333; text-align: center; }}
+                    .upload-area {{ border: 2px dashed #ccc; padding: 40px; text-align: center; margin: 20px 0; border-radius: 10px; }}
+                    .upload-area:hover {{ border-color: #007bff; }}
+                    input[type="file"] {{ margin: 20px 0; }}
+                    button {{ background: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }}
+                    button:hover {{ background: #0056b3; }}
+                    .status {{ margin: 20px 0; padding: 10px; border-radius: 5px; }}
+                    .success {{ background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }}
+                    .error {{ background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }}
+                    .port-info {{ background: #e7f3ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; font-size: 14px; color: #0066cc; }}
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>🎵 Tripple-S File Upload</h1>
+                    <div class="port-info">
+                        📡 Server läuft auf Port {UPLOAD_PORT}
+                    </div>
+                    <form enctype="multipart/form-data" method="POST" action="/upload">
+                        <div class="upload-area">
+                            <p>📁 Datei zum Upload auswählen</p>
+                            <input type="file" name="file" required>
+                        </div>
+                        <button type="submit">⬆️ Datei hochladen</button>
+                    </form>
+                    <div id="status"></div>
+                </div>
+            </body>
+            </html>
+            """
+            self.wfile.write(html_content.encode('utf-8'))
+        else:
+            super().do_GET()
+    
+    def do_POST(self):
+        """Handle POST requests - process file uploads"""
+        if self.path == '/upload':
+            try:
+                content_type = self.headers.get('Content-Type', '')
+                if not content_type.startswith('multipart/form-data'):
+                    self.send_error(400, "Invalid content type")
+                    return
+                
+                # Parse multipart form data
+                content_length = int(self.headers.get('Content-Length', 0))
+                if content_length == 0:
+                    self.send_error(400, "No content")
+                    return
+                
+                # Read the entire request body
+                raw_data = self.rfile.read(content_length)
+                
+                # Simple multipart parsing (basic implementation)
+                boundary = content_type.split('boundary=')[1].encode()
+                parts = raw_data.split(b'--' + boundary)
+                
+                for part in parts:
+                    if b'Content-Disposition: form-data' in part and b'filename=' in part:
+                        # Extract filename
+                        lines = part.split(b'\r\n')
+                        for line in lines:
+                            if b'Content-Disposition:' in line:
+                                filename_start = line.find(b'filename="') + 10
+                                filename_end = line.find(b'"', filename_start)
+                                if filename_start > 9 and filename_end > filename_start:
+                                    filename = line[filename_start:filename_end].decode('utf-8')
+                                    break
+                        else:
+                            continue
+                        
+                        # Find file content (after double CRLF)
+                        content_start = part.find(b'\r\n\r\n') + 4
+                        if content_start > 3:
+                            file_content = part[content_start:]
+                            # Remove trailing boundary markers
+                            if file_content.endswith(b'\r\n'):
+                                file_content = file_content[:-2]
+                            
+                            # Save file to upload directory
+                            upload_dir = APP_DIR / "uploads"
+                            upload_dir.mkdir(exist_ok=True)
+                            
+                            file_path = upload_dir / filename
+                            with open(file_path, 'wb') as f:
+                                f.write(file_content)
+                            
+                            debug_logger.info(f"File uploaded successfully: {filename} ({len(file_content)} bytes)")
+                            
+                            # Send success response
+                            self.send_response(200)
+                            self.send_header('Content-type', 'text/html; charset=utf-8')
+                            self.end_headers()
+                            
+                            success_html = f"""
+                            <!DOCTYPE html>
+                            <html lang="de">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Upload Erfolgreich</title>
+                                <style>
+                                    body {{ font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }}
+                                    .container {{ max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }}
+                                    .success {{ color: #28a745; font-size: 24px; margin: 20px 0; }}
+                                    .back-link {{ display: inline-block; margin-top: 20px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }}
+                                    .back-link:hover {{ background: #0056b3; }}
+                                </style>
+                            </head>
+                            <body>
+                                <div class="container">
+                                    <div class="success">✅ Upload erfolgreich!</div>
+                                    <p>Datei "{filename}" wurde hochgeladen.</p>
+                                    <p>Größe: {len(file_content)} Bytes</p>
+                                    <a href="/upload" class="back-link">🔄 Weitere Datei hochladen</a>
+                                </div>
+                            </body>
+                            </html>
+                            """
+                            self.wfile.write(success_html.encode('utf-8'))
+                            return
+                
+                # If we get here, no file was found
+                self.send_error(400, "No file found in upload")
+                
+            except Exception as e:
+                debug_logger.error(f"Upload error: {e}", exc_info=True)
+                self.send_error(500, f"Upload failed: {str(e)}")
+        else:
+            self.send_error(404, "Not found")
+
+class UploadServer:
+    """Configurable upload server with port conflict detection"""
+    
+    def __init__(self, port=UPLOAD_PORT):
+        self.port = port
+        self.server = None
+        self.server_thread = None
+        self.running = False
+        
+    def is_port_available(self, port):
+        """Check if a port is available"""
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                sock.settimeout(1)
+                result = sock.connect_ex(('localhost', port))
+                return result != 0
+        except Exception:
+            return False
+    
+    def get_local_ip(self):
+        """Get the local IP address"""
+        try:
+            # Connect to a remote address to determine local IP
+            with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
+                sock.connect(("8.8.8.8", 80))
+                return sock.getsockname()[0]
+        except Exception:
+            return "localhost"
+    
+    def start_server(self):
+        """Start the upload server with port conflict handling"""
+        if self.running:
+            debug_logger.warning("Upload server already running")
+            return True
+            
+        # Check if port is available
+        if not self.is_port_available(self.port):
+            error_msg = f"Port {self.port} ist bereits belegt (Address already in use)"
+            debug_logger.error(error_msg)
+            debug_logger.info("Lösung: Ändern Sie UPLOAD_PORT in main.py auf einen anderen Wert (z.B. 8000, 8001, 9000)")
+            return False
+        
+        try:
+            # Create server
+            self.server = socketserver.TCPServer(("", self.port), UploadHandler)
+            self.server.allow_reuse_address = True
+            
+            # Start server in background thread
+            self.server_thread = threading.Thread(target=self._run_server, daemon=True)
+            self.server_thread.start()
+            
+            self.running = True
+            
+            local_ip = self.get_local_ip()
+            success_msg = f"Upload-Server gestartet auf Port {self.port}"
+            debug_logger.info(success_msg)
+            debug_logger.info(f"Upload-URL: http://{local_ip}:{self.port}/upload")
+            
+            return True
+            
+        except Exception as e:
+            error_msg = f"Fehler beim Starten des Upload-Servers: {e}"
+            debug_logger.error(error_msg, exc_info=True)
+            if "Address already in use" in str(e):
+                debug_logger.info("Tipp: Port ist bereits belegt. Ändern Sie UPLOAD_PORT auf einen anderen Wert.")
+            return False
+    
+    def _run_server(self):
+        """Run the server (internal method for thread)"""
+        try:
+            debug_logger.info(f"Upload server thread started on port {self.port}")
+            self.server.serve_forever()
+        except Exception as e:
+            debug_logger.error(f"Upload server thread error: {e}", exc_info=True)
+            self.running = False
+    
+    def stop_server(self):
+        """Stop the upload server"""
+        if self.server and self.running:
+            debug_logger.info("Stopping upload server...")
+            self.running = False
+            self.server.shutdown()
+            self.server.server_close()
+            if self.server_thread and self.server_thread.is_alive():
+                self.server_thread.join(timeout=2)
+            debug_logger.info("Upload server stopped")
+    
+    def get_qr_url(self):
+        """Get the URL for QR code generation"""
+        local_ip = self.get_local_ip()
+        return f"http://{local_ip}:{self.port}/upload"
+    
+    def generate_qr_code(self, url=None):
+        """Generate QR code for upload URL"""
+        if not QR_CODE_AVAILABLE:
+            debug_logger.warning("QR code generation not available - qrcode library not installed")
+            return None
+            
+        if url is None:
+            url = self.get_qr_url()
+            
+        try:
+            qr = qrcode.QRCode(
+                version=1,
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=10,
+                border=4,
+            )
+            qr.add_data(url)
+            qr.make(fit=True)
+            
+            # Create QR code image
+            qr_image = qr.make_image(fill_color="black", back_color="white")
+            
+            # Save to temp file
+            temp_qr_path = APP_DIR / "temp_qr_code.png"
+            qr_image.save(str(temp_qr_path))
+            
+            debug_logger.info(f"QR code generated for URL: {url}")
+            return str(temp_qr_path)
+            
+        except Exception as e:
+            debug_logger.error(f"Error generating QR code: {e}", exc_info=True)
+            return None
+
+# Global upload server instance
+upload_server = UploadServer(UPLOAD_PORT)
 
 SHOW_DEBUG_OVERLAY = True
 DEBUG_OVERLAY_FONT_SIZE = 16
@@ -889,18 +1187,37 @@ class AufnahmePopup(FloatLayout):
         scroll.add_widget(self.output_text)
         panel.add_widget(scroll)
         
+        # Buttons row
+        button_row = BoxLayout(
+            orientation='horizontal',
+            size_hint_y=None,
+            height=dp(50),
+            spacing=dp(10)
+        )
+        
+        # QR Code button
+        qr_button = Button(
+            text=f"📱 QR-Code (Port {UPLOAD_PORT})",
+            background_normal='',
+            background_color=(0.3, 0.5, 0.7, 1),
+            color=(1, 1, 1, 1),
+            font_size=dp(18)
+        )
+        qr_button.bind(on_press=self.show_qr_code)
+        button_row.add_widget(qr_button)
+        
         # Close button
         close_button = Button(
             text="Schließen",
-            size_hint_y=None,
-            height=dp(50),
             background_normal='',
             background_color=(0.4, 0.4, 0.45, 1),
             color=(1, 1, 1, 1),
             font_size=dp(20)
         )
         close_button.bind(on_press=self.close_popup)
-        panel.add_widget(close_button)
+        button_row.add_widget(close_button)
+        
+        panel.add_widget(button_row)
         
         self.add_widget(panel)
     
@@ -1551,6 +1868,140 @@ class AufnahmePopup(FloatLayout):
         if self.parent:
             self.parent.remove_widget(self)
             debug_logger.info("Removed popup from parent widget")
+    
+    def show_qr_code(self, instance):
+        """Show QR code popup for upload server"""
+        debug_logger.info("show_qr_code called")
+        
+        # Check if upload server is running
+        if not upload_server.running:
+            self.add_output_text("[color=ffaa44]⚠ Upload-Server ist nicht aktiv[/color]")
+            return
+        
+        # Create QR code popup
+        qr_popup = QRCodePopup(upload_server)
+        if self.parent:
+            self.parent.add_widget(qr_popup)
+
+class QRCodePopup(FloatLayout):
+    """Popup window to display QR code for upload server"""
+    
+    def __init__(self, upload_server_instance, **kwargs):
+        super().__init__(**kwargs)
+        self.upload_server = upload_server_instance
+        
+        # Background
+        with self.canvas.before:
+            Color(0, 0, 0, 0.8)
+            self.bg = Rectangle(pos=self.pos, size=self.size)
+        self.bind(pos=self._update_bg, size=self._update_bg)
+        
+        # Main panel
+        panel = BoxLayout(
+            orientation='vertical',
+            size_hint=(None, None),
+            size=(dp(400), dp(500)),
+            pos_hint={'center_x': 0.5, 'center_y': 0.5},
+            padding=dp(20),
+            spacing=dp(15)
+        )
+        
+        with panel.canvas.before:
+            Color(0.16, 0.16, 0.20, 0.95)
+            panel._bg = Rectangle(pos=panel.pos, size=panel.size)
+        panel.bind(pos=lambda *a: setattr(panel._bg, 'pos', panel.pos),
+                  size=lambda *a: setattr(panel._bg, 'size', panel.size))
+        
+        # Title
+        title = Label(
+            text="📱 Upload QR-Code",
+            size_hint_y=None,
+            height=dp(40),
+            font_size=dp(24),
+            color=(1, 1, 1, 1)
+        )
+        panel.add_widget(title)
+        
+        # Server info
+        url = self.upload_server.get_qr_url()
+        info_text = f"Server läuft auf Port {self.upload_server.port}\n{url}"
+        info_label = Label(
+            text=info_text,
+            size_hint_y=None,
+            height=dp(60),
+            font_size=dp(16),
+            color=(0.9, 0.9, 0.9, 1),
+            halign='center'
+        )
+        info_label.bind(size=lambda inst, *args: setattr(inst, 'text_size', (inst.width, None)))
+        panel.add_widget(info_label)
+        
+        # QR Code image area
+        qr_image_widget = Label(
+            text="🔄 QR-Code wird generiert...",
+            size_hint_y=None,
+            height=dp(200),
+            font_size=dp(18),
+            color=(0.8, 0.8, 0.8, 1)
+        )
+        
+        # Try to generate and display QR code
+        if QR_CODE_AVAILABLE:
+            try:
+                qr_path = self.upload_server.generate_qr_code()
+                if qr_path:
+                    # Replace label with actual QR code image
+                    qr_image_widget = Image(
+                        source=qr_path,
+                        size_hint_y=None,
+                        height=dp(200)
+                    )
+                else:
+                    qr_image_widget.text = "❌ QR-Code konnte nicht generiert werden"
+            except Exception as e:
+                debug_logger.error(f"Error creating QR code widget: {e}")
+                qr_image_widget.text = f"❌ Fehler: {str(e)}"
+        else:
+            qr_image_widget.text = "❌ QR-Code Bibliothek nicht verfügbar\nURL manuell eingeben:\n" + url
+            qr_image_widget.height = dp(100)
+        
+        panel.add_widget(qr_image_widget)
+        
+        # Instructions
+        instructions = Label(
+            text="📲 QR-Code mit Handy scannen\noder URL im Browser öffnen",
+            size_hint_y=None,
+            height=dp(50),
+            font_size=dp(14),
+            color=(0.8, 0.8, 0.8, 1),
+            halign='center'
+        )
+        instructions.bind(size=lambda inst, *args: setattr(inst, 'text_size', (inst.width, None)))
+        panel.add_widget(instructions)
+        
+        # Close button
+        close_button = Button(
+            text="Schließen",
+            size_hint_y=None,
+            height=dp(50),
+            background_normal='',
+            background_color=(0.4, 0.4, 0.45, 1),
+            color=(1, 1, 1, 1),
+            font_size=dp(20)
+        )
+        close_button.bind(on_press=self.close_popup)
+        panel.add_widget(close_button)
+        
+        self.add_widget(panel)
+    
+    def _update_bg(self, *args):
+        self.bg.pos = self.pos
+        self.bg.size = self.size
+    
+    def close_popup(self, instance):
+        """Close the QR code popup"""
+        if self.parent:
+            self.parent.remove_widget(self)
 class GeneralSettingsPopup(FloatLayout):
     def __init__(self, slideshow, **kw):
         super().__init__(**kw)
@@ -2596,6 +3047,10 @@ if KIVYMD_OK:
             self.mode_manager=ModeManager(MODES_PATH)
             self.root_widget=FloatLayout()
             self.slideshow=None
+            
+            # Start upload server early in app initialization
+            self._start_upload_server()
+            
             self.show_login()
             return self.root_widget
         def clear_root(self): self.root_widget.clear_widgets()
@@ -2612,13 +3067,42 @@ if KIVYMD_OK:
             debug_logger.info("App is stopping - performing cleanup")
             if self.slideshow:
                 self.slideshow.cleanup_on_exit()
+            
+            # Stop upload server
+            if upload_server.running:
+                upload_server.stop_server()
+                
             return True
+        
+        def _start_upload_server(self):
+            """Start the upload server with proper error handling and logging"""
+            debug_logger.info(f"Starting upload server on port {UPLOAD_PORT}...")
+            
+            try:
+                success = upload_server.start_server()
+                if success:
+                    debug_logger.info(f"✅ Upload-Server erfolgreich gestartet auf Port {UPLOAD_PORT}")
+                    debug_logger.info(f"📱 Upload-URL: {upload_server.get_qr_url()}")
+                    print(f"Upload-Server läuft auf: {upload_server.get_qr_url()}")
+                else:
+                    debug_logger.error(f"❌ Upload-Server konnte nicht gestartet werden")
+                    debug_logger.info("💡 Lösung: Ändern Sie UPLOAD_PORT in main.py (Zeile ~75) auf einen anderen Wert")
+                    debug_logger.info("💡 Beispiel: UPLOAD_PORT = 8000  # oder 8001, 9000, etc.")
+                    print(f"⚠ Upload-Server nicht verfügbar - Port {UPLOAD_PORT} bereits belegt")
+                    
+            except Exception as e:
+                debug_logger.error(f"❌ Fehler beim Starten des Upload-Servers: {e}", exc_info=True)
+                print(f"⚠ Upload-Server Fehler: {e}")
 else:
     class KioskMDApp(App):
         def build(self):
             self.mode_manager=ModeManager(MODES_PATH)
             self.root_widget=FloatLayout()
             self.slideshow=None
+            
+            # Start upload server early in app initialization
+            self._start_upload_server()
+            
             self.show_login()
             return self.root_widget
         def clear_root(self): self.root_widget.clear_widgets()
@@ -2635,7 +3119,32 @@ else:
             debug_logger.info("App is stopping - performing cleanup")
             if self.slideshow:
                 self.slideshow.cleanup_on_exit()
+            
+            # Stop upload server
+            if upload_server.running:
+                upload_server.stop_server()
+                
             return True
+        
+        def _start_upload_server(self):
+            """Start the upload server with proper error handling and logging"""
+            debug_logger.info(f"Starting upload server on port {UPLOAD_PORT}...")
+            
+            try:
+                success = upload_server.start_server()
+                if success:
+                    debug_logger.info(f"✅ Upload-Server erfolgreich gestartet auf Port {UPLOAD_PORT}")
+                    debug_logger.info(f"📱 Upload-URL: {upload_server.get_qr_url()}")
+                    print(f"Upload-Server läuft auf: {upload_server.get_qr_url()}")
+                else:
+                    debug_logger.error(f"❌ Upload-Server konnte nicht gestartet werden")
+                    debug_logger.info("💡 Lösung: Ändern Sie UPLOAD_PORT in main.py (Zeile ~75) auf einen anderen Wert")
+                    debug_logger.info("💡 Beispiel: UPLOAD_PORT = 8000  # oder 8001, 9000, etc.")
+                    print(f"⚠ Upload-Server nicht verfügbar - Port {UPLOAD_PORT} bereits belegt")
+                    
+            except Exception as e:
+                debug_logger.error(f"❌ Fehler beim Starten des Upload-Servers: {e}", exc_info=True)
+                print(f"⚠ Upload-Server Fehler: {e}")
 
 if __name__ == "__main__":
     app = KioskMDApp()
