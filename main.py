@@ -1196,6 +1196,17 @@ class AufnahmePopup(FloatLayout):
             spacing=dp(10)
         )
         
+        # Import Image Selection button
+        import_button = Button(
+            text="🖼️ Import-Bild wählen",
+            background_normal='',
+            background_color=(0.5, 0.3, 0.7, 1),
+            color=(1, 1, 1, 1),
+            font_size=dp(18)
+        )
+        import_button.bind(on_press=self.show_import_selection)
+        button_row.add_widget(import_button)
+        
         # QR Code button
         qr_button = Button(
             text=f"📱 QR-Code (Port {UPLOAD_PORT})",
@@ -1883,6 +1894,36 @@ class AufnahmePopup(FloatLayout):
         qr_popup = QRCodePopup(upload_server)
         if self.parent:
             self.parent.add_widget(qr_popup)
+    
+    def show_import_selection(self, instance):
+        """Show import image selection popup"""
+        debug_logger.info("show_import_selection called")
+        
+        # Check if there are any imported images
+        if UPLOAD_DIR.exists():
+            import_files = [str(p) for p in UPLOAD_DIR.iterdir() 
+                           if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS]
+        else:
+            import_files = []
+        
+        if not import_files:
+            self.add_output_text("[color=ffaa44]⚠ Keine importierten Bilder verfügbar[/color]")
+            self.add_output_text("[color=cccccc]Verwenden Sie den QR-Code-Upload um Bilder zu importieren[/color]")
+            return
+        
+        # Create import selection popup
+        import_popup = ImportSelectionPopup(import_files, self.on_import_selected)
+        if self.parent:
+            self.parent.add_widget(import_popup)
+    
+    def on_import_selected(self, selected_image_path):
+        """Called when an import image is selected"""
+        if selected_image_path:
+            self.add_output_text(f"[color=44ff44]✓ Import-Bild ausgewählt: {Path(selected_image_path).name}[/color]")
+            # Here we could save the selected path for later use or immediately process it
+            # For now, we just show feedback
+        else:
+            self.add_output_text("[color=ffaa44]Keine Auswahl getroffen[/color]")
 
 class QRCodePopup(FloatLayout):
     """Popup window to display QR code for upload server"""
@@ -2003,6 +2044,159 @@ class QRCodePopup(FloatLayout):
         """Close the QR code popup"""
         if self.parent:
             self.parent.remove_widget(self)
+
+class ImportSelectionPopup(FloatLayout):
+    """Popup window to select imported images"""
+    
+    def __init__(self, image_files, on_selection_callback, **kwargs):
+        super().__init__(**kwargs)
+        self.image_files = image_files
+        self.on_selection_callback = on_selection_callback
+        self.selected_image = None
+        
+        # Background
+        with self.canvas.before:
+            Color(0, 0, 0, 0.8)
+            self.bg = Rectangle(pos=self.pos, size=self.size)
+        self.bind(pos=self._update_bg, size=self._update_bg)
+        
+        # Main panel
+        panel = BoxLayout(
+            orientation='vertical',
+            size_hint=(None, None),
+            size=(dp(500), dp(400)),
+            pos_hint={'center_x': 0.5, 'center_y': 0.5},
+            padding=dp(20),
+            spacing=dp(15)
+        )
+        
+        with panel.canvas.before:
+            Color(0.16, 0.16, 0.20, 0.95)
+            panel._bg = Rectangle(pos=panel.pos, size=panel.size)
+        panel.bind(pos=lambda *a: setattr(panel._bg, 'pos', panel.pos),
+                  size=lambda *a: setattr(panel._bg, 'size', panel.size))
+        
+        # Title
+        title = Label(
+            text="🖼️ Import-Bild auswählen",
+            size_hint_y=None,
+            height=dp(40),
+            font_size=dp(24),
+            color=(1, 1, 1, 1)
+        )
+        panel.add_widget(title)
+        
+        # Image selection grid
+        from kivy.uix.gridlayout import GridLayout
+        from kivy.uix.scrollview import ScrollView
+        
+        scroll = ScrollView()
+        self.image_grid = GridLayout(cols=3, spacing=dp(10), size_hint_y=None, padding=dp(10))
+        self.image_grid.bind(minimum_height=lambda inst, val: setattr(inst, 'height', val))
+        
+        # Add image tiles
+        for img_path in image_files:
+            tile = self._create_image_tile(img_path)
+            self.image_grid.add_widget(tile)
+        
+        scroll.add_widget(self.image_grid)
+        panel.add_widget(scroll)
+        
+        # Selected image display
+        self.selection_label = Label(
+            text="Kein Bild ausgewählt",
+            size_hint_y=None,
+            height=dp(30),
+            font_size=dp(16),
+            color=(0.8, 0.8, 0.8, 1)
+        )
+        panel.add_widget(self.selection_label)
+        
+        # Buttons
+        button_row = BoxLayout(
+            orientation='horizontal',
+            size_hint_y=None,
+            height=dp(50),
+            spacing=dp(10)
+        )
+        
+        select_btn = Button(
+            text="Auswählen",
+            background_normal='',
+            background_color=(0.25, 0.55, 0.25, 1),
+            color=(1, 1, 1, 1),
+            font_size=dp(18)
+        )
+        select_btn.bind(on_press=self.confirm_selection)
+        
+        cancel_btn = Button(
+            text="Abbrechen", 
+            background_normal='',
+            background_color=(0.55, 0.25, 0.25, 1),
+            color=(1, 1, 1, 1),
+            font_size=dp(18)
+        )
+        cancel_btn.bind(on_press=self.cancel_selection)
+        
+        button_row.add_widget(select_btn)
+        button_row.add_widget(cancel_btn)
+        panel.add_widget(button_row)
+        
+        self.add_widget(panel)
+    
+    def _create_image_tile(self, img_path):
+        """Create a selectable image tile"""
+        tile = BoxLayout(orientation='vertical', size_hint=(None, None), 
+                        size=(dp(120), dp(140)), spacing=dp(5))
+        
+        # Image display
+        img_widget = Image(source=img_path, size_hint=(1, None), height=dp(100))
+        tile.add_widget(img_widget)
+        
+        # Selection button
+        btn = Button(text=Path(img_path).name[:15] + "..." if len(Path(img_path).name) > 15 else Path(img_path).name,
+                    size_hint=(1, None), height=dp(35), font_size=dp(12),
+                    background_normal='', background_color=(0.3, 0.3, 0.4, 1))
+        btn.bind(on_press=lambda inst, path=img_path: self.select_image(path, btn))
+        tile.add_widget(btn)
+        
+        return tile
+    
+    def select_image(self, img_path, button):
+        """Select an image"""
+        self.selected_image = img_path
+        self.selection_label.text = f"Ausgewählt: {Path(img_path).name}"
+        
+        # Reset all button colors
+        for tile in self.image_grid.children:
+            if hasattr(tile, 'children') and len(tile.children) > 0:
+                btn = tile.children[0]  # Button is the last added child
+                if hasattr(btn, 'background_color'):
+                    btn.background_color = (0.3, 0.3, 0.4, 1)
+        
+        # Highlight selected button
+        button.background_color = (0.25, 0.55, 0.25, 1)
+    
+    def confirm_selection(self, instance):
+        """Confirm the selection and close"""
+        self.on_selection_callback(self.selected_image)
+        self.close_popup(instance)
+    
+    def cancel_selection(self, instance):
+        """Cancel selection and close"""
+        self.on_selection_callback(None)
+        self.close_popup(instance)
+    
+    def close_popup(self, instance):
+        """Close the popup"""
+        if self.parent:
+            self.parent.remove_widget(self)
+    
+    def _update_bg(self, *args):
+        """Update background rectangle"""
+        self.bg.pos = self.pos
+        self.bg.size = self.size
+
 class GeneralSettingsPopup(FloatLayout):
     def __init__(self, slideshow, **kw):
         super().__init__(**kw)
@@ -2258,6 +2452,9 @@ class GalleryEditor(FloatLayout):
         self.status_lbl.text=f"Modus: {mode.name}"
         self._populate()
     def toggle_filter(self,*_):
+        # Only allow filter toggle in generated images tab
+        if self.current_tab != "generated":
+            return
         self.filter_selected_only=not self.filter_selected_only
         self.filter_btn.text="Nur Modus-Bilder: AN" if self.filter_selected_only else "Nur Modus-Bilder: AUS"
         self._populate()
