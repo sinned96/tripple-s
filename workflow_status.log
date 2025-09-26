@@ -77,3 +77,23 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 [2025-09-26 11:15:39] INFO: 🎯 This will be sent as IMAGE-TO-IMAGE request to Vertex AI
 [2025-09-26 11:15:39] WARNING: ⚠ Warning: Using simulated transcript data (not real speech)
 [2025-09-26 11:15:39] WARNING: For real AI image generation, ensure Google Speech-to-Text is working
+[2025-09-26 11:17:21] INFO: Using JSON transcript (method: fallback, real: False)
+[2025-09-26 11:17:21] INFO: ✅ MULTIMODAL DATA DETECTED: Text + Image for AI processing
+[2025-09-26 11:17:21] INFO: 📊 Multimodal details:
+[2025-09-26 11:17:21] INFO:   - Text prompt: 'Dies ist eine ausführliche Audioaufnahme mit viele...'
+[2025-09-26 11:17:21] INFO:   - Text length: 216 characters
+[2025-09-26 11:17:21] INFO:   - Image data: 380 base64 characters
+[2025-09-26 11:17:21] INFO:   - Est. image size: ~0.3 KB
+[2025-09-26 11:17:21] INFO: 🎯 This will be sent as IMAGE-TO-IMAGE request to Vertex AI
+[2025-09-26 11:17:21] WARNING: ⚠ Warning: Using simulated transcript data (not real speech)
+[2025-09-26 11:17:21] WARNING: For real AI image generation, ensure Google Speech-to-Text is working
+[2025-09-26 11:17:54] INFO: Using JSON transcript (method: hamburg_kebap_scenario, real: False)
+[2025-09-26 11:17:54] INFO: ✅ MULTIMODAL DATA DETECTED: Text + Image for AI processing
+[2025-09-26 11:17:54] INFO: 📊 Multimodal details:
+[2025-09-26 11:17:54] INFO:   - Text prompt: 'füge mehr Leute in das Bild ein'
+[2025-09-26 11:17:54] INFO:   - Text length: 31 characters
+[2025-09-26 11:17:54] INFO:   - Image data: 380 base64 characters
+[2025-09-26 11:17:54] INFO:   - Est. image size: ~0.3 KB
+[2025-09-26 11:17:54] INFO: 🎯 This will be sent as IMAGE-TO-IMAGE request to Vertex AI
+[2025-09-26 11:17:54] WARNING: ⚠ Warning: Using simulated transcript data (not real speech)
+[2025-09-26 11:17:54] WARNING: For real AI image generation, ensure Google Speech-to-Text is working

@@ -1,5 +1,5 @@
 {
-  "image_path": "/home/runner/work/tripple-s/tripple-s/test_hamburg_kebap.jpg",
+  "image_path": "/home/runner/work/tripple-s/tripple-s/hamburg_kebap_realistic.jpg",
   "selection_timestamp": "2025-01-16T10:30:00Z",
-  "workflow_type": "multimodal_test"
+  "workflow_type": "hamburg_kebap_scenario"
 }

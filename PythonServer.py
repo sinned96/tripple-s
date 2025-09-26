@@ -926,7 +926,10 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
             "parameters": {
                 "sampleCount": image_count,
                 "aspectRatio": "16:9",
-                "resolution": "2k"
+                "resolution": "2k",
+                # For image-to-image requests, add guidance scale for better adherence to input image
+                "guidanceScale": 8.0 if image_base64 else 4.0,  # Higher guidance for image editing
+                "seed": 42  # Fixed seed for reproducible results during testing
             }
         }
         
@@ -937,6 +940,8 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
         if image_base64:
             log(f"  - image.bytesBase64Encoded: {len(image_base64)} characters")
         log(f"  - parameters: {payload['parameters']}")
+        if image_base64:
+            log("⚡ ENHANCED: Higher guidanceScale (8.0) for better image editing adherence")
         
         log(f"🚀 Sending request to Vertex AI Imagen API...")
         log(f"Endpoint: {ENDPOINT}")
@@ -945,6 +950,10 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
         # Log request type for Vertex AI debugging
         request_type = "MULTIMODAL (Text+Image)" if image_base64 else "TEXT-ONLY"
         log(f"Request type: {request_type}")
+        
+        if image_base64:
+            log("🎯 VERTEX AI BEHAVIOR: Input image will be used as reference for generation")
+            log("🔧 EXPECTED RESULT: Generated image should modify the input image per prompt")
         
         response = requests.post(ENDPOINT, headers=headers, json=payload, timeout=120)
         
