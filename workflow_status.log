@@ -4,3 +4,76 @@
 [2025-09-16 20:20:03] INFO: Service-Lock freigegeben
 [2025-09-16 20:20:03] INFO: Workflow-Manager gestoppt
 [2025-09-16 20:20:03] INFO: Workflow-Manager gestoppt
+[2025-09-26 11:11:37] INFO: === Starting Clean Vertex AI Workflow ===
+[2025-09-26 11:11:37] INFO: Streamlined workflow: Recording → Transcription → Vertex AI Image Generation
+[2025-09-26 11:11:37] INFO: ⚡ ENHANCED: Workflow now waits for complete recording validation before starting
+[2025-09-26 11:11:37] INFO: Pre-Step: Validating audio file is ready for transcription...
+[2025-09-26 11:11:37] ERROR: ✗ Audio file not found: /home/pi/Desktop/v2_Tripple S/aufnahme.wav
+[2025-09-26 11:11:37] ERROR: This indicates the recording was not completed properly
+[2025-09-26 11:11:37] ERROR: WORKFLOW_ERROR: Recording incomplete - aborting transcription
+[2025-09-26 11:11:37] INFO: Trigger-Datei gelöscht
+[2025-09-26 11:11:37] INFO: Service beendet sich nach erfolgreichem Workflow-Durchlauf
+[2025-09-26 11:12:00] INFO: === Starting Clean Vertex AI Workflow ===
+[2025-09-26 11:12:00] INFO: Streamlined workflow: Recording → Transcription → Vertex AI Image Generation
+[2025-09-26 11:12:00] INFO: ⚡ ENHANCED: Workflow now waits for complete recording validation before starting
+[2025-09-26 11:12:00] INFO: Pre-Step: Validating audio file is ready for transcription...
+[2025-09-26 11:12:00] INFO: ✓ Audio file validated and stable: 1,565,452 bytes
+[2025-09-26 11:12:00] INFO: ✅ RACE CONDITION PREVENTION: Audio file ready for safe transcription
+[2025-09-26 11:12:00] INFO: Schritt 1/2: Spracherkennung (voiceToGoogle.py)...
+[2025-09-26 11:12:00] INFO: Setting GOOGLE_APPLICATION_CREDENTIALS to: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-26 11:12:00] ERROR: WORKFLOW_ERROR: Unerwarteter Fehler: unsupported operand type(s) for /: 'str' and 'str'
+[2025-09-26 11:12:00] ERROR: Traceback: Traceback (most recent call last):
+  File "/home/runner/work/tripple-s/tripple-s/PythonServer.py", line 464, in execute_workflow
+    if manager.run_script_sync(str(self.work_dir / "voiceToGoogle.py"), "Spracherkennung"):
+                                   ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+
+[2025-09-26 11:12:00] INFO: Service beendet sich nach erfolgreichem Workflow-Durchlauf
+[2025-09-26 11:12:46] INFO: === Starting Clean Vertex AI Workflow ===
+[2025-09-26 11:12:46] INFO: Streamlined workflow: Recording → Transcription → Vertex AI Image Generation
+[2025-09-26 11:12:46] INFO: ⚡ ENHANCED: Workflow now waits for complete recording validation before starting
+[2025-09-26 11:12:46] INFO: Pre-Step: Validating audio file is ready for transcription...
+[2025-09-26 11:12:46] INFO: ✓ Audio file validated and stable: 1,565,452 bytes
+[2025-09-26 11:12:46] INFO: ✅ RACE CONDITION PREVENTION: Audio file ready for safe transcription
+[2025-09-26 11:12:46] INFO: Schritt 1/2: Spracherkennung (voiceToGoogle.py)...
+[2025-09-26 11:12:46] INFO: Setting GOOGLE_APPLICATION_CREDENTIALS to: /home/pi/Desktop/v2_Tripple S/cloudKey.json
+[2025-09-26 11:12:47] INFO: ✓ Spracherkennung erfolgreich
+[2025-09-26 11:12:47] INFO: ✓ JSON-Transcript für AI-Integration erstellt: /home/runner/work/tripple-s/tripple-s/transkript.json
+[2025-09-26 11:12:47] INFO: Schritt 2/2: Bildgenerierung mit Vertex AI...
+[2025-09-26 11:12:47] INFO: Sending transcript to Vertex AI for image generation
+[2025-09-26 11:12:47] INFO: Using JSON transcript (method: fallback, real: False)
+[2025-09-26 11:12:47] INFO: Text-only data for AI processing
+[2025-09-26 11:12:47] WARNING: ⚠ Warning: Using simulated transcript data (not real speech)
+[2025-09-26 11:12:47] WARNING: For real AI image generation, ensure Google Speech-to-Text is working
+[2025-09-26 11:12:47] INFO: Transcript found for AI processing: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den...'
+[2025-09-26 11:12:47] INFO: Workflow type: text-only
+[2025-09-26 11:12:47] INFO: Target directory ensured: /home/runner/work/tripple-s/tripple-s/BilderVertex
+[2025-09-26 11:12:47] INFO: Sending prompt to Vertex AI Imagen API...
+[2025-09-26 11:12:47] INFO: === Vertex AI Image Generation ===
+[2025-09-26 11:12:47] INFO: Prompt: 'Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den...'
+[2025-09-26 11:12:47] INFO: Prompt length: 216 characters
+[2025-09-26 11:12:47] INFO: 📝 TEXT-ONLY REQUEST: No image input provided
+[2025-09-26 11:12:47] INFO: Target directory: /home/runner/work/tripple-s/tripple-s/BilderVertex
+[2025-09-26 11:12:47] WARNING: Google Cloud libraries not available
+[2025-09-26 11:12:47] INFO: Required: pip install google-cloud-aiplatform google-auth
+[2025-09-26 11:12:47] INFO: Creating demo images as fallback...
+[2025-09-26 11:12:47] INFO: ✓ Demo image created: /home/runner/work/tripple-s/tripple-s/BilderVertex/bild_1.png
+[2025-09-26 11:12:47] INFO: ✓ Vertex AI Bildgenerierung erfolgreich abgeschlossen
+[2025-09-26 11:12:47] INFO: ✓ Bild gespeichert: /home/runner/work/tripple-s/tripple-s/BilderVertex/bild_1.png
+[2025-09-26 11:12:47] INFO: WORKFLOW_COMPLETE: Alle Schritte erfolgreich abgeschlossen
+[2025-09-26 11:12:47] INFO: ✓ Streamlined workflow: Speech Recognition → Vertex AI → BilderVertex completed
+[2025-09-26 11:12:47] INFO: Service beendet sich nach erfolgreichem Workflow-Durchlauf
+[2025-09-26 11:13:21] INFO: Using JSON transcript (method: test_multimodal, real: False)
+[2025-09-26 11:13:21] INFO: ✓ Multimodal data detected: Text + Image for AI processing
+[2025-09-26 11:13:21] WARNING: ⚠ Warning: Using simulated transcript data (not real speech)
+[2025-09-26 11:13:21] WARNING: For real AI image generation, ensure Google Speech-to-Text is working
+[2025-09-26 11:15:39] INFO: Using JSON transcript (method: test_multimodal, real: False)
+[2025-09-26 11:15:39] INFO: ✅ MULTIMODAL DATA DETECTED: Text + Image for AI processing
+[2025-09-26 11:15:39] INFO: 📊 Multimodal details:
+[2025-09-26 11:15:39] INFO:   - Text prompt: 'füge mehr Leute in das Bild ein'
+[2025-09-26 11:15:39] INFO:   - Text length: 31 characters
+[2025-09-26 11:15:39] INFO:   - Image data: 96 base64 characters
+[2025-09-26 11:15:39] INFO:   - Est. image size: ~0.1 KB
+[2025-09-26 11:15:39] INFO: 🎯 This will be sent as IMAGE-TO-IMAGE request to Vertex AI
+[2025-09-26 11:15:39] WARNING: ⚠ Warning: Using simulated transcript data (not real speech)
+[2025-09-26 11:15:39] WARNING: For real AI image generation, ensure Google Speech-to-Text is working
