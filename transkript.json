@@ -1,10 +1,11 @@
 {
-  "transcript": "Hallo, dies ist eine längere Audioaufnahme die von der Spracherkennung verarbeitet wird. Bitte erstelle ein Bild basierend auf diesem Text.",
-  "timestamp": 1757950525.1242013,
-  "iso_timestamp": "2025-09-15 16:35:25",
-  "file_size": 139,
+  "transcript": "Dies ist eine ausführliche Audioaufnahme mit vielen Details. Die Spracherkennung hat erfolgreich den gesprochenen Inhalt erkannt und in Text umgewandelt. Dieser Text kann nun für die Bildgenerierung verwendet werden.",
+  "timestamp": 1758885595.6030006,
+  "iso_timestamp": "2025-09-26 11:19:55",
+  "file_size": 216,
   "processing_method": "fallback",
-  "audio_source": "/home/pi/Desktop/v2_Tripple S/aufnahme.wav",
+  "audio_source": "aufnahme.wav",
   "workflow_step": "transcription_complete",
-  "real_recognition": false
+  "real_recognition": false,
+  "image_base64": "/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAAQABADAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCs/9k="
 }

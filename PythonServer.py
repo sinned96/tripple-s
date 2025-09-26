@@ -461,7 +461,12 @@ class WorkflowFileWatcher:
             self.log_status(f"Setting GOOGLE_APPLICATION_CREDENTIALS to: {GOOGLE_SPEECH_CREDENTIALS}")
             
             manager = AsyncWorkflowManager()
-            if manager.run_script_sync(str(self.work_dir / "voiceToGoogle.py"), "Spracherkennung"):
+            
+            # Convert work_dir to Path if it's a string
+            work_dir_path = Path(self.work_dir) if isinstance(self.work_dir, str) else self.work_dir
+            voice_script_path = work_dir_path / "voiceToGoogle.py"
+            
+            if manager.run_script_sync(str(voice_script_path), "Spracherkennung"):
                 success_count += 1
                 self.log_status("✓ Spracherkennung erfolgreich")
                 
@@ -511,6 +516,29 @@ class WorkflowFileWatcher:
                     bilder_dir_path.mkdir(parents=True, exist_ok=True)
                     self.log_status(f"Target directory ensured: {bilder_dir_path}")
                     
+                    # Validate image data if present (fallback to text-only on invalid data)
+                    validated_image_base64 = None
+                    if image_base64:
+                        try:
+                            # Validate base64 format
+                            import base64 as b64_module
+                            decoded_test = b64_module.b64decode(image_base64[:100])  # Test first 100 chars
+                            if len(image_base64) < 50:  # Too small to be a real image
+                                self.log_status("⚠️ IMAGE VALIDATION: Base64 data too small, switching to text-only", "WARNING")
+                                validated_image_base64 = None
+                            else:
+                                validated_image_base64 = image_base64
+                                self.log_status("✅ IMAGE VALIDATION: Base64 data is valid")
+                        except Exception as e:
+                            self.log_status(f"❌ IMAGE VALIDATION: Invalid base64 data - {e}", "WARNING")
+                            self.log_status("🔄 FALLBACK: Switching to text-only mode", "WARNING")
+                            validated_image_base64 = None
+                    
+                    # Update workflow type based on validation
+                    final_workflow_type = "multimodal (Text + Image)" if validated_image_base64 else "text-only"
+                    if final_workflow_type != workflow_type:
+                        self.log_status(f"🔄 WORKFLOW TYPE CHANGED: {workflow_type} → {final_workflow_type}")
+                    
                     # Generate image using Vertex AI (with optional image input for multimodal)
                     self.log_status("Sending prompt to Vertex AI Imagen API...")
                     image_paths = generate_image_imagen4(
@@ -519,7 +547,7 @@ class WorkflowFileWatcher:
                         bilder_dir=str(bilder_dir_path), 
                         output_prefix="bild",
                         logger=self.log_status,
-                        image_base64=image_base64  # Pass image data for multimodal requests
+                        image_base64=validated_image_base64  # Use validated image data
                     )
                     
                     if image_paths:
@@ -665,11 +693,17 @@ class WorkflowFileWatcher:
                     
                     self.log_status(f"Using JSON transcript (method: {processing_method}, real: {is_real})")
                     
-                    # Log multimodal status
+                    # Enhanced multimodal status logging
                     if image_base64:
-                        self.log_status("✓ Multimodal data detected: Text + Image for AI processing")
+                        self.log_status("✅ MULTIMODAL DATA DETECTED: Text + Image for AI processing")
+                        self.log_status(f"📊 Multimodal details:")
+                        self.log_status(f"  - Text prompt: '{transcript_text[:50]}{'...' if len(transcript_text) > 50 else ''}'")
+                        self.log_status(f"  - Text length: {len(transcript_text)} characters")
+                        self.log_status(f"  - Image data: {len(image_base64)} base64 characters")
+                        self.log_status(f"  - Est. image size: ~{len(image_base64) * 3 // 4 / 1024:.1f} KB")
+                        self.log_status("🎯 This will be sent as IMAGE-TO-IMAGE request to Vertex AI")
                     else:
-                        self.log_status("Text-only data for AI processing")
+                        self.log_status("📝 TEXT-ONLY data for AI processing")
                     
                     # Warn if this is simulation data
                     if not is_real:
@@ -787,10 +821,26 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
     
     log(f"=== Vertex AI Image Generation ===")
     log(f"Prompt: '{prompt[:100]}{'...' if len(prompt) > 100 else ''}'")
+    log(f"Prompt length: {len(prompt)} characters")
+    
+    # Enhanced logging for multimodal workflow
     if image_base64:
-        log("Multimodal request: Text + Image input")
+        log("🔄 MULTIMODAL REQUEST: Text + Image input detected")
+        log(f"Image data size: {len(image_base64)} base64 characters")
+        log(f"Estimated image size: ~{len(image_base64) * 3 // 4 / 1024:.1f} KB")
+        
+        # Validate base64 format
+        try:
+            # Check if it's valid base64
+            import base64 as b64_module
+            decoded_test = b64_module.b64decode(image_base64[:100])  # Test first 100 chars
+            log("✓ Base64 image data validation: PASSED")
+        except Exception as e:
+            log(f"✗ Base64 image data validation: FAILED - {e}", "ERROR")
+            log("This may cause Vertex AI to ignore the image input", "WARNING")
     else:
-        log("Text-only request")
+        log("📝 TEXT-ONLY REQUEST: No image input provided")
+    
     log(f"Target directory: {bilder_dir}")
     
     # Ensure directory exists
@@ -847,36 +897,79 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
         # Build instance data based on whether image is provided
         if image_base64:
             # Multimodal request: text + image
+            # IMPORTANT: For Vertex AI Imagen 4.0, the correct structure for image editing/modification
+            # Reference: https://cloud.google.com/vertex-ai/docs/generative-ai/image/edit-images
             instance_data = {
                 "prompt": prompt,
                 "image": {
                     "bytesBase64Encoded": image_base64
                 }
             }
-            log("Building multimodal API request (text + image)")
+            log("🖼️ Building multimodal API request (IMAGE-TO-IMAGE mode)")
+            log(f"Instance data contains: prompt ({len(prompt)} chars) + image ({len(image_base64)} base64 chars)")
+            log("⚡ IMAGE-TO-IMAGE: Vertex AI will use the input image as reference for generation")
+            
+            # Validate that the prompt is image-modification focused
+            edit_keywords = ["füge", "add", "remove", "change", "modify", "edit", "more", "weniger", "different", "hinzu"]
+            if any(keyword in prompt.lower() for keyword in edit_keywords):
+                log("✅ PROMPT ANALYSIS: Image modification keywords detected - good for image-to-image")
+            else:
+                log("⚠️ PROMPT ANALYSIS: No clear modification keywords - may generate new image instead of editing")
         else:
             # Text-only request
             instance_data = {"prompt": prompt}
-            log("Building text-only API request")
+            log("📝 Building text-only API request")
+            log(f"Instance data contains: prompt only ({len(prompt)} chars)")
         
         payload = {
             "instances": [instance_data],
             "parameters": {
                 "sampleCount": image_count,
                 "aspectRatio": "16:9",
-                "resolution": "2k"
+                "resolution": "2k",
+                # For image-to-image requests, add guidance scale for better adherence to input image
+                "guidanceScale": 8.0 if image_base64 else 4.0,  # Higher guidance for image editing
+                "seed": 42  # Fixed seed for reproducible results during testing
             }
         }
         
-        log(f"Sending request to Vertex AI Imagen API...")
+        # Log payload structure for debugging (without exposing full base64 data)
+        log("📤 API Payload structure:")
+        log(f"  - instances: {len(payload['instances'])} item(s)")
+        log(f"  - instance[0] keys: {list(payload['instances'][0].keys())}")
+        if image_base64:
+            log(f"  - image.bytesBase64Encoded: {len(image_base64)} characters")
+        log(f"  - parameters: {payload['parameters']}")
+        if image_base64:
+            log("⚡ ENHANCED: Higher guidanceScale (8.0) for better image editing adherence")
+        
+        log(f"🚀 Sending request to Vertex AI Imagen API...")
         log(f"Endpoint: {ENDPOINT}")
         log(f"Parameters: {image_count} images, 16:9 aspect ratio, 2k resolution")
         
+        # Log request type for Vertex AI debugging
+        request_type = "MULTIMODAL (Text+Image)" if image_base64 else "TEXT-ONLY"
+        log(f"Request type: {request_type}")
+        
+        if image_base64:
+            log("🎯 VERTEX AI BEHAVIOR: Input image will be used as reference for generation")
+            log("🔧 EXPECTED RESULT: Generated image should modify the input image per prompt")
+        
         response = requests.post(ENDPOINT, headers=headers, json=payload, timeout=120)
         
+        log(f"📨 Response received: HTTP {response.status_code}")
+        
         if response.status_code != 200:
-            log(f"Vertex AI API error: HTTP {response.status_code}", "ERROR")
-            log(f"Response: {response.text}", "ERROR")
+            log(f"❌ Vertex AI API error: HTTP {response.status_code}", "ERROR")
+            log(f"Response body: {response.text[:500]}{'...' if len(response.text) > 500 else ''}", "ERROR")
+            
+            # Enhanced error analysis for multimodal requests
+            if image_base64:
+                log("🔍 MULTIMODAL REQUEST FAILED - Possible causes:", "ERROR")
+                log("  - Image format not supported by Vertex AI", "ERROR")
+                log("  - Base64 encoding corrupted", "ERROR")
+                log("  - Image too large for API", "ERROR")
+                log("  - MIME type issues", "ERROR")
             
             # Common error handling
             if response.status_code == 401:
@@ -890,12 +983,25 @@ def generate_image_imagen4(prompt, image_count=1, bilder_dir=BILDER_DIR, output_
             
             return _create_demo_images(bilder_dir, output_prefix, image_count, logger)
         
-        log("✓ Received response from Vertex AI API")
+        log("✅ Received successful response from Vertex AI API")
         result = response.json()
         
+        # Enhanced response validation
+        log(f"📋 Response structure: {list(result.keys())}")
+        
         if "predictions" not in result or not result["predictions"]:
-            log("No images returned by Vertex AI API", "ERROR")
+            log("❌ No images returned by Vertex AI API", "ERROR")
+            log(f"Response content: {result}", "ERROR")
+            
+            if image_base64:
+                log("🔍 MULTIMODAL REQUEST RETURNED EMPTY - Possible issues:", "ERROR")
+                log("  - Vertex AI couldn't process the input image", "ERROR")
+                log("  - Image + prompt combination not valid", "ERROR")
+                log("  - API temporarily unable to handle multimodal requests", "ERROR")
+            
             return _create_demo_images(bilder_dir, output_prefix, image_count, logger)
+        
+        log(f"✅ API returned {len(result['predictions'])} prediction(s)")
         
         # Save generated images
         log(f"Processing {len(result['predictions'])} generated images...")

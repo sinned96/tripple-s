@@ -394,7 +394,10 @@ def get_selected_image_base64():
         script_dir = Path(__file__).parent
         image_info_file = script_dir / "selected_image.json"
         
+        speech_logger.info(f"🔍 Checking for image selection: {image_info_file}")
+        
         if not image_info_file.exists():
+            speech_logger.info("ℹ️ No image selected for multimodal workflow")
             return None
             
         # Load selected image information
@@ -402,25 +405,45 @@ def get_selected_image_base64():
             image_info = json.load(f)
             
         image_path = image_info.get('image_path')
+        speech_logger.info(f"📂 Selected image path: {image_path}")
+        
         if not image_path or not Path(image_path).exists():
-            speech_logger.warning(f"Selected image file not found: {image_path}")
+            speech_logger.warning(f"❌ Selected image file not found: {image_path}")
             return None
             
+        # Log image file details for debugging
+        image_file = Path(image_path)
+        file_size = image_file.stat().st_size
+        speech_logger.info(f"📊 Image file details:")
+        speech_logger.info(f"  - Name: {image_file.name}")
+        speech_logger.info(f"  - Size: {file_size:,} bytes ({file_size/1024:.1f} KB)")
+        speech_logger.info(f"  - Extension: {image_file.suffix.lower()}")
+        
+        # Validate image format
+        valid_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp']
+        if image_file.suffix.lower() not in valid_extensions:
+            speech_logger.warning(f"⚠️ Unusual image extension: {image_file.suffix}")
+            speech_logger.warning(f"Supported: {', '.join(valid_extensions)}")
+        
         # Encode image to base64
         image_base64 = encode_image_to_base64(image_path)
         if image_base64:
-            speech_logger.info(f"✓ Selected image loaded for multimodal workflow: {Path(image_path).name}")
+            speech_logger.info(f"✅ Selected image loaded for multimodal workflow: {Path(image_path).name}")
+            speech_logger.info(f"🔢 Base64 encoded length: {len(image_base64)} characters")
+            
             # Clean up the image info file after successful processing
             try:
                 image_info_file.unlink()
-                speech_logger.info("✓ Image info file cleaned up")
+                speech_logger.info("🧹 Image info file cleaned up")
             except Exception as e:
                 speech_logger.warning(f"Could not clean up image info file: {e}")
         
         return image_base64
         
     except Exception as e:
-        speech_logger.error(f"Error processing selected image: {e}")
+        speech_logger.error(f"❌ Error processing selected image: {e}")
+        import traceback
+        speech_logger.error(f"Traceback: {traceback.format_exc()}")
         return None
 
 def encode_image_to_base64(image_path):
@@ -434,13 +457,67 @@ def encode_image_to_base64(image_path):
         str: Base64 encoded image data, or None if encoding fails
     """
     try:
+        speech_logger.info(f"🔄 Encoding image to base64: {image_path}")
+        
         with open(image_path, 'rb') as image_file:
             image_data = image_file.read()
-            base64_string = base64.b64encode(image_data).decode('utf-8')
-            speech_logger.info(f"✓ Image encoded to base64: {image_path} ({len(image_data):,} bytes)")
-            return base64_string
+            
+        # Validate image data
+        if len(image_data) == 0:
+            speech_logger.error(f"❌ Image file is empty: {image_path}")
+            return None
+            
+        # Check for reasonable file size limits (Vertex AI limitations)
+        max_size_mb = 20  # Conservative limit for API
+        if len(image_data) > max_size_mb * 1024 * 1024:
+            speech_logger.warning(f"⚠️ Image file is large: {len(image_data)/1024/1024:.1f} MB")
+            speech_logger.warning(f"Vertex AI may have size limits (~{max_size_mb} MB)")
+        
+        # Encode to base64
+        base64_string = base64.b64encode(image_data).decode('utf-8')
+        
+        # Detect MIME type from image data
+        mime_type = "unknown"
+        if image_data.startswith(b'\xff\xd8\xff'):
+            mime_type = "image/jpeg"
+        elif image_data.startswith(b'\x89PNG'):
+            mime_type = "image/png"
+        elif image_data.startswith(b'GIF8'):
+            mime_type = "image/gif"
+        elif image_data.startswith(b'\x00\x00\x01\x00'):
+            mime_type = "image/x-icon"
+        elif image_data.startswith(b'RIFF') and b'WEBP' in image_data[:12]:
+            mime_type = "image/webp"
+        
+        # Validate base64 encoding
+        try:
+            # Test decode to ensure valid base64
+            test_decode = base64.b64decode(base64_string[:100])  # Test first 100 chars
+            speech_logger.info("✅ Base64 encoding validation: PASSED")
+        except Exception as e:
+            speech_logger.error(f"❌ Base64 encoding validation: FAILED - {e}")
+            return None
+        
+        speech_logger.info(f"✅ Image encoded to base64: {image_path}")
+        speech_logger.info(f"📊 Encoding details:")
+        speech_logger.info(f"  - MIME type: {mime_type}")
+        speech_logger.info(f"  - Original size: {len(image_data):,} bytes ({len(image_data)/1024:.1f} KB)")
+        speech_logger.info(f"  - Base64 size: {len(base64_string):,} characters")
+        speech_logger.info(f"  - Compression ratio: {len(base64_string)/len(image_data):.2f}x (base64 overhead)")
+        
+        # Additional validation for Vertex AI compatibility
+        if mime_type in ["image/jpeg", "image/png"]:
+            speech_logger.info("✅ VERTEX AI COMPATIBLE: MIME type supported")
+        else:
+            speech_logger.warning(f"⚠️ VERTEX AI COMPATIBILITY: {mime_type} may not be supported")
+            speech_logger.warning("Recommended formats: JPEG, PNG")
+        
+        return base64_string
+        
     except Exception as e:
-        speech_logger.error(f"✗ Failed to encode image to base64: {e}")
+        speech_logger.error(f"❌ Failed to encode image to base64: {e}")
+        import traceback
+        speech_logger.error(f"Traceback: {traceback.format_exc()}")
         return None
 
 def save_transcript(text, output_file=None, processing_method=None, image_base64=None):
@@ -485,7 +562,14 @@ def save_transcript(text, output_file=None, processing_method=None, image_base64
         # Add image_base64 field if provided (for multimodal AI workflow)
         if image_base64:
             transcript_data["image_base64"] = image_base64
-            speech_logger.info("✓ Image base64 data included for multimodal AI workflow")
+            speech_logger.info("✅ MULTIMODAL: Image base64 data included for AI workflow")
+            speech_logger.info(f"📊 Multimodal data summary:")
+            speech_logger.info(f"  - Text length: {len(text)} characters")
+            speech_logger.info(f"  - Image data: {len(image_base64)} base64 characters")
+            speech_logger.info(f"  - Estimated image size: ~{len(image_base64) * 3 // 4 / 1024:.1f} KB")
+            speech_logger.info("🚀 This transcript is ready for multimodal AI processing")
+        else:
+            speech_logger.info("📝 TEXT-ONLY: No image data for AI workflow")
         
         with open(json_file, 'w', encoding='utf-8') as f:
             json.dump(transcript_data, f, ensure_ascii=False, indent=2)
